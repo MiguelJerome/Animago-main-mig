@@ -1,0 +1,21 @@
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.menuProduct{
+    display: flex;
+    flex-direction: row;
+}
+
+.menuProductList{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+}
+
+.menuLogo{
+    display: flex;
+}
