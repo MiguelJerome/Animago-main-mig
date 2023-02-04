@@ -1,0 +1,24 @@
+.titreHistoire{
+    font-size: 35px;
+    color: rgb(254, 59, 0);
+    font-weight: bold;
+    align-items:flex-start;
+    margin-bottom: 3rem;
+}
+
+.histoire{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: large;
+    line-height: 1.8;
+}
+
+.bodyHistoire{
+    margin: 8rem;
+}
+
+.imgResize {
+    height: auto;
+    max-width: 100%;
+}

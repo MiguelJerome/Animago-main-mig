@@ -1,0 +1,39 @@
+.magasinContact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: large;
+    line-height: 1.5;
+    
+}
+
+.adresseContact{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column
+}
+
+.bodyContact{
+    margin: 8rem;
+}
+
+.horaire{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.titreContact{
+    font-size: 35px;
+    color: rgb(254, 59, 0);
+    font-weight: bold;
+    align-items:flex-start;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.courriel{
+    font-size: 20;
+    color: rgb(254, 59, 0);
+    font-weight: bold;
+    padding-top: 1rem;
+}

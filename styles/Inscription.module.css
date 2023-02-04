@@ -1,0 +1,14 @@
+.aInscription{
+    color: rgb(254, 59, 0);
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

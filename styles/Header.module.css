@@ -13,25 +13,49 @@
 .p{
     margin: auto 0;
     padding: 0;
+    font-weight: bold;
 }
+
+.aLogin{
+    color: rgb(254, 59, 0);
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
 .nomAnimago{
     font-size: 35px;
     color: rgb(254, 59, 0);
     font-family: 'Helvetica';
     font-weight: bold;
     margin: 0;
+    cursor: pointer;
 }
 .iconReseaux{
     width: 30px;
     height: auto;
     cursor: pointer;
     margin-right: 1rem;
+    padding: 0;
 }
 .catchPhrase{
     display: flex;
     width: fit-content;
+    margin: 0;
+    margin-top: 0.5rem;
+    padding: 0;
+    height: fit-content;
 }
 
+.divRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .searchForm{
     display: flex;
     border-radius: 60px;
@@ -39,11 +63,31 @@
     width: 300px;
     height: 30px;
     justify-content: space-between;
+    margin: auto;
 }
+.menuProductList{
+    margin: 1rem;
+    margin-top: 0.5rem;
+    height: fit-content;
+    align-items: center;
+    cursor: pointer;
+}
+.menuLogo{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+
 .searchBar{
     border: none;
     background-color: rgb(238, 236, 236);
-    border-radius: 60px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
 }
 .searchButton{
     border-top-right-radius: 60px;
@@ -51,16 +95,47 @@
     background-color: rgb(255, 68, 27);
     height: 30px;
     width: 55px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     border: none;
+    margin: 0;
 }
 .searchLogo{
     width: 25px;
     height: auto;
+    margin: auto;
 }
+.searchButton:hover{
+    cursor: pointer;
+}
+
 .header2{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
+.appelezNous{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-left: 2rem;
+    padding: 0;
+    background-color: rgb(254, 59, 0);
+    height: 4rem;
+    width: 12rem;
+    font-weight: bold;
+    font-size: larger;
+    justify-content: space-around;
+}
+.loginCart {
+    width: 35px;
+    height: auto;
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+}
