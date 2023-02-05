@@ -39,10 +39,10 @@ export default function Connexion(props) {
      <main>
         <div className={styles.container}>
                 <div className={styles.promptWrapper}>
-                    <button className={`${styles.button} ${styles.aInscription}`} onClick={() => router.push('/Accueil')}>← Aller a Accueil</button>
+                    <button className={styles.button} onClick={() => router.push('/Accueil')}>← Aller a Accueil</button>
                 </div>
                 <div className={styles.promptWrapper}>
-                    <button className={`${styles.button} ${styles.aConnexion}`} onClick={() => router.push('/Inscription')}>← Aller a Inscription</button>
+                    <button className={styles.button} onClick={() => router.push('/Inscription')}>← Aller a Inscription</button>
                 </div>
             <form className={styles.formAuthentificationWrapper}>
                 <div className={styles.title}>
