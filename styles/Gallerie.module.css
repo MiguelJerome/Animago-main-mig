@@ -5,13 +5,13 @@
     align-items: center;
     flex-wrap: wrap;
     align-content: stretch;
-    flex-direction: row;
+    flex-direction: row;     
 }
 
 .gallerie img {
     padding: .2rem;
     border: 1px solid #000;
     border-radius: 5px;
-    height: 14rem;
-    width: 11rem;
+    height: 30rem;
+    width: 25rem;
 }

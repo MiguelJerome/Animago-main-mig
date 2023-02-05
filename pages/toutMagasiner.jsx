@@ -11,10 +11,8 @@ export default function ToutMagasiner() {
       <Header/>
       <Categorie />
         <main>
-        <h1 className={styles.h1}>Nos produits:</h1>
-        <ProduitListe />
-          <h1>HTTP 302 | Found Tout Magasiner Page</h1>
-          <h1>The web page is under construction</h1>
+          <h1 className={styles.h1}>Tout magasiner</h1>
+          <ProduitListe />
         </main>
       <Footer/>
     </>
