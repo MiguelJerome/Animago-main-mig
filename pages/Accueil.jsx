@@ -2,10 +2,12 @@ import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Categorie from '../components/Categorie';
 import ProduitItem from '../components/ProduitItem';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function Accueil() {
     return <>
+    <Header/>
     <Categorie />
      <main>
       <ProduitItem />

@@ -19,6 +19,9 @@ export default function Inscription(props) {
         
             <div className={styles.container}>
                 <div className={styles.promptWrapper}>
+                    <button className={`${styles.button} ${styles.aInscription}`} onClick={() => router.push('/Accueil')}>← Aller a Accueil</button>
+                </div>
+                <div className={styles.promptWrapper}>
                     <button className={`${styles.button} ${styles.aInscription}`} onClick={() => router.push('/Connexion')}>← Aller a Connexion</button>
                 </div>
                 <form className={styles.formAuthentificationWrapper}>

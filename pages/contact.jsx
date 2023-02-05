@@ -1,10 +1,12 @@
 import { Inter } from '@next/font/google'
 import styles from '../styles/Contact.module.css'
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Contact() {
   return <>
+  <Header/>
     <main>
       <div className={styles.bodyContact}>
         <h1 className={styles.titreContact}>Rendez nous visite</h1>
