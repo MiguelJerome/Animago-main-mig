@@ -51,7 +51,7 @@
         margin-right:  8rem;
     }
 
-    .menuProductList{
+    .menuFooterList{
         align-items: center;
         cursor: pointer;
         font-size: 1.7rem;
@@ -65,7 +65,7 @@
         text-decoration: none;
     }
     
-    .menuProductList:hover {
+    .menuFooterList:hover {
         background: linear-gradient(to bottom, #ff8a00, #ff4c00);
     }
     
