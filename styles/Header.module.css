@@ -37,6 +37,10 @@
     margin-right: 1rem;
     padding: 0;
 }
+
+.iconReseaux:hover{
+    transform: rotate(10deg);
+}
 .catchPhrase{
     display: flex;
     width: fit-content;
@@ -139,3 +143,9 @@
     cursor: pointer;
     padding: 0;
 }
+
+.loginCart:hover{
+    transform: rotate(8deg);
+}
+
+

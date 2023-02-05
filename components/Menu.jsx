@@ -1,6 +1,5 @@
 //Importation des styles
 import { useRouter } from 'next/router'
-import Categorie from "./Categorie";
 import styles from '../styles/Menu.module.css'
 import Image from 'next/image';
 import Logo from '../public/img/AnimagoLogo.png'

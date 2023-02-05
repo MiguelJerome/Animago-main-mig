@@ -1,5 +1,6 @@
 import { Inter } from '@next/font/google'
 import styles from '../styles/Contact.module.css'
+import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Contact() {
@@ -48,5 +49,6 @@ export default function Contact() {
         <h1 className={styles.courriel}>Pour nous joindre : info@animago.com</h1>
       </div>
     </main>
+    <Footer/>
   </>
 }

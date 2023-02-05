@@ -1,13 +1,13 @@
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import Categorie from '../components/Categorie';
+import Cart from '../components/Cart';
 import Footer from '../components/Footer';
 
-export default function PetitAnimaux() {
+export default function Cart1() {
     return <>
-    <Categorie />
+    <Cart/>
      <main>
-      <h1>HTTP 302 | Found Petit animaux Page</h1>
+      <h1>HTTP 302 | Found Cart Page</h1>
       <h1>The web page is under construction</h1>
      </main>
      <Footer/>

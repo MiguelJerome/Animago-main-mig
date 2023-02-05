@@ -22,6 +22,10 @@
     margin-left: 2.5rem;
     cursor: pointer;
 }
+
+.imgLogo:hover{
+    transform: rotate(8deg);
+}
 .loginCart {
     width: 35px;
     height: auto;

@@ -5,6 +5,6 @@ export default function Layout(props) {
     return <>
         <Header/>
         {props.children}
-        <Footer/>
+        
         </>
 }

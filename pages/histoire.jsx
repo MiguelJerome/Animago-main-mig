@@ -1,5 +1,6 @@
 import { Inter } from '@next/font/google'
 import styles from '../styles/Histoire.module.css'
+import Footer from '../components/Footer';
 import Image from 'next/image';
 import ChienHistoire from '../public/img/ChienHistoire.png'
 const inter = Inter({ subsets: ['latin'] })
@@ -16,5 +17,6 @@ export default function Histoire() {
         <Image src={ChienHistoire} alt='Un chien pour histoire' className={styles.imgResize} />
       </div>
     </main>
+    <Footer/>
   </>
   }

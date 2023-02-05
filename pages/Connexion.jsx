@@ -37,40 +37,42 @@ export default function Connexion(props) {
 
     return <>
      <main>
-      <h1>HTTP 302 | Found Connexion Page</h1>
-      <h1>The web page is under construction</h1>
-
-      <div className={styles.container}>
-     
-      <form >
-      <div>
-        <a className={styles.aConnexion} onClick={() => router.push("/Inscription")}>← Aller a Inscription</a>
-            <h2>Connexion</h2>
+        <div className={styles.container}>
+                <div className={styles.promptWrapper}>
+                    <button className={`${styles.button} ${styles.aConnexion}`} onClick={() => router.push('/Inscription')}>← Aller a Inscription</button>
+                </div>
+            <form className={styles.formAuthentificationWrapper}>
+                <div className={styles.title}>
+                    <h2>Connexion</h2>
+                </div>
+                <div className={styles.promptWrapper}>
+                <label className={styles.label} htmlFor="email">Email address:</label>
+                    <input
+                        placeholder="youremail@test.com"
+                        name="email"
+                        type="email"
+                        id="email"
+                        className={styles.input}
+                    />
+                </div>
+                <div className={styles.promptWrapper}>
+                    <label className={styles.label} htmlFor="pwd">Password:</label>
+                    <input
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        id="pwd"
+                        className={styles.input}
+                    />
+                </div>
+                <div className={styles.promptWrapper}>
+                    <button type="reset" className={styles.btnAuthentification} >Reset</button>
+                </div>
+                <div className={styles.promptWrapper}>
+                    <button type="submit" className={styles.btnAuthentification} >Inscription</button>
+                </div>
+            </form>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-          />
-        </div>
-        
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
      </main>
     </>
   }
