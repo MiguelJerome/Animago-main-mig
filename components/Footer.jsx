@@ -36,7 +36,7 @@ return <footer className={styles.footer}>
                         <button className={styles.menuFooterList} onClick={() => router.push('/politique')}>Politique du magasin</button>
                     </div>
                 </div>
-                <h3 className={`${styles.catchPhrase} ${styles.containerP}`}>RESTER CONNECTÉ</h3>
+                <h3 className={`${styles.catchPhrase} ${styles.containerP}`}>RESTER CONNECTÉ AVEC NOUS</h3>
                 <div className={styles.catchPhrase}>
                 <a onClick={() => router.push("https://facebook.com")}>
                 <Image src={facebook} alt='lien pour facebook' className={styles.img} />

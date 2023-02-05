@@ -16,17 +16,20 @@ export default function Inscription(props) {
         
             <div className={styles.container}>
                 <div className={styles.promptWrapper}>
-                    <button className={styles.button} onClick={() => router.push('/Accueil')}>← Aller a Accueil</button>
+                    <button className={styles.button} onClick={() => router.push('/Accueil')}>← Aller à l'accueil</button>
                 </div>
                 <div className={styles.promptWrapper}>
-                    <button className={styles.button} onClick={() => router.push('/Connexion')}>← Aller a Connexion</button>
+                    <div className={styles.question}>
+                        <h2>Déjà membre?</h2>
+                    </div>
+                    <button className={styles.button} onClick={() => router.push('/Connexion')}>← Aller à Connexionn</button>
                 </div>
                 <form className={styles.formAuthentificationWrapper}>
                     <div className={styles.title}>
                         <h2>Inscription</h2>
                     </div>
                     <div className={styles.promptWrapper}>
-                        <label className={styles.label}  htmlFor="firstName">Prenom:</label>
+                        <label className={styles.label}  htmlFor="firstName">Prénom:</label>
                         <input
                             placeholder="Prenom"
                             name="firstName"

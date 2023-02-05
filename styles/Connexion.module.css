@@ -19,6 +19,15 @@
     color:rgb(254, 59, 0);
 }
 
+.question{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .2rem 0;
+    font-size: 2rem;
+    color:rgb(128, 128, 128);
+}
+
 .formAuthentificationWrapper{
     display: flex;
     flex-direction: column;
