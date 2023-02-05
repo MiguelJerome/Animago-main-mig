@@ -17,6 +17,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Helvetica';
+  -webkit-font-smoothing: antialiased;
 }
 header{
   position: static;
@@ -25,4 +26,37 @@ header{
   width: 100%;
   height: auto;
   min-height: 95px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }

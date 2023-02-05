@@ -31,7 +31,7 @@ export default function Inscription(props) {
                     <div className={styles.promptWrapper}>
                         <label className={styles.label}  htmlFor="firstName">Prénom:</label>
                         <input
-                            placeholder="Prenom"
+                            placeholder="Prénom"
                             name="firstName"
                             type="firstName"
                             id="firstName"
