@@ -38,17 +38,20 @@
     }
 
     .container {
-        display: grid;   
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
+        justify-items: stretch;
+        align-items: center;
     }
 
     .containerP{
         display: grid;
         place-items: center;
-        font-size: 1.7rem; 
-        margin-left:  8rem;
-        margin-right:  8rem;
+        font-size: 1.7rem;
+        margin-left: 8rem;
+        margin-right: 8rem;
+        justify-content: space-evenly;
     }
 
     .menuFooterList{
