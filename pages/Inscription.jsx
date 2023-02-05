@@ -5,9 +5,6 @@ import styles from '../styles/Inscription.module.css'
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 
-
-
-
 //import { useMutation } from '@apollo/client';
 //import Auth from '../utils/auth';
 //import { ADD_USER } from '../utils/mutations';
@@ -51,7 +48,7 @@ export default function Inscription(props) {
                     <div className={styles.promptWrapper}>
                         <label className={styles.label}  htmlFor="email">Email:</label>
                         <input
-                            placeholder="youremail@test.com"
+                            placeholder="tonemail@test.com"
                             name="email"
                             type="email"
                             id="email"

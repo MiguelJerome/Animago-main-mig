@@ -8,9 +8,8 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   return <>
-  <Layout>
-   <Component {...pageProps} />
-  </Layout>
- 
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   </>
 }

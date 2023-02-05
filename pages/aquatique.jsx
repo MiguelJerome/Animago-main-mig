@@ -6,12 +6,12 @@ import Footer from '../components/Footer';
 
 export default function Aquatique() {
     return <>
-    <Header/>
-    <Categorie />
-     <main>
-      <h1>HTTP 302 | Found Aquatique Page</h1>
-      <h1>The web page is under construction</h1>
-     </main>
-     <Footer/>
+      <Header/>
+      <Categorie />
+        <main>
+          <h1>HTTP 302 | Found Aquatique Page</h1>
+          <h1>The web page is under construction</h1>
+        </main>
+      <Footer/>
     </>
   }

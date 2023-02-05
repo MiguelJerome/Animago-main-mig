@@ -12,8 +12,7 @@ export default function Menu() {
                 <div> <a onClick={() => router.push('/Accueil')}>
                 <Image src={Logo} alt='lien pour Accueil' className={styles.imgLogo} />
                 </a></div>
-            </div>
-            
+            </div>  
         </div>
     )
 }

@@ -51,7 +51,7 @@ export default function Connexion(props) {
                 <div className={styles.promptWrapper}>
                 <label className={styles.label} htmlFor="email">Email address:</label>
                     <input
-                        placeholder="youremail@test.com"
+                        placeholder="tonemail@test.com"
                         name="email"
                         type="email"
                         id="email"
