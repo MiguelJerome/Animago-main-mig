@@ -20,8 +20,12 @@ export default function Gallerie({ images }) {
           alt={imgData.alt}
           width={averageWidth}
           height={averageHeight}
+          id={imgData._id}
+          price={imgData.price}
+          className={imgData.name}
         />
       ))}
+     
     </div>
   );
 }

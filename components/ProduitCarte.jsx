@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from '../styles/ProduitCarte.module.css';
 import logo from '../public/img/produits/redbone.png'
 
-export default function ProduitCarte() {
+export default function ProduitCarte(images) {
   return (
     <div className={styles.container}>
       <div className={styles.product}>
@@ -13,7 +13,7 @@ export default function ProduitCarte() {
         </Link>
         <div>
           <div>in stock</div>
-          <span>price</span>
+          <span>$price</span>
         </div>
         <button className={styles.button}>Ajouter au Panier</button>
       </div>

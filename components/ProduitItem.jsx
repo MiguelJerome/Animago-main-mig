@@ -10,6 +10,7 @@ export default function ProduitItem({images, item}) {
   return (
     <>
         <ProduitImages />
+        
         <ProduitCarte/>
     </>
   );
