@@ -72,7 +72,7 @@ export default function Connexion(props) {
                     <button type="reset" className={styles.btnAuthentification} >Reset</button>
                 </div>
                 <div className={styles.promptWrapper}>
-                    <button type="submit" className={styles.btnAuthentification} >Inscription</button>
+                    <button type="submit" className={styles.btnAuthentification} >Connexion</button>
                 </div>
             </form>
         </div>
