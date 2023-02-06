@@ -3,19 +3,21 @@
     color: rgb(254, 59, 0);
     font-weight: bold;
     align-items:flex-start;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .histoire{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     font-size: large;
     line-height: 1.8;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 5rem;
+    margin: 1rem 0;
 }
 
 .bodyHistoire{
-    margin: 8rem;
+    margin: 5rem 15rem;
 }
 
 .imgResize {

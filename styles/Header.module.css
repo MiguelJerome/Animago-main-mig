@@ -70,11 +70,15 @@
     margin: auto;
 }
 .menuProductList{
-    margin: 1rem;
-    margin-top: 0.5rem;
+    display: flex;
+    margin: 0.9rem 0.7rem;
     height: fit-content;
     align-items: center;
     cursor: pointer;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
 }
 .menuLogo{
     display: flex;
