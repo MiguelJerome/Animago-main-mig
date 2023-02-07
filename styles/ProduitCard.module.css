@@ -34,6 +34,10 @@
     height: 300px;
     object-fit: auto;
   }
+
+  .imgCard{
+    cursor: pointer;
+  }
   
   .product {
     display: flex;

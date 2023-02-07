@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Image from 'next/image';
 import styles from '../styles/ProduitCard.module.css';
 import React, { useState, useEffect } from 'react';
@@ -11,22 +12,25 @@ setAverageWidth(images.reduce((max, { width }) => Math.max(max, width), 0));
 setAverageHeight(images.reduce((max, { height }) => Math.max(max, height), 0));
 }, [images]);
 
-return (
+  const router = useRouter()
+  return (
   <div className={styles.gallerie}>
     {images.map(({ _id, src, alt, name, price, stock }) => (
       <div key={_id} className={styles.imageContainer}>
-        <Image
+        
+        <Image className={styles.imgCard}
             src={src}
             alt={alt}
             width={averageWidth}
-            height={averageHeight}     
+          height={averageHeight} 
+          onClick={() => router.push(`/produit/${_id}`)}
         />
           <div className={styles.imageInfo}>
           <p className={styles.imageId}>Produit</p>
           <p className={styles.imageId}>#{_id}</p>
           <p className={styles.imageName}>{name}</p>
           <p className={styles.imagePrice}>${price}</p>
-          <p className={styles.imageStock}>En stock: {stock}</p>
+          <p className={styles.imageStock}>{stock} items en stock</p>
             <button className={styles.button}>Ajouter au Panier</button>
         </div>
       </div>
