@@ -11,7 +11,8 @@ export default function PetitAnimaux() {
       <Header/>
       <Categorie />
         <main>
-          <h1 className={styles.h1}>Petit Animaux</h1>
+        <h1 className={styles.h1}>Petit Animaux</h1>
+        <ProduitListe categorie="petit animaux"/>
         </main>
       <Footer/>
     </>

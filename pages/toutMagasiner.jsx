@@ -12,7 +12,7 @@ export default function ToutMagasiner() {
       <Categorie />
         <main>
           <h1 className={styles.h1}>Tout magasiner</h1>
-          <ProduitListe />
+        <ProduitListe categorie={""} />
         </main>
       <Footer/>
     </>

@@ -1,11 +1,11 @@
-import ProduitItem from '../components/ProduitItem';
 import styles from '../styles/ProduitListe.module.css';
+import ProduitData from "./ProduitData";
 
-export default function ProduitListe() {
+export default function ProduitListe({ categorie }) {
     return (
     <>
         <div className={styles.container}>
-            <ProduitItem />
+                <ProduitData categorie={categorie} />
         </div>
     </>
     );

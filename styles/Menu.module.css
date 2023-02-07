@@ -24,7 +24,8 @@
 }
 
 .imgLogo:hover{
-    transform: rotate(8deg);
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
 }
 .loginCart {
     width: 35px;

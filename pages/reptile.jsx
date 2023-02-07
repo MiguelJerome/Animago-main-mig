@@ -12,6 +12,7 @@ export default function Reptile() {
       <Categorie />
         <main>
         <h1 className={styles.h1}>Reptiles</h1>
+        <ProduitListe categorie="reptile"/>
         </main>
       <Footer/>
     </>

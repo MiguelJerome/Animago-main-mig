@@ -12,6 +12,7 @@ export default function Oiseau() {
       <Categorie />
         <main>
         <h1 className={styles.h1}>Oiseaux</h1>
+        <ProduitListe categorie="oiseaux"/>
         </main>
       <Footer/>
     </>

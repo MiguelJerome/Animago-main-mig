@@ -40,6 +40,7 @@
 
 .iconReseaux:hover{
     transform: rotate(10deg);
+    transition: 0.3s ease-in-out;
 }
 .catchPhrase{
     display: flex;
@@ -117,6 +118,10 @@
 .searchButton:hover{
     cursor: pointer;
 }
+.searchLogo:hover{
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
 
 .header2{
     display: flex;
@@ -150,4 +155,5 @@
 
 .loginCart:hover{
     transform: rotate(8deg);
+    transition: 0.3s ease-in-out;
 }
