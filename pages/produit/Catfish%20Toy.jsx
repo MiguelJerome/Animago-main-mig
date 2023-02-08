@@ -4,7 +4,6 @@ import ProductDetails from "/components/ProduitDetails.jsx";
 
 export default function Produit102() {
     const productId = 102;
-    const productDescription = `blablalblala ${productId}`;
     const product = ProduitData({categorie: null}).props.children.props.produits.find(({_id}) => _id === productId);
 
     return <>

@@ -21,10 +21,10 @@ export default function Header() {
 
     const handleSubmit = event => {
         event.preventDefault();
+        router.push(`/produit/${query}`);
         console.log(`Searching for: ${query}`);
       };
 
-    
     return <header>
         <div className={styles.headerLivraison}>
             <p className={styles.p}>
@@ -39,12 +39,12 @@ export default function Header() {
               type="search"
               id="query"
               name="q"
-              placeholder="Search..."
+              placeholder="Chercher Produit..."
               className={styles.searchBar}
               value={query}
               onChange={handleChange}
             />
-            <button className={styles.searchButton} type="submit">
+                    <button className={styles.searchButton} type="submit">
               <Image src={search} className={styles.searchLogo} />
             </button>
           </form>

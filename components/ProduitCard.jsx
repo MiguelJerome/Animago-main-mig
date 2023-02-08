@@ -23,7 +23,7 @@ setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0))
             alt={alt}
             width={averageWidth}
           height={averageHeight} 
-          onClick={() => router.push(`/produit/${_id}`)}
+          onClick={() => router.push(`/produit/${name}`)}
         />
           <div className={styles.imageInfo}>
           <p className={styles.imageId}>Produit</p>
