@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 import Menu from './Menu';
 import styles from '../styles/Header.module.css'
@@ -10,8 +11,20 @@ import search from '../public/img/search.png'
 import Login from '../public/img/login.png'
 import Cart from '../public/img/cart.png'
 
-export default function Header(){
-    const router = useRouter()
+export default function Header() {
+    const [query, setQuery] = useState("");
+    const router = useRouter();
+    
+    const handleChange = (event) => {
+    setQuery(event.target.value);
+    };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        console.log(`Searching for: ${query}`);
+      };
+
+    
     return <header>
         <div className={styles.headerLivraison}>
             <p className={styles.p}>
@@ -21,12 +34,20 @@ export default function Header(){
         <div className={`${styles.divRow}`}>
             <p className={styles.nomAnimago} onClick={() => router.push('/Accueil')}>ANIMAGO!</p>
             <div className={`${styles.top}`}>
-                <form className={styles.searchForm}> 
-                    <input type="search" id="query" name="q" placeholder="Search..." className={styles.searchBar}/>
-                    <button className={styles.searchButton}>
-                        <Image src={search} className={styles.searchLogo}/>
-                    </button>
-                </form>
+            <form className={styles.searchForm} onSubmit={handleSubmit}>
+            <input
+              type="search"
+              id="query"
+              name="q"
+              placeholder="Search..."
+              className={styles.searchBar}
+              value={query}
+              onChange={handleChange}
+            />
+            <button className={styles.searchButton} type="submit">
+              <Image src={search} className={styles.searchLogo} />
+            </button>
+          </form>
                 <div className={`${styles.appelezNous}`}>
                     <p className={styles.p}>
                         Appelez-nous
