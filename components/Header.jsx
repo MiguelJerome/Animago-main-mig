@@ -39,7 +39,7 @@ export default function Header() {
               type="search"
               id="query"
               name="q"
-              placeholder="Chercher Produit..."
+              placeholder="Chercher un produit..."
               className={styles.searchBar}
               value={query}
               onChange={handleChange}
