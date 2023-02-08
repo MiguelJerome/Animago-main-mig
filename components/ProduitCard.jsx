@@ -29,7 +29,7 @@ setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0))
           <p className={styles.imageId}>Produit</p>
           <p className={styles.imageId}>#{_id}</p>
           <p className={styles.imageName}>{name}</p>
-          <p className={styles.imagePrice}>${price}</p>
+          <p className={styles.imagePrice}>C${price}</p>
           <p className={styles.imageStock}>{stock} items en stock</p>
             <button className={styles.button}>Ajouter au Panier</button>
         </div>

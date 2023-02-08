@@ -17,7 +17,7 @@ export default function ProduitDetails({ product, productDescription }) {
                     <p className={styles.p}>Produit#: {product._id }</p>  
                         <p className={styles.p}>Categorie: {product.categorie}</p>
                         <p className={styles.p}>Item en Stock: {product.stock}</p>
-                    <p className={styles.p}>Prix: {product.price}</p>
+                    <p className={styles.p}>Prix: C${product.price}</p>
                     <div className={styles.containerCartButton} >
                 <button className={styles.button}>Ajouter au panier</button> <button className={styles.button}>Enlever du panier</button>
             </div>
