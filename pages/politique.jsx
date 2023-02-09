@@ -3,12 +3,10 @@ const inter = Inter({ subsets: ['latin'] })
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Politique.module.css'
-import Categorie from '../components/Categorie';
 
 export default function Politque() {
     return <>
       <Header />
-      <Categorie />
         <main className={styles.bodyPolitique}>
           <div className={styles.contenuPolitique}>
             <h1 className={styles.titrePolitique}>Politique du Magasin</h1>

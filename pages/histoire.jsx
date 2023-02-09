@@ -5,12 +5,10 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import ChienHistoire from '../public/img/ChienHistoire.png'
 const inter = Inter({ subsets: ['latin'] })
-import Categorie from '../components/Categorie';
 
 export default function Histoire() {
   return <>
     <Header />
-    <Categorie />
       <main>
         <div className={styles.bodyHistoire}>
           <h1 className={styles.titreHistoire}>Notre histoire</h1>

@@ -70,7 +70,7 @@ export default function Header() {
                     <Image src={youtube} alt='lien pour twitter' className={styles.iconReseaux} />
                 </a>
                 <p className={styles.p}>
-                    L'endroit préféré d'article animalier
+                    Vos article préféré pour vos animaux préféré
                 </p>
             </div>
             

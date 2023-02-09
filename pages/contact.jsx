@@ -3,12 +3,10 @@ import styles from '../styles/Contact.module.css'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] })
-import Categorie from '../components/Categorie';
 
 export default function Contact() {
   return <>
     <Header />
-    <Categorie />
     <main>
     <h1 className={styles.titreContact}>Rendez nous visite</h1>
         <div className={styles.bodyContact}>

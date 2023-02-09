@@ -3,12 +3,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Expedition.module.css'
 const inter = Inter({ subsets: ['latin'] })
-import Categorie from '../components/Categorie';
 
 export default function Expedition() {
     return <>
       <Header />
-      <Categorie />
         <main className={styles.bodyExpedition}>
           <div className={styles.contenuExpedition}>
             <h1 className={styles.titreExpedition}>Expédition & Retours</h1>
