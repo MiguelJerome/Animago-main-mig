@@ -1,5 +1,6 @@
 export default function Layout(props) {
-    return <>
-            {props.children}  
-        </>
+    return (<>
+        {props.children}
+    </>
+    );
 }

@@ -6,9 +6,10 @@ export default function Gallerie({ images }) {
   const router = useRouter();
 
   return (
+  <>
     <div className={styles.gallerie}>
       {images.map((imageData, index) => (
-        <div className={styles.container}>
+        <div key={images.id} className={styles.container}>
           <Image
             src={imageData.src}
             alt={imageData.alt}
@@ -19,6 +20,7 @@ export default function Gallerie({ images }) {
           <button className={styles.button} onClick={() => router.push(imageData.page)}>Achetez maintenant</button>
         </div>
       ))}
-    </div>
+      </div>
+      </>
   );
 }

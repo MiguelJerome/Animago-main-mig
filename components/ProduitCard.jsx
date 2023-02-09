@@ -2,6 +2,9 @@ import { useRouter } from 'next/router'
 import Image from 'next/image';
 import styles from '../styles/ProduitCard.module.css';
 import React, { useState, useEffect } from 'react';
+import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
+//import { useStoreContext } from "../utils/GlobalState.jsx";
+
 
 export default function Gallerie({ produits }) {
 const [averageWidth, setAverageWidth] = useState(0);
@@ -13,11 +16,38 @@ setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0))
 }, [produits]);
 
   const router = useRouter()
-  return (
+
+//  const [state, dispatch] = useStoreContext();
+  /*
+  const { cart } = state
+
+  const addToCart = () => {
+    const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { ...item, purchaseQuantity: 1 }
+      });
+      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+    }
+  }
+*/
+  
+  return (<>
+    
   <div className={styles.gallerie}>
     {produits.map(({ _id, src, alt, name, price, stock }) => (
-      <div key={_id} className={styles.imageContainer}>
-        
+      <div key={_id} className={styles.imageContainer}>   
         <Image className={styles.imgCard}
             src={src}
             alt={alt}
@@ -31,10 +61,12 @@ setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0))
           <p className={styles.imageName}>{name}</p>
           <p className={styles.imagePrice}>C${price}</p>
           <p className={styles.imageStock}>{stock} items en stock</p>
+            <AjouterEnleverPanier depart={0} />
             <button className={styles.button}>Ajouter au Panier</button>
         </div>
       </div>
     ))}
-  </div>
+    </div>
+    </>
 );
 }

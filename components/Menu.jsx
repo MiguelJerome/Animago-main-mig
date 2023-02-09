@@ -7,7 +7,7 @@ import Categorie from '../components/Categorie';
 
 export default function Menu() {
     const router = useRouter()
-    return (
+    return (<>
         <div className={styles.menu}>
             <div className={styles.menu}>
                 <div> 
@@ -18,5 +18,6 @@ export default function Menu() {
                 <Categorie/>
             </div>  
         </div>
-    )
+        </>
+    );
 }

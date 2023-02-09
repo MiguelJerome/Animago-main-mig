@@ -26,6 +26,15 @@
     min-height: 50vh;
     overflow: hidden;
   }
+
+  .containerBouttonAchat{
+    display: grid;
+    font-size: large;
+    line-height: 1.8;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    margin: 3rem .1rem;
+}
   
   .img {
     display: flex;
