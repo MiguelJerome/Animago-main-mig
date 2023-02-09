@@ -5,6 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    margin: 1rem;
 }
 
 .menuCategorieList{
@@ -32,12 +33,12 @@
     color: black; 
     cursor: pointer; 
     border: none; 
-    border-radius: 50px;
-    padding: 1rem 2rem; 
+    border-radius: .5rem;
+    padding: .5rem 1rem; 
     font-weight: bolder;
-    font-size: 18px; 
+    font-size: 12px; 
     transition: all 0.3s ease; 
-    margin:0 1rem;
+    margin: .5rem;
 } 
 
 .button:hover { 

@@ -19,8 +19,9 @@
 .imgLogo {
     width: 125px;
     height: auto;
-    margin-left: 2.5rem;
+    margin: 1rem;
     cursor: pointer;
+    border-radius: 7rem;
 }
 
 .imgLogo:hover{
