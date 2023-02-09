@@ -32,10 +32,10 @@ export default function ProduitData({ categorie }) {
         filteredProduits = produits.filter(({ categorie: produitCategorie }) => produitCategorie === categorie);
     }
       
-return (<>
+return (
         <main>
             <ProduitCard produits={filteredProduits} />
         </main>
-    </>
+    
     );
 }
