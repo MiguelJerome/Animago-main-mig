@@ -12,7 +12,7 @@ export default function NotFound() {
             <h1 className={styles.emoji} role="img" aria-label="Face With Rolling Eyes Emoji">🙄</h1>
         </div>
         <div className={styles.container}>
-                    <button className={`${styles.button} ${styles.h1}`} onClick={() => router.push('/Accueil')}><h1>← Aller a Accueil</h1></button>
+                <button className={`${styles.button} ${styles.h1}`} onClick={() => router.back()}><h1>← Aller a Accueil</h1></button>
         </div>
      </main>
     </>
