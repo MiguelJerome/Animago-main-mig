@@ -6,7 +6,7 @@ export default function Compteur({depart}) {
     const [nombre, setNombre] = useState(depart || 0)
 
     const incrementer = () => {
-        setNombre(nombre + 1)
+        nombre !=5 && setNombre(nombre + 1)
     }
 
     const decrementer = () => {
