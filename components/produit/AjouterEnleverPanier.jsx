@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import styles from '../styles/AjouterEnleverPanier.module.css'
+import styles from '/styles/AjouterEnleverPanier.module.css'
 
 export default function AjouterEnleverPanier({ depart, stock }) {
-    const [nombre, setNombre] = useState(depart || 0)
+    const [quantite, setQuantite] = useState(depart || 0)
 
     const incrementer = () => {
-        setNombre(nombre < stock ? nombre + 1 : nombre);
+        setQuantite(quantite < stock ? quantite + 1 : quantite);
     }
 
     const decrementer = () => {
-        setNombre(nombre > 0 ? nombre - 1 : nombre);
+        setQuantite(quantite > 0 ? quantite - 1 : quantite);
     }
 
     return (
         <div className={styles.achatWrapper}>
             <button className={styles.button} onClick={decrementer}>-</button>
-            <div className={styles.panierItemNombre}>{nombre}</div>
+            <div className={styles.panierItemQuantite}>{quantite}</div>
             <button className={styles.button} onClick={incrementer}>+</button>
         </div>
     );

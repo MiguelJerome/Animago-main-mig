@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
-import Menu from './Menu';
+import Menu from './Menu/Menu';
 import styles from '../styles/Header.module.css'
 import Image from 'next/image'
 
@@ -78,14 +78,14 @@ export default function Header() {
             
             <div className={styles.menuLogo}>
                 <div className={styles.menuProductList}>
-                    <a className={styles.aLogin} onClick={() => router.push("/Inscription")}>
+                    <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>
                         <Image src={Login} alt='lien pour se connecter' className={styles.loginCart} />
                     </a>
-                    <a className={styles.aLogin} onClick={() => router.push("/Connexion")}>Connexion</a>
-                    <a className={styles.aLogin} onClick={() => router.push("/Inscription")}>Inscription</a>
+                    <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
+                    <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
                 </div>
                 <div className={styles.menuProductList}>
-                    <a onClick={() => router.push("/Cart1")}>
+                    <a onClick={() => router.push("/Achats/AchatsPanier")}>
                         <Image src={Cart} alt='lien pour se connecter' className={styles.loginCart} />
                     </a>
                 </div>

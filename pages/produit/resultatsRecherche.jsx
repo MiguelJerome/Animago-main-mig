@@ -1,5 +1,5 @@
 import styles from '/styles/ProduitDescription.module.css';
-import ProduitData from "/components/ProduitData.jsx";
+import ProduitData from '/components/produit/ProduitData.jsx';
 import ProductDetails from "/components/ProduitDetails.jsx";
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })

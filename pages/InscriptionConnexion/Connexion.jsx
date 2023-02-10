@@ -1,6 +1,6 @@
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import styles from '../styles/Connexion.module.css'
+import styles from '/styles/Connexion.module.css'
 
 import { useRouter } from 'next/router'
 
@@ -45,7 +45,7 @@ export default function Connexion(props) {
                   <div className={styles.question}>
                         <h2>Nouveau sur ce site ?</h2>
                     </div>
-                    <button className={styles.button} onClick={() => router.push('/Inscription')}>← Aller à l'inscription</button>
+                    <button className={styles.button} onClick={() => router.push('/InscriptionConnexion/Inscription')}>← Aller à l'inscription</button>
                 </div>
             <form className={styles.formAuthentificationWrapper}>
                 <div className={styles.title}>

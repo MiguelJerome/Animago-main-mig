@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Cart.module.css'
+import styles from '/styles/Cart.module.css'
 
 export default function Cart() {
 

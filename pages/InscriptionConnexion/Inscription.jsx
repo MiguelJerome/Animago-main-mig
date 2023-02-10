@@ -1,6 +1,6 @@
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import styles from '../styles/Inscription.module.css'
+import styles from '/styles/Inscription.module.css'
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
@@ -22,7 +22,7 @@ export default function Inscription(props) {
                     <div className={styles.question}>
                         <h2>Déjà membre?</h2>
                     </div>
-                    <button className={styles.button} onClick={() => router.push('/Connexion')}>← Aller à Connexionn</button>
+                    <button className={styles.button} onClick={() => router.push('/InscriptionConnexion/Connexion')}>← Aller à Connexionn</button>
                 </div>
                 <form className={styles.formAuthentificationWrapper}>
                     <div className={styles.title}>
