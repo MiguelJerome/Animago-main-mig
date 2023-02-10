@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from '/styles/ProduitCard.module.css';
 import React, { useState } from 'react';
 import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
+import ProduitCardInfo from '/components/produit/ProduitCard.jsx'
 
 export default function ProduitCard({ produits }) {
   const [cart, setCart] = useState([]);
@@ -36,6 +37,10 @@ export default function ProduitCard({ produits }) {
 
   const router = useRouter()
 
+  const clearDepart = () => {
+    setQuantite(0);
+  }
+
   return (
     <>
     <div className={styles.gallerie}>
@@ -55,12 +60,9 @@ export default function ProduitCard({ produits }) {
             <p className={styles.imagePrice}>C${price}</p>
             <p className={styles.imageStock}><span className={styles.stock} >{stock}</span> items en stock</p>
             <AjouterEnleverPanier stock={stock} depart={quantite} onAddToCart={() => handleAddToCart(_id, stock)} />
-            <button
-                  className={styles.button} 
-                  onClick={() => handleAddToCart(_id, stock) }
-                >
-                  Ajouter au Panier
-                </button>
+<button className={styles.button} onClick={() => { clearDepart(0); handleAddToCart(_id, stock); }}>
+  Ajouter au Panier
+</button>
           </div>
         </div>
       ))}

@@ -7,6 +7,8 @@ import Footer from '../../components/Footer';
 import styles from '/styles/Cart.module.css';
 import produits from '/models/produits.jsx';
 import { cart, initCart } from '/components/AchatPanier/PanierUpdate.jsx';
+import Image from 'next/image';
+import FermerPanier from '/public/img/FermerPanier.svg'
 
 
 export default function AchatsPanier() {
@@ -145,11 +147,11 @@ export default function AchatsPanier() {
         
       
       <div className={styles.cart}>
-        <header className={styles.header}>
-          <button className={`${styles.bouton} ${styles.close}`} onClick={() => router.back()}>
-            [close]
-          </button>
-          <h2 className={styles.title}>Panier</h2>
+            <header className={styles.header}>
+              <button className={`${styles.bouton} ${styles.close}`} onClick={() => router.back()}>
+                        <Image src={FermerPanier} alt='fermer panier' className={styles.panierFermer} />
+                </button>
+                <h2 className={styles.title}>Panier</h2>    
         </header>
         <section className={styles.section}>
           <div className="flex-row space-between">
