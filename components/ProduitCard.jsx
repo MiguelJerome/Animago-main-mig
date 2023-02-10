@@ -7,6 +7,14 @@ import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
 
 
 export default function Gallerie({ produits }) {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (_id, stock) => {
+    if (stock > 0) {
+      setCart((prevCart) => [...prevCart, { _id, stock: stock - 1 }]);
+    }
+  };
+  
 const [averageWidth, setAverageWidth] = useState(0);
 const [averageHeight, setAverageHeight] = useState(0);
 
@@ -61,8 +69,13 @@ setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0))
           <p className={styles.imageName}>{name}</p>
           <p className={styles.imagePrice}>C${price}</p>
           <p className={styles.imageStock}>{stock} items en stock</p>
-            <AjouterEnleverPanier depart={0} />
-            <button className={styles.button}>Ajouter au Panier</button>
+          <AjouterEnleverPanier stock={stock} depart={0} onAddToCart={() => handleAddToCart(_id, stock)} />
+            <button
+                className={styles.button}
+                onClick={() => handleAddToCart(_id, stock)}
+              >
+                Ajouter au Panier
+              </button>
         </div>
       </div>
     ))}

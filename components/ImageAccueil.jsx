@@ -10,7 +10,7 @@ export default function Image(){
         { id: 6, page: '/reptile', src: '/img/Reptile.jpg', alt: 'Reptile', width: 300, height: 400, categorie: "Reptile" },
     ];
     return (<>
-      <Gallerie images={images} />
+        <Gallerie images={images} />
       </>
       );
       
