@@ -4,7 +4,7 @@ import styles from '/styles/ProduitCard.module.css';
 import React, { useState } from 'react';
 import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
 import ProduitCardInfo from '/components/produit/ProduitCardInfo.jsx'
-import {dimensionsMoyennes} from '/components/Images/DimensionsMoyennesImages.jsx'
+
 
 export default function ProduitCard({ produits }) {
   const [cart, setCart] = useState([]);

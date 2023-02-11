@@ -5,6 +5,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    width: 100%;
+  height: 600px; 
 }
 
 .containerHeader{
@@ -27,24 +29,22 @@
     position: fixed;
     top: 0;
     right: 0;
-    min-width: 28%;
-    max-width: 28%;
-    min-height: 100%;
-    max-height: 60%;
     background-color: white;
-    overflow: auto;
-    padding: 0.5rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     border-bottom-left-radius: 0.5rem;
-    margin: 0;
-    padding: 0;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    color: var(--dark);
     font-family: 'Karla', sans-serif;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    font-size: 16px;
-    color: var(--dark);
+    max-height: 60%;
+    max-width: 28%;
+    min-height: 100%;
+    min-width: 28%;
+    overflow: auto;
     transform: translateX(0%);
     transition: transform 0.5s ease-in-out;
+    margin: 0;
 }
 
 .cart-open {
@@ -67,19 +67,19 @@
 }
 
 .header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0rem;
-    justify-items: stretch;
     align-items: center;
-    color: #FE3B00;
-    background: #000000;
-    width: 100%;
-    height: 100px;
-    padding-top: 1rem;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
+  background: #000000;
+  color: #FE3B00;
+  display: grid;
+  grid-gap: 0rem;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100px;
+  justify-items: stretch;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 1rem;
+  width: 100%;
 }
 
 .title {
@@ -121,7 +121,7 @@
 .section {
     box-sizing: border-box;
     padding: 34px;
-    height: 300px;
+    height: 50%;
     width: 100%;
     display: flex;
     flex-direction: column;
