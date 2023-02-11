@@ -75,7 +75,12 @@ export default function AchatsPanier() {
     { _id: 117, purchaseQuantity: quantiteExemple, categorie: "petit animaux", stock: 50, price: 11.99, name: 'Wild Harvest Hamster Food', description: `Wild Harvest Advanced Nutrition Cochon d'Inde 1,8 kg.`, src: '/img/produits/hamsterFood1.png', alt: 'Wild Harvest Hamster Food', width: defaultWidth, height: defaultHeight }
     ]);
   };
-  
+  /*
+  if (!cart.length) {
+    getCart();
+  }
+}, [cart.length, dispatch]);
+*/
   function calculateTotal() {
     let sum = 0;
 
@@ -153,11 +158,7 @@ export default function AchatsPanier() {
               <h2 className={styles.title}>Panier</h2>
             </header>
             <section className={styles.section}>
-              <div className="flex-row space-between">
-                <strong>Total item: {calculateTotal()}</strong>
-                <button onClick={submitCheckout}>Checkout</button>
-                <span>(log in to check out)</span>
-              </div>
+              
               {cart.length === 0 && (
                 <h3>
                   <span role="img" aria-label="shocked">😱</span>
@@ -178,6 +179,11 @@ export default function AchatsPanier() {
               )}
               <div className={styles.grandTotal}>
                 <p>Grand Total: ${total}</p>
+              </div>
+              <div className="flex-row space-between">
+                <strong>Total item: {calculateTotal()}</strong>
+                <button onClick={submitCheckout}>Checkout</button>
+                <span>(log in to check out)</span>
               </div>
               <h3>Products available for purchase:</h3>
               <ul>
