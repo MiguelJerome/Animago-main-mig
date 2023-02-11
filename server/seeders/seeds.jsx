@@ -1,25 +1,22 @@
-//const userSeeds = require('./oneTeamUserSample.json');
-//const userSeeds = require('./userSeed.json');
-const userSeeds = require('./tenTeamUserSample.json');
-//const userSeeds = require('./usersCustomSeed.json');
-const playerSeeds = require('./produits.json');
-const db = require('../config/connection.js');
-const { User, Player } = require('../models');
+import userSeeds from '/user.json';
+import produitSeeds from '/produit.json';
+import db from '../config/connection.js';
+import { User, Produit } from '../models';
 
 db.once('open', async () => {
 
   try {
-    // flush the database for the collections of players and users
-    await Player.deleteMany({});
+    // flush the database for the collections of produits and users
+    await Produit.deleteMany({});
     await User.deleteMany({});
 
     // create all users from the collection users
     await User.create(userSeeds);
     console.log('users seeded');
 
-    // create all playerss from the collection players
-    await Player.create(playerSeeds);
-    console.log('players seeded');
+    // create all produits from the collection produits
+    await Produit.create(produitSeeds);
+    console.log('produits seeded');
 /*
     for (let i = 0; i < userSeeds.length; i++) {
       const { _id, Name } = await User.create(userSeeds[i]);
