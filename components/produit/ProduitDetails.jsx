@@ -2,10 +2,22 @@ import styles from '/styles/ProduitDescription.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 import politiqueDescription from '/components/produit/Description/politiqueDesc.jsx';
-import expeditionDescription  from '/components/produit/Description/expedition.jsx';
+import expeditionDescription from '/components/produit/Description/expedition.jsx';
+import React, { useState } from 'react';
 
 export default function ProduitDetails({ product }) {
     const router = useRouter();
+    const [cart, setCart] = useState([]);
+    const currentProduct = product;
+
+    const addToCart = () => {
+        setCart([...cart, currentProduct]);
+    };
+
+    const removeFromCart = () => {
+        setCart(cart.filter((p) => p._id !== currentProduct._id));
+    };
+
     return (<>
         <main>
             <div className={styles.container} >
@@ -18,7 +30,14 @@ export default function ProduitDetails({ product }) {
                         <p className={styles.p}>Item en Stock: {product.stock}</p>
                         <p className={styles.p}>Prix: C${product.price}</p>
                         <div className={styles.containerCartButton} >
-                            <button className={styles.button}>Enlever du panier</button> <button className={styles.button}>Ajouter au panier</button>
+                        <button
+                              disabled={!cart.find((p) => p._id === currentProduct._id)}
+                              onClick={removeFromCart}
+                              className={styles.button}
+                            >
+                              Enlever du panier
+                            </button>
+                            <button onClick={addToCart} className={styles.button}>Ajouter au panier</button>   
                         </div>
                         <button className={styles.button} onClick={() => router.back()}>← Retour aux produits</button>
                     </div>

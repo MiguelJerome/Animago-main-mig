@@ -53,9 +53,11 @@ export default function AchatsPanier() {
   const calcTotal = () => {
     let sum = 0;
     for (const item of cart) {
-      sum += item.price.toFixed(2) * item.purchaseQuantity.toFixed(2);
+      if (item.price && item.purchaseQuantity) {
+        sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
+      }
     }
-    setTotal(sum.toFixed(2));
+    setTotal(parseFloat(sum.toFixed(2)));
   };
 
   useEffect(() => {

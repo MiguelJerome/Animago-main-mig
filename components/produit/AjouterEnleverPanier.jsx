@@ -24,12 +24,10 @@ export default function AjouterEnleverPanier({ product, depart, stock, onClearDe
 
     return (
         <div className={styles.achatWrapper}>
-            <button className={styles.button} onClick={decrementer}>-</button>
+            <button className={styles.buttonClear} onClick={clearDepart}>Clear</button>   
+            <div><button className={styles.button} onClick={decrementer}>-</button></div>
             <div className={styles.panierItemQuantite}>{quantite}</div>
-            <button className={styles.button} onClick={incrementer}>+</button>
-            <div className={styles.achatWrapper}>
-                <button className={styles.button} onClick={clearDepart}>Clear</button>
-            </div>
+           <div> <button className={styles.button} onClick={incrementer}>+</button></div>
         </div>
     );
 }

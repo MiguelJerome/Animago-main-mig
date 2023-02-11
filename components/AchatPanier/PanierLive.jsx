@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const quantiteExemple = 20;
+const quantiteExemple = 10;
 
 const defaultWidth = '100%';
 const defaultHeight = 'auto';
