@@ -9,6 +9,7 @@ import produits from '/models/produits.jsx';
 import { cart, initCart } from '/components/AchatPanier/PanierUpdate.jsx';
 import Image from 'next/image';
 import FermerPanier from '/public/img/FermerPanier.svg'
+import CheckoutPanier from '/public/img/cart.png'
 
 
 export default function AchatsPanier() {
@@ -157,6 +158,7 @@ export default function AchatsPanier() {
               </button>
               <h2 className={styles.title}>Panier</h2>
             </header>
+            <div className={styles.containerLayout}>
             <section className={styles.section}>
               
               {cart.length === 0 && (
@@ -180,9 +182,11 @@ export default function AchatsPanier() {
               <div className={styles.grandTotal}>
                 <p>Grand Total: ${total}</p>
               </div>
-              <div className="flex-row space-between">
+              <div>
                 <strong>Total item: {calculateTotal()}</strong>
-                <button onClick={submitCheckout}>Checkout</button>
+                  <button className={styles.boutonCheckout} onClick={submitCheckout}>
+                  <Image src={CheckoutPanier} alt="Checkout Panier" className={styles.imgCheckout} />
+                </button>
                 <span>(log in to check out)</span>
               </div>
               <h3>Products available for purchase:</h3>
@@ -193,12 +197,13 @@ export default function AchatsPanier() {
                   </li>
                 ))}
               </ul>
-            </section>
+              </section>
+              </div>
           </div>
         </div>
         <footer closePanel={closePanel} className={styles.footer}>
               <button className={styles.boutonVoirPanier} onClick={() => router.push("/Achats/Panier")}>
-                Voir le panier
+             Voir le panier
               </button>
             </footer>
       </div>
