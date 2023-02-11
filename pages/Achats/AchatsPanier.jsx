@@ -169,7 +169,7 @@ export default function AchatsPanier() {
               )}
               {cart.length > 0 && (
                 <div>
-                  <h3>Items in your cart:</h3>
+                  <h3>Articles dans votre panier:</h3>
                   <ul>
                     {cart.map((item) => (
                       <li key={item._id}>
@@ -189,13 +189,21 @@ export default function AchatsPanier() {
                 </button>
                 <span>(log in to check out)</span>
               </div>
-              <h3>Products available for purchase:</h3>
+              <h3>Produits disponibles à l'achat :</h3>
               <ul>
-                {produits.map((product) => (
-                  <li key={product._id}>
-                    {product.name} - ${product.price}
-                  </li>
-                ))}
+              {produits.map((product) => (
+  <li key={product._id}>
+    <Image
+      className={styles.imgCard}
+      src={product.src}
+      alt={product.alt}
+      width={Number(product.averageWidth) || 100}
+      height={Number(product.averageHeight) || 100}
+      onClick={() => router.push(`/produit/${product.name}`)}
+    />
+    {product.name} - ${product.price}
+  </li>
+))}
               </ul>
               </section>
               </div>
