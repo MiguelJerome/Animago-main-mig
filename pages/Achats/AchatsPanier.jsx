@@ -192,18 +192,18 @@ export default function AchatsPanier() {
               <h3>Produits disponibles à l'achat :</h3>
               <ul>
               {produits.map((product) => (
-  <li key={product._id}>
-    <Image
-      className={styles.imgCard}
-      src={product.src}
-      alt={product.alt}
-      width={Number(product.averageWidth) || 100}
-      height={Number(product.averageHeight) || 100}
-      onClick={() => router.push(`/produit/${product.name}`)}
-    />
-    {product.name} - ${product.price}
-  </li>
-))}
+                <li key={product._id}>
+                  <Image
+                    className={styles.imgCard}
+                    src={product.src}
+                    alt={product.alt}
+                    width={Number(product.averageWidth) || 100}
+                    height={Number(product.averageHeight) || 100}
+                    onClick={() => router.push(`/produit/${product.name}`)}
+                  />
+                  {product.name} - ${product.price}
+                </li>
+              ))}
               </ul>
               </section>
               </div>
