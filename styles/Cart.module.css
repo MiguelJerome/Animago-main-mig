@@ -246,3 +246,17 @@
 .imgCard{
     cursor: pointer;
   }
+
+  .produitDisponible{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+  }
+
+  .subTitle{
+    font-size: 1.5rem;
+  }
