@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styles from '/styles/AjouterEnleverPanier.module.css'
 import { useCart } from '/components/AchatPanier/PanierLive.jsx';
+import ProduitCard from './ProduitCard'
 
-export default function AjouterEnleverPanier({ product, depart, stock }) {
+export default function AjouterEnleverPanier({ product, depart, stock, onClearDepart  }) {
     const [quantite, setQuantite] = useState(depart === 0 ? depart : 0)
     const [cart, addToCart] = useCart();
 

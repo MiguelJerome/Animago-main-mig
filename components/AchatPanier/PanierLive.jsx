@@ -60,6 +60,15 @@ export const useCart = () => {
         }
     
         setCart(newCart);
-      };
-  return [cart, initCart,addToCart];
+    };
+    const removeFromCart = item => {
+        const updatedCart = [...cart];
+        const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+        const newCart = [
+        ...updatedCart.slice(0, itemIndex),
+        ...updatedCart.slice(itemIndex + 1),
+        ];
+        setCart(newCart);
+        };
+  return [cart, initCart,addToCart, removeFromCart];
 };

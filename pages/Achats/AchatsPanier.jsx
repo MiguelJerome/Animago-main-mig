@@ -1,4 +1,4 @@
-import { useCart } from '/components/AchatPanier/PanierLive.jsx';
+import { useCart, removeFromCart  } from '/components/AchatPanier/PanierLive.jsx';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Inter from '@next/font/google';
@@ -11,10 +11,10 @@ import { cart, initCart } from '/components/AchatPanier/PanierUpdate.jsx';
 import Image from 'next/image';
 import FermerPanier from '/public/img/FermerPanier.svg'
 import CheckoutPanier from '/public/img/cart.png'
-import { calculateTotal } from '/components/AchatPanier/CalculePanier/PanierTotalItem.jsx';
+//import { calculateTotal } from '/components/AchatPanier/CalculePanier/PanierTotalItem.jsx';
 
 export default function AchatsPanier() {
-  const [cart, initCart] = useCart();
+  const [cart, initCart,setCart] = useCart([]);
   const router = useRouter();
   
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +25,20 @@ export default function AchatsPanier() {
 
   const closePanel = () => setIsOpen(false);
   const openPanel = () => setIsOpen(true);
+
+  const handleChange = (item, value) => {
+    const updatedCart = [...cart];
+    const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+    const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: value };
+    const newCart = [
+      ...updatedCart.slice(0, itemIndex),
+      updatedItem,
+      ...updatedCart.slice(itemIndex + 1),
+    ];
+    setCart(newCart);
+  };
+
+  
 
   function calculateTotal() {
     let sum = 0;
@@ -39,7 +53,7 @@ export default function AchatsPanier() {
   const calcTotal = () => {
     let sum = 0;
     for (const item of cart) {
-      sum += item.price * item.purchaseQuantity;
+      sum += item.price.toFixed(2) * item.purchaseQuantity.toFixed(2);
     }
     setTotal(sum.toFixed(2));
   };
@@ -64,7 +78,7 @@ export default function AchatsPanier() {
 
   async function sendCheckoutData(productIds) {
     try {
-      const response = await fetch('/api/checkout', {
+      const response = await fetch('/Checkout/Checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -115,25 +129,43 @@ export default function AchatsPanier() {
                 <div>
                   <h3 className={styles.subTitle}>Articles dans votre panier:</h3>
                   <ul>
-                    {cart.map((item) => (
-                      <React.Fragment key={item._id}>
-                        <li>
-                          {item.name} - {item.purchaseQuantity} x ${item.price} = ${item.purchaseQuantity * item.price}
-                        </li>
-                        <li className={styles.produitDisponible}>
-                          <Image
-                            className={styles.imgCard}
-                            src={item.src}
-                            alt={item.alt}
-                            width={Number(item.averageWidth) || 100}
-                            height={Number(item.averageHeight) || 100}
-                            onClick={() => router.push(`/produit/${item.name}`)}
-                          />
-                          {item.name} - ${item.price}
-                        </li>
-                      </React.Fragment>
-                    ))}
-                  </ul>
+  {cart.map((item) => (
+    <React.Fragment key={item._id}>
+      <li>
+        {item.name} - {item.purchaseQuantity} x ${item.price} = ${item.purchaseQuantity * item.price}
+      </li>
+      <li className={styles.produitDisponible}>
+        <Image
+          className={styles.imgCard}
+          src={item.src}
+          alt={item.alt}
+          width={Number(item.averageWidth) || 100}
+          height={Number(item.averageHeight) || 100}
+          onClick={() => router.push(`/produit/${item.name}`)}
+        />
+        <div>
+          <span>Qty:</span>
+          <input
+            type="number"
+            placeholder="1"
+            value={item.purchaseQuantity}
+            onChange={(e) => handleChange(item, e.target.value)}
+          />
+          <span
+            role="img"
+            aria-label="trash"
+            onClick={() => removeFromCart(item)}
+            className={styles.imgCard}
+          >
+            🗑️
+          </span>
+        </div>
+        {item.name} - ${item.price}
+      </li>
+    </React.Fragment>
+  ))}
+</ul>
+
                 </div>
               )}
               <div className={styles.grandTotal}>

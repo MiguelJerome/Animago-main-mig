@@ -57,13 +57,15 @@
   }
   
   .button {
-    background-color: black;
+    background-color: #FF5DC9;
     color: white;
     cursor: pointer;
     border: none;
+    font-weight: 800;
     border-radius: 50px;
     padding: 10px 20px;
     font-size: 14px;
+    margin: 0 3.2rem;
     transition: all 0.3s ease;
   }
   
@@ -72,6 +74,25 @@
     color: black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
+
+  .dashBoardButton{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 800;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .dashBoardButton:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
 
   .imageInfo{
     display: flex;

@@ -40,7 +40,7 @@ export default function ProduitCard({ produits }) {
 
   const clearDepart = () => {
     setQuantite(0);
-  }
+  };
 
   return (
     <>
@@ -60,10 +60,19 @@ export default function ProduitCard({ produits }) {
             <p className={styles.imageName}>{name}</p>
             <p className={styles.imagePrice}>C${price}</p>
             <p className={styles.imageStock}><span className={styles.stock} >{stock}</span> items en stock</p>
-            <AjouterEnleverPanier stock={stock} depart={quantite} onAddToCart={() => handleAddToCart(_id, stock)} />
-            <button className={styles.button} onClick={() => { clearDepart(0); handleAddToCart(_id, stock); }}>
-              Ajouter au Panier
-            </button>
+            <div className={styles.dashBoardButton}>
+            <AjouterEnleverPanier
+        stock={stock}
+        depart={quantite}
+        produits={produits}
+        onAddToCart={() => handleAddToCart(_id, stock)}
+        onClearDepart={clearDepart}
+      />
+            <button className={styles.button} onClick={() => handleAddToCart(_id, stock)}>
+           
+        Ajouter au Panier
+              </button>
+              </div>
           </div>
         </div>
       ))}
