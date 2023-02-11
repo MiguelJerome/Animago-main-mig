@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const quantiteExemple = 2;
+const quantiteExemple = 20;
 
 const defaultWidth = '100%';
 const defaultHeight = 'auto';
@@ -48,7 +48,18 @@ export const useCart = () => {
     { _id: 116, purchaseQuantity: quantiteExemple, categorie: "aquatique", stock: 25, price: 11.99, name: 'Tetra Fin Goldfish Pellets', description: `Tetra Flocons de poisson rouge, nourriture facile à digérer, 200 g.`, src: '/img/produits/FishFood2.png', alt: 'Tetra Fin Goldfish Pellets', width: defaultWidth, height: defaultHeight },
     { _id: 117, purchaseQuantity: quantiteExemple, categorie: "petit animaux", stock: 50, price: 11.99, name: 'Wild Harvest Hamster Food', description: `Wild Harvest Advanced Nutrition Cochon d'Inde 1,8 kg.`, src: '/img/produits/hamsterFood1.png', alt: 'Wild Harvest Hamster Food', width: defaultWidth, height: defaultHeight }
     ]);
-  };
-
-  return [cart, initCart];
+    };
+    const addToCart = (product, quantity) => {
+        const newCart = [...cart];
+        const productIndex = cart.findIndex(p => p._id === product._id);
+    
+        if (productIndex === -1) {
+          newCart.push({ ...product, purchaseQuantity: quantity });
+        } else {
+          newCart[productIndex].purchaseQuantity += quantity;
+        }
+    
+        setCart(newCart);
+      };
+  return [cart, initCart,addToCart];
 };

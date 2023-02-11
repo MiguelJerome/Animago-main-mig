@@ -11,7 +11,7 @@ import { cart, initCart } from '/components/AchatPanier/PanierUpdate.jsx';
 import Image from 'next/image';
 import FermerPanier from '/public/img/FermerPanier.svg'
 import CheckoutPanier from '/public/img/cart.png'
-
+import { calculateTotal } from '/components/AchatPanier/CalculePanier/PanierTotalItem.jsx';
 
 export default function AchatsPanier() {
   const [cart, initCart] = useCart();
@@ -23,21 +23,9 @@ export default function AchatsPanier() {
   const toggleCart = useState(false);
   const [cartOpen, setCartOpen] = toggleCart;
 
-  const openPanel = () => {
-    setIsOpen(true);
-  };
+  const closePanel = () => setIsOpen(false);
+  const openPanel = () => setIsOpen(true);
 
-  const closePanel = () => {
-    setIsOpen(false);
-  };
-
- 
-  /*
-  if (!cart.length) {
-    getCart();
-  }
-}, [cart.length, dispatch]);
-*/
   function calculateTotal() {
     let sum = 0;
 
@@ -55,7 +43,7 @@ export default function AchatsPanier() {
     }
     setTotal(sum.toFixed(2));
   };
-  
+
   useEffect(() => {
     initCart();
     calcTotal();
