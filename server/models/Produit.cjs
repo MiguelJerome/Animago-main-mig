@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const produitSchema = new mongoose.Schema({
   _id: { type: Number, required: true },
@@ -10,9 +10,9 @@ const produitSchema = new mongoose.Schema({
   src: { type: String, required: true },
   alt: { type: String, required: true },
   width: { type: Number, required: true },
-  height: { type: Number, required: true }
+  height: { type: Number, required: true },
 });
 
-const Produit = mongoose.model('Produit', produitSchema);
+const Produit = mongoose.model("Produit", produitSchema);
 
 module.exports = Produit;

@@ -32,17 +32,6 @@
         "alt": "Catfish Toy",
         "width": 400,
         "height": 400
-    },{       
-         "_id": 102,        
-         "categorie": "chat",        
-         "stock": 7,        
-         "price": 15.99,        
-         "name": "Catfish Toy",        
-         "description": "Jouet électrique pour chat de poisson jouet de chat en mouvement réaliste jouet de poisson Kicker de chat avec herbe à chat.",        
-         "src": "/img/produits/catfishtoy.png",        
-         "alt": "Catfish Toy",        
-         "width": 400,        
-         "height": 400    
     },{        
         "_id": 103,        
         "categorie": "chat",        

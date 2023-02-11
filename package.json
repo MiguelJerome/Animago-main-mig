@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node server/seeders/seeds.jsx"
+    "seed": "node ./server/seeders/seeds.cjs"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
