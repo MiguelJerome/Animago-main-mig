@@ -4,7 +4,7 @@ import styles from '/styles/Cart.module.css';
 const PanierPanneauFooter = ({ closePanel, router }) => {
   return (
     <footer closePanel={closePanel} className={styles.footer}>
-      <button className={styles.boutonVoirPanier} onClick={() => router.push("/Achats/Panier")}>
+      <button className={styles.boutonVoirPanier} onClick={() => router.push("/AchatsPanier/PanierPleinEcran")}>
         Voir le panier
       </button>
     </footer>

@@ -1,8 +1,5 @@
-import { StoreProvider, useStoreContext } from "/utils/store.jsx";
-import { useCart } from '/components/AchatPanier/UseCart.jsx';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Cart from '../../components/AchatPanier/PanierPleinEcran/PanierPleinEcranContenu';
+import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from '/styles/Cart.module.css';
@@ -11,7 +8,7 @@ import { Produitsdisponibles } from '/components/AchatPanier/Produitsdisponibles
 import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
 import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader';
 import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
-
+import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
 export default function PanierPanneau() {
   const [cart, initCart, setCart, removeFromCart] = useCart([]);
@@ -34,7 +31,7 @@ export default function PanierPanneau() {
     if (Number.isInteger(value)) {
       const updatedCart = [...cart];
       const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-      const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: parseInt(value, 10)};
+      const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: parseInt(value, 10) };
       const newCart = [
         ...updatedCart.slice(0, itemIndex),
         updatedItem,
@@ -43,39 +40,32 @@ export default function PanierPanneau() {
       setCart(newCart);
     }
   };
-  
 
   const calculateTotal = () => {
     let sum = 0;
-
     cart.forEach((item) => {
       sum += parseInt(item.purchaseQuantity);
     });
-
     return sum.toFixed(0);
-  }
+  };
 
   const calcTotal = () => {
     let sum = 0;
-
     cart.forEach((item) => {
       if (parseFloat(item.price) && parseFloat(item.purchaseQuantity)) {
         sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
       }
     });
-
     setTotal(parseFloat(sum.toFixed(2)));
   };
 
   const submitCheckout = async () => {
     const productIds = [];
-
     cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
       }
     });
-
     try {
       const response = await fetch('/Checkout/Checkout', {
         method: 'POST',
@@ -84,9 +74,7 @@ export default function PanierPanneau() {
         },
         body: JSON.stringify({ productIds })
       });
-
       const data = await response.json();
-
       if (data.success) {
         alert('Checkout successful!');
         setCart([]);
@@ -98,7 +86,7 @@ export default function PanierPanneau() {
       console.error(error);
       alert('An error occurred during checkout');
     }
-  }
+  };
 
   return (
     <>
@@ -128,4 +116,4 @@ export default function PanierPanneau() {
       <Footer />
     </>
   );
-}
+}  

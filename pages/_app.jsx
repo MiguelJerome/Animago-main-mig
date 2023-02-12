@@ -13,9 +13,11 @@ export default function App({ Component, pageProps }) {
     }
   }, [router]);
 
-  return <>
+  return (
+  <>
     <Layout>
       <Component {...pageProps} />
     </Layout>
   </>
+  );
 }

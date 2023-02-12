@@ -1,7 +1,7 @@
 import { Inter } from '@next/font/google'
 import styles from '/styles/NotFound.module.css'
 
-export default function Cart() {
+export default function PanierPleinEcranContenu() {
   return (
     <>
      <main>
