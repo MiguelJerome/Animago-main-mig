@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function Gallerie({ images }) {
   const router = useRouter();
 
-  return (
+  return(
     <>
       <div className={styles.gallerie}>
         {images.map((imageData, index) => (

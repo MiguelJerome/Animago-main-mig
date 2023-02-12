@@ -3,8 +3,9 @@ import images from '../../models/imageCategories';
 
 export default function Image(){
    
-    return (<>
+return(
+    <>
         <Gallerie images={images} />
-      </>
-      );    
+    </>
+  );    
 }

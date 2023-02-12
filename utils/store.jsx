@@ -1,10 +1,10 @@
 import React, { createContext, useContext } from "react";
-import { useProductReducer } from './store'
+import { useProductReducer } from './store';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
-const StoreProvider = ({ value = [], ...props }) => {
+export default function StoreProvider({ value = [], ...props }) {
   const [state, dispatch] = useProductReducer({
     products: [],
     cart: [],
@@ -16,8 +16,6 @@ const StoreProvider = ({ value = [], ...props }) => {
   return <Provider value={[state, dispatch]} {...props} />;
 };
 
-const useStoreContext = () => {
+export function useStoreContext() {
   return useContext(StoreContext);
 };
-
-export { StoreProvider, useStoreContext };

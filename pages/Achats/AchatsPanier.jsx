@@ -1,3 +1,4 @@
+import { StoreProvider, useStoreContext } from "/utils/store.jsx";
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -28,16 +29,19 @@ export default function AchatsPanier() {
   const openPanel = () => setIsOpen(true);
 
   const handleChange = (item, value) => {
-    const updatedCart = [...cart];
-    const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-    const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: parseInt(value)};
-    const newCart = [
-      ...updatedCart.slice(0, itemIndex),
-      updatedItem,
-      ...updatedCart.slice(itemIndex + 1),
-    ];
-    setCart(newCart);
+    if (Number.isInteger(value)) {
+      const updatedCart = [...cart];
+      const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+      const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: parseInt(value, 10)};
+      const newCart = [
+        ...updatedCart.slice(0, itemIndex),
+        updatedItem,
+        ...updatedCart.slice(itemIndex + 1),
+      ];
+      setCart(newCart);
+    }
   };
+  
 
   const calculateTotal = () => {
     let sum = 0;
@@ -111,21 +115,25 @@ export default function AchatsPanier() {
                 {cart.length === 0 ? (
                   <>
                     <h3>
-                      <span role="img" aria-label="shocked">😱</span> Vous n'avez encore rien ajouté à votre panier !
+                      <span className={styles.shocked} role="img" aria-label="shocked">😱</span>
+                      <p>Vous n'avez encore rien ajouté à votre panier !</p>
                     </h3>
                     <h3 className={styles.subTitle}>Produits disponibles à l'achat :</h3>
                     <ul>
                       {produits.map((product) => (
                         <li className={styles.produitDisponible} key={product._id}>
                           <Image
-                            className={styles.imgCard}
+                            className={`${styles.imgCard} ${styles.img}`}
                             src={product.src}
                             alt={product.alt}
                             width={Number(product.averageWidth) || 100}
                             height={Number(product.averageHeight) || 100}
                             onClick={() => router.push(`/produit/${product.name}`)}
                           />
-                          {product.name} - ${product.price}
+                          <div className={styles.cartFormWragpe}>
+                            <p className={styles.productInfo}>{product.name}</p>
+                            <p className={styles.productInfo}>${product.price}</p>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -147,19 +155,22 @@ export default function AchatsPanier() {
                               onClick={() => router.push(`/produit/${item.name}`)}
                             />
                             <div>
-                              <div className={styles.cartFormWragpe }>{item.name}, ${item.price}</div>
+                              <div className={styles.cartFormWragpe}>
+                                <p className={styles.productInfo}>{item.name}</p>
+                                <p className={styles.productInfo}>${item.price}</p>
+                              </div>
                               <span>Qty:</span>
                               <input
                                 className={styles.input}
                                 type="number"
                                 placeholder="1"
                                 value={item.purchaseQuantity}
-                                onChange={(e) => handleChange(item, e.target.value)}
+                                onChange={(e) => handleChange(item, parseInt(e.target.value))}
                               />
                               <span role="img" aria-label="trash" onClick={() => removeFromCart(item)} className={styles.imgCard}>🗑️</span>
                             </div>
                           </li>
-                          <li>
+                          <li className={styles.itemTotal}>
                             {item.name} - {parseInt(item.purchaseQuantity, 10)} x ${parseFloat(item.price).toFixed(2)} = $
                             {(parseInt(item.purchaseQuantity, 10) * parseFloat(item.price)).toFixed(2)}
                           </li>
@@ -181,14 +192,17 @@ export default function AchatsPanier() {
                   {produits.map((product) => (
                     <li className={styles.produitDisponible} key={product._id}>
                       <Image
-                        className={styles.imgCard}
+                        className={`${styles.imgCard} ${styles.img}`}
                         src={product.src}
                         alt={product.alt}
                         width={Number(product.averageWidth) || 100}
                         height={Number(product.averageHeight) || 100}
                         onClick={() => router.push(`/produit/${product.name}`)}
                       />
-                      {product.name} - ${product.price}
+                      <div className={styles.cartFormWragpe}>
+                        <p className={styles.productInfo}>{product.name}</p>
+                        <p className={styles.productInfo}>${product.price}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
