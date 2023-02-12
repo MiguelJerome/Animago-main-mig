@@ -10,7 +10,7 @@ export default function AjouterItemsPanier({ product, quantity }) {
 
   return (
     <div>
-      <button onClick={addItemToCart}>Add to Cart</button>
+      
     </div>
   );
 }

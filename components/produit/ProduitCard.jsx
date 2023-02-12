@@ -4,6 +4,7 @@ import styles from '/styles/ProduitCard.module.css';
 import React, { useState } from 'react';
 import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
 import ProduitCardInfo from '/components/produit/ProduitCardInfo.jsx'
+import EffacerBoutonPanier from '/components/produit/Items/EffacerBoutonPanier';
 
 
 export default function ProduitCard({ produits }) {
@@ -46,7 +47,7 @@ export default function ProduitCard({ produits }) {
     <>
     <div className={styles.gallerie}>
       {produitsState.map(({ _id, src, alt, name, price, stock }) => (
-        <div key={_id} className={styles.imageContainer}>   
+        <div key={_id} className={styles.imageContainer}>
           <Image className={styles.imgCard}
               src={src}
               alt={alt}
@@ -62,15 +63,14 @@ export default function ProduitCard({ produits }) {
             <p className={styles.imageStock}><span className={styles.stock} >{stock}</span> items en stock</p>
             <div className={styles.dashBoardButton}>
             <AjouterEnleverPanier
-        stock={stock}
-        depart={quantite}
-        produits={produits}
-        onAddToCart={() => handleAddToCart(_id, stock)}
-        onClearDepart={clearDepart}
-      />
+              stock={stock}
+              depart={quantite}
+              produits={produits}
+              onAddToCart={() => handleAddToCart(_id, stock)}
+              onClearDepart={clearDepart}
+            />
             <button className={styles.button} onClick={() => handleAddToCart(_id, stock)}>
-           
-        Ajouter au Panier
+              Ajouter au Panier
               </button>
               </div>
           </div>
