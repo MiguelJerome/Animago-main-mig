@@ -8,12 +8,12 @@ import Footer from '../../components/Footer';
 import styles from '/styles/Cart.module.css';
 import produits from '/models/produits.jsx';
 import { Produitsdisponibles } from '/components/AchatPanier/Produitsdisponibles';
-import PanierVideMessage from '/components/AchatPanier/PanierVideMessage';
-import ListeItemPanier from '/components/AchatPanier/PanierPanneauDroit/ListeItemPanier';
 import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
-import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader'
+import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader';
+import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 
-export default function AchatsPanier() {
+
+export default function PanierPanneau() {
   const [cart, initCart, setCart, removeFromCart] = useCart([]);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -109,23 +109,15 @@ export default function AchatsPanier() {
             <PanierPanneauHeader router={router} />
             <div className={styles.containerLayout}>
               <section className={styles.section}>
-                {cart.length === 0 ? (
-                  <>
-                    <PanierVideMessage />
-                  </>
-                ) : (
-                    <>
-                      <ListeItemPanier
-                       cart={cart}
-                       handleChange={handleChange}
-                       removeFromCart={removeFromCart}
-                       router={router}
-                       calculateTotal={calculateTotal}
-                       total={total}
-                       submitCheckout={submitCheckout}
-                     />
-                  </>
-                )}
+                <ContenuPanneauPanier
+                  cart={cart}
+                  handleChange={handleChange}
+                  removeFromCart={removeFromCart}
+                  router={router}
+                  calculateTotal={calculateTotal}
+                  total={total}
+                  submitCheckout={submitCheckout}
+                />
                 <Produitsdisponibles produits={produits} />
               </section>
             </div>
