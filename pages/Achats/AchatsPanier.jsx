@@ -8,8 +8,10 @@ import Footer from '../../components/Footer';
 import styles from '/styles/Cart.module.css';
 import produits from '/models/produits.jsx';
 import Image from 'next/image';
-import FermerPanier from '/public/img/FermerPanier.svg'
-import CheckoutPanier from '/public/img/cart.png'
+import FermerPanier from '/public/img/FermerPanier.svg';
+import CheckoutPanier from '/public/img/cart.png';
+import { Produitsdisponibles } from '/components/AchatPanier/Produitsdisponibles';
+import PanierVideMessage from '/components/AchatPanier/PanierVideMessage'
 
 export default function AchatsPanier() {
   const [cart, initCart, setCart, removeFromCart] = useCart([]);
@@ -114,29 +116,7 @@ export default function AchatsPanier() {
               <section className={styles.section}>
                 {cart.length === 0 ? (
                   <>
-                    <h3>
-                      <span className={styles.shocked} role="img" aria-label="shocked">😱</span>
-                      <p>Vous n'avez encore rien ajouté à votre panier !</p>
-                    </h3>
-                    <h3 className={styles.subTitle}>Produits disponibles à l'achat :</h3>
-                    <ul>
-                      {produits.map((product) => (
-                        <li className={styles.produitDisponible} key={product._id}>
-                          <Image
-                            className={`${styles.imgCard} ${styles.img}`}
-                            src={product.src}
-                            alt={product.alt}
-                            width={Number(product.averageWidth) || 100}
-                            height={Number(product.averageHeight) || 100}
-                            onClick={() => router.push(`/produit/${product.name}`)}
-                          />
-                          <div className={styles.cartFormWragpe}>
-                            <p className={styles.productInfo}>{product.name}</p>
-                            <p className={styles.productInfo}>${product.price}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
+                    <PanierVideMessage />
                   </>
                 ) : (
                   <>
@@ -144,7 +124,6 @@ export default function AchatsPanier() {
                     <ul>
                       {cart.map((item) => (
                         <React.Fragment key={item._id}>
-                         
                           <li className={styles.produitDisponible}>
                             <Image
                               className={`${styles.imgCard} ${styles.img}`}
@@ -187,29 +166,11 @@ export default function AchatsPanier() {
                       </button>
                       <span>(log in to check out)</span>
                     </div>
-                <h3 className={styles.subTitle}>Produits disponibles à l'achat :</h3>
-                <ul>
-                  {produits.map((product) => (
-                    <li className={styles.produitDisponible} key={product._id}>
-                      <Image
-                        className={`${styles.imgCard} ${styles.img}`}
-                        src={product.src}
-                        alt={product.alt}
-                        width={Number(product.averageWidth) || 100}
-                        height={Number(product.averageHeight) || 100}
-                        onClick={() => router.push(`/produit/${product.name}`)}
-                      />
-                      <div className={styles.cartFormWragpe}>
-                        <p className={styles.productInfo}>{product.name}</p>
-                        <p className={styles.productInfo}>${product.price}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </section>
-        </div>
+                  </>
+                )}
+                <Produitsdisponibles produits={produits} />
+              </section>
+            </div>
           </div>
         </div>
         <footer closePanel={closePanel} className={styles.footer}>
