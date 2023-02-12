@@ -3,7 +3,6 @@ import Image from 'next/image';
 import styles from '/styles/ProduitCard.module.css';
 import React, { useState } from 'react';
 import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
-import ProduitCardInfo from '/components/produit/ProduitCardInfo.jsx'
 import EffacerBoutonPanier from '/components/produit/Items/EffacerBoutonPanier';
 
 
