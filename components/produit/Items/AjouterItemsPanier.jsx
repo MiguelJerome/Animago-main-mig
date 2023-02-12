@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCart } from '/components/AchatPanier/PanierLive.jsx';
+import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
 export default function AjouterItemsPanier({ product, quantity }) {
   const [cart, addToCart] = useCart();

@@ -5,7 +5,7 @@ export default function ProduitListe({ categorie }) {
     return (
     <>
         <div className={styles.container}>
-                <ProduitParCategorie categorie={categorie} />
+            <ProduitParCategorie categorie={categorie} />
         </div>
     </>
     );

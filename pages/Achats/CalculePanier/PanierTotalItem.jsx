@@ -1,4 +1,4 @@
-import { cart } from '/components/AchatPanier/PanierLive.jsx';
+import { cart } from '/components/AchatPanier/UseCart.jsx';
 
 export function calculateTotal() {
   let sum = 0;

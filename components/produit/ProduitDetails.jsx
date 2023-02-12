@@ -30,12 +30,12 @@ export default function ProduitDetails({ product }) {
                         <p className={styles.p}>Item en Stock: {product.stock}</p>
                         <p className={styles.p}>Prix: C${product.price}</p>
                         <div className={styles.containerCartButton} >
-                        <button
-                              disabled={!cart.find((p) => p._id === currentProduct._id)}
-                              onClick={removeFromCart}
-                              className={styles.button}
-                            >
-                              Enlever du panier
+                            <button
+                                disabled={!cart.find((p) => p._id === currentProduct._id)}
+                                onClick={removeFromCart}
+                                className={styles.button}
+                                >
+                                Enlever du panier
                             </button>
                             <button onClick={addToCart} className={styles.button}>Ajouter au panier</button>   
                         </div>

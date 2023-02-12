@@ -1,4 +1,4 @@
-import { useCart } from '/components/AchatPanier/PanierLive.jsx';
+import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
 export default function useClearDepart(product, quantity) {
   const [cart, addToCart] = useCart();

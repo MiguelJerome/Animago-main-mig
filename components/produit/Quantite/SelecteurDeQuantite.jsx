@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '/styles/AjouterEnleverPanier.module.css';
-import { useCart } from '/components/AchatPanier/PanierLive.jsx';
+import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
 export default function SelecteurDeQuantite({ quantity, maxQuantity, onQuantityChange, depart, stock, product }) {
     const [quantite, setQuantite] = useState(depart === 0 ? depart : 0)
