@@ -5,8 +5,9 @@ import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
 import CheckoutPanier from '/public/img/cart.png';
 
-const ListeItemPanier = ({ cart, handleChange, removeFromCart, router, calculateTotal, total, submitCheckout }) => {
-   
+const ListeItemPanier = ({ cart, handleChange, removeFromCart, calculateTotal, total, submitCheckout }) => {
+  const router = useRouter();
+
   return (
     <>
       <h3 className={styles.subTitle}>Articles dans votre panier:</h3>
@@ -57,6 +58,6 @@ const ListeItemPanier = ({ cart, handleChange, removeFromCart, router, calculate
       </div>
     </>
   );
-}
+};
 
 export default ListeItemPanier;

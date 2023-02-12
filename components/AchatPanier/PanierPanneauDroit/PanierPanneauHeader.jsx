@@ -1,15 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
-import FermerPanier from '/public/img/FermerPanier.svg';
+import PropTypes from 'prop-types';
 import styles from '/styles/Cart.module.css';
+import CloseIcon from '/public/img/FermerPanier.svg';
 
-export default function PanierPanneauHeader({ router }) {
+function PanierPanneauHeader({ router }) {
+  const handleGoBackClick = () => {
+    router.back();
+  };
+
   return (
     <header className={styles.header}>
-      <button className={`${styles.bouton} ${styles.close}`} onClick={() => router.back()}>
-        <Image src={FermerPanier} alt="fermer panier" className={styles.panierFermer} />
+      <button className={`${styles.bouton} ${styles.close}`} onClick={handleGoBackClick}>
+        <Image src={CloseIcon} alt="fermer panier" className={styles.panierFermer} />
       </button>
       <h2 className={styles.title}>Panier</h2>
     </header>
   );
 }
+
+PanierPanneauHeader.propTypes = {
+  router: PropTypes.object.isRequired,
+};
+
+export default PanierPanneauHeader;
