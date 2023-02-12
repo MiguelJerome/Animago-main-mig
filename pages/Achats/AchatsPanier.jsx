@@ -7,12 +7,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from '/styles/Cart.module.css';
 import produits from '/models/produits.jsx';
-import Image from 'next/image';
-import FermerPanier from '/public/img/FermerPanier.svg';
-import CheckoutPanier from '/public/img/cart.png';
 import { Produitsdisponibles } from '/components/AchatPanier/Produitsdisponibles';
 import PanierVideMessage from '/components/AchatPanier/PanierVideMessage';
 import ListeItemPanier from '/components/AchatPanier/PanierPanneauDroit/ListeItemPanier';
+import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
+import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader'
 
 export default function AchatsPanier() {
   const [cart, initCart, setCart, removeFromCart] = useCart([]);
@@ -107,12 +106,7 @@ export default function AchatsPanier() {
       <div className={`right-side-panel${isOpen ? " open" : ""}`} onClick={closePanel}>
         <div className="right-side-panel-content" onClick={(e) => e.stopPropagation()}>
           <div className={styles.cart}>
-            <header className={styles.header}>
-              <button className={`${styles.bouton} ${styles.close}`} onClick={() => router.back()}>
-                <Image src={FermerPanier} alt="fermer panier" className={styles.panierFermer} />
-              </button>
-              <h2 className={styles.title}>Panier</h2>
-            </header>
+            <PanierPanneauHeader router={router} />
             <div className={styles.containerLayout}>
               <section className={styles.section}>
                 {cart.length === 0 ? (
@@ -137,11 +131,7 @@ export default function AchatsPanier() {
             </div>
           </div>
         </div>
-        <footer closePanel={closePanel} className={styles.footer}>
-          <button className={styles.boutonVoirPanier} onClick={() => router.push("/Achats/Panier")}>
-            Voir le panier
-          </button>
-        </footer>
+        <PanierPanneauFooter closePanel={closePanel} router={router} />
       </div>
       <Footer />
     </>
