@@ -46,12 +46,12 @@ export default function Header() {
                         onChange={handleChange}
                     />
                     <button className={styles.searchButton} type="submit">
-                                <Image
-                                    src={search}
-                                    className={styles.searchLogo}
-                                    alt={'recherce' || 'Default Image'}
-                                    priority={true}
-                                />
+                        <Image
+                            src={search}
+                            className={styles.searchLogo}
+                            alt={'recherce' || 'Default Image'}
+                            priority={true}
+                        />
                     </button>
                 </form>
                 <div className={`${styles.appelezNous}`}>
@@ -109,7 +109,7 @@ export default function Header() {
                     <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
                 </div>
                 <div className={styles.menuProductList}>
-            <a onClick={() => router.push("/AchatsPanier/PanierPanneau")}>
+                    <a onClick={() => router.push("/AchatsPanier/PanierPanneau")}>
                         <Image
                             src={Cart}
                             alt={'lien pour se connecter' || 'Default Image'}
