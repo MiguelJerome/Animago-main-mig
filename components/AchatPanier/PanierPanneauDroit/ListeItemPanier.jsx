@@ -18,7 +18,7 @@ const ListeItemPanier = ({ cart, handleChange, removeFromCart, calculateTotal, t
               <Image
                 className={`${styles.imgCard} ${styles.img}`}
                 src={item.src}
-                alt={item.alt}
+                alt={item.alt || 'Default Image'}
                 width={Number(item.averageWidth) || 100}
                 height={Number(item.averageHeight) || 100}
                 onClick={() => router.push(`/produit/${item.name}`)}
@@ -52,7 +52,7 @@ const ListeItemPanier = ({ cart, handleChange, removeFromCart, calculateTotal, t
       <div>
         <strong>Total item: {calculateTotal()}</strong>
         <button className={styles.boutonCheckout} onClick={submitCheckout}>
-          <Image src={CheckoutPanier} alt="Checkout Panier" className={styles.imgCheckout} />
+          <Image src={CheckoutPanier} alt={"Checkout Panier" || 'Default Image'} className={styles.imgCheckout} />
         </button>
         <span>(log in to check out)</span>
       </div>

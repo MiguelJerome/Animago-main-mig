@@ -12,7 +12,7 @@ export default function Gallerie({ images }) {
           <div key={index} className={styles.container}>
             <Image
               src={imageData.src}
-              alt={imageData.alt}
+              alt={imageData.alt || 'Default Image'}
               width={imageData.width}
               height={imageData.height}
             />

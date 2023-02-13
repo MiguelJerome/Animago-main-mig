@@ -24,7 +24,7 @@ export default function ProduitDetails({ product }) {
                 <h1 className={styles.title}>{product.name}</h1>
                 <div className={styles.containerDetail}>
                     <div className={styles.produitWrapper} >
-                        <Image src={product.src} alt={product.alt} width={product.width} height={product.height} />
+                        <Image src={product.src} alt={product.alt || 'Default Image'} width={product.width} height={product.height} />
                         <p className={styles.p}>Produit#: {product._id}</p>
                         <p className={styles.p}>Categorie: {product.categorie}</p>
                         <p className={styles.p}>Item en Stock: {product.stock}</p>

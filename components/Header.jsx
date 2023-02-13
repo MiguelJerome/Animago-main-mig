@@ -63,13 +63,13 @@ export default function Header() {
         <div className={styles.header2}>
             <div className={styles.catchPhrase}>
                 <a onClick={() => router.push("https://facebook.com")}>
-                    <Image src={facebook} alt='lien pour facebook' className={styles.iconReseaux} />
+                    <Image src={facebook} alt={'lien pour facebook'|| 'Default Image'} className={styles.iconReseaux} />
                 </a>
                 <a onClick={() => router.push("https://instagram.com")}>
-                    <Image src={instagram} alt='lien pour instagram' className={styles.iconReseaux} />
+                    <Image src={instagram} alt={'lien pour instagram' || 'Default Image'} className={styles.iconReseaux} />
                 </a>
                 <a onClick={() => router.push("https://youtube.com")}>
-                    <Image src={youtube} alt='lien pour twitter' className={styles.iconReseaux} />
+                    <Image src={youtube} alt={'lien pour twitter'|| 'Default Image'} className={styles.iconReseaux} />
                 </a>
                 <p className={styles.p}>
                     Vos article préféré pour vos animaux préféré
@@ -79,14 +79,14 @@ export default function Header() {
             <div className={styles.menuLogo}>
                 <div className={styles.menuProductList}>
                     <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>
-                        <Image src={Login} alt='lien pour se connecter' className={styles.loginCart} />
+                        <Image src={Login} alt={'lien pour se connecter' || 'Default Image'} className={styles.loginCart} />
                     </a>
                     <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
                     <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
                 </div>
                 <div className={styles.menuProductList}>
                     <a onClick={() => router.push("/AchatsPanier/PanierPanneau")}>
-                        <Image src={Cart} alt='lien pour se connecter' className={styles.loginCart} />
+                        <Image src={Cart} alt={'lien pour se connecter' || 'Default Image'} className={styles.loginCart} />
                     </a>
                 </div>
             </div>
