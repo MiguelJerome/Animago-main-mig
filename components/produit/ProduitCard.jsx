@@ -48,11 +48,12 @@ export default function ProduitCard({ produits }) {
       {produitsState.map(({ _id, src, alt, name, price, stock }) => (
         <div key={_id} className={styles.imageContainer}>
           <Image className={styles.imgCard}
-              src={src}
-              alt={alt || 'Default Image'}
-              width={Number(averageWidth) || 400}
-              height={Number(averageHeight) || 400}
+            src={src}
+            alt={alt || 'Default Image'}
+            width={Number(averageWidth) || 400}
+            height={Number(averageHeight) || 400}
             onClick={() => router.push(`/produit/${name}`)}
+            priority={true}
           />
             <div className={styles.imageInfo}>
             <p className={styles.imageId}>Produit</p>

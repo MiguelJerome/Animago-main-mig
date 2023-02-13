@@ -11,7 +11,12 @@ export default function Accueil() {
     return <>
       <Header/>
         <main>
-          <Image src={ImagePrincipal} alt={'Image principale pour vente de produit animalier'|| 'Default Image'} className={styles.imgPrincipale}/>
+        <Image
+          src={ImagePrincipal}
+          alt={'Image principale pour vente de produit animalier' || 'Default Image'}
+          className={styles.imgPrincipale}
+          priority={true}
+        />
           <Gallerie className={styles.imgGrid}/>
         </main>
       <Footer/>

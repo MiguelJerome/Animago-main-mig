@@ -5,7 +5,10 @@ export default function Image(){
    
 return(
     <>
-        <Gallerie images={images} />
+    <Gallerie
+      images={images}
+      priority={true}
+    />
     </>
   );    
 }

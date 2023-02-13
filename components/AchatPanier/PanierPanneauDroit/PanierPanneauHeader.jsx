@@ -12,7 +12,12 @@ function PanierPanneauHeader({ router }) {
   return (
     <header className={styles.header}>
       <button className={`${styles.bouton} ${styles.close}`} onClick={handleGoBackClick}>
-        <Image src={CloseIcon} alt={"fermer panier" || 'Default Image'} className={styles.closeIcon} />
+        <Image
+          src={CloseIcon}
+          alt={"fermer panier" || 'Default Image'}
+          className={styles.closeIcon}
+          priority={true}
+        />
       </button>
       <h2 className={styles.title}>Panier</h2>
     </header>

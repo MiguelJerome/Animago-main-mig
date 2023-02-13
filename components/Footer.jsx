@@ -41,13 +41,28 @@ const router = useRouter()
                 <h3 className={`${styles.catchPhrase} ${styles.containerP}`}>RESTER CONNECTÉ AVEC NOUS</h3>
                 <div className={styles.catchPhrase}>
                     <a onClick={() => router.push("https://facebook.com")}>
-                                <Image src={facebook} alt={'lien pour facebook' || 'Default Image'} className={styles.img} />
+                        <Image
+                            src={facebook}
+                            alt={'lien pour facebook' || 'Default Image'}
+                            className={styles.img}
+                            priority={true}
+                        />
                     </a>
                     <a onClick={() => router.push("https://instagram.com")}>
-                        <Image src={instagram} alt={'lien pour instagram' || 'Default Image'} className={styles.img} />
+                        <Image
+                            src={instagram}
+                            alt={'lien pour instagram' || 'Default Image'}
+                            className={styles.img}
+                            priority={true}
+                        />
                     </a>
                     <a onClick={() => router.push("https://youtube.com")}>
-                        <Image src={youtube} alt={'lien pour youtube' || 'Default Image'} className={styles.img} />
+                        <Image
+                            src={youtube}
+                            alt={'lien pour youtube' || 'Default Image'}
+                            className={styles.img}
+                            priority={true}
+                        />
                     </a>
                 </div>
             </section>

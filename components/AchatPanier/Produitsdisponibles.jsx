@@ -20,6 +20,7 @@ export function Produitsdisponibles({ produits }) {
                 width={Number(averageWidth) || DEFAULT_WIDTH}
                 height={Number(averageHeight) || DEFAULT_HEIGHT}
                 onClick={() => router.push(`/produit/${name}`)}
+                priority={true}
               />
               <div className={styles.cartFormWragpe}>
                 <p className={styles.productInfo}>{name}</p>
