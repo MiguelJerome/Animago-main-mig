@@ -1,27 +1,32 @@
-import { useRouter } from 'next/router'
-import styles from '/styles/Gallerie.module.css'
-import Image from 'next/image'
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
+import styles from '/styles/Gallerie.module.css';
 
-export default function Gallerie({ images }) {
+function Gallerie({ images }) {
   const router = useRouter();
 
-  return(
-    <>
-      <div className={styles.gallerie}>
-        {images.map((imageData, index) => (
-          <div key={index} className={styles.container}>
-            <Image
-              src={imageData.src}
-              alt={imageData.alt || 'Default Image'}
-              width={imageData.width}
-              height={imageData.height}
-              priority={true}
-            />
-            <p className={styles.text}>{imageData.categorie}</p>
-            <button className={styles.button} onClick={() => router.push(imageData.page)}>Achetez maintenant</button>
-          </div>
-        ))}
-      </div>
-    </>
+  return (
+    <div className={styles.gallerie}>
+      {images.map((imageData, index) => (
+        <div key={index} className={styles.container}>
+          <Image
+            src={imageData.src}
+            alt={imageData.alt || 'Default Image'}
+            width={imageData.width}
+            height={imageData.height}
+            priority
+          />
+          <p className={styles.text}>{imageData.categorie}</p>
+          <button className={styles.button} onClick={() => router.push(imageData.page)}>Achetez maintenant</button>
+        </div>
+      ))}
+    </div>
   );
 }
+
+Gallerie.propTypes = {
+  images: PropTypes.array.isRequired,
+};
+
+export default Gallerie;

@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import AjouterEnleverPanier from "./AjouterEnleverPanier.jsx";
 import EffacerBoutonPanier from '/components/produit/Items/EffacerBoutonPanier';
 
-
 export default function ProduitCard({ produits }) {
   const [cart, setCart] = useState([]);
   const [produitsState, setProduits] = useState(produits);
@@ -26,7 +25,7 @@ export default function ProduitCard({ produits }) {
       // Reset the quantity to 0
       setQuantite(0);
     }
-};
+  };
 
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageHeight, setAverageHeight] = useState(0);
@@ -44,37 +43,38 @@ export default function ProduitCard({ produits }) {
 
   return (
     <>
-    <div className={styles.gallerie}>
-      {produitsState.map(({ _id, src, alt, name, price, stock }) => (
-        <div key={_id} className={styles.imageContainer}>
-          <Image className={styles.imgCard}
-            src={src}
-            alt={alt || 'Default Image'}
-            width={Number(averageWidth) || 400}
-            height={Number(averageHeight) || 400}
-            onClick={() => router.push(`/produit/${name}`)}
-          />
-            <div className={styles.imageInfo}>
-            <p className={styles.imageId}>Produit</p>
-            <p className={styles.imageId}>#{_id}</p>
-            <p className={styles.imageName}>{name}</p>
-            <p className={styles.imagePrice}>C${price}</p>
-            <p className={styles.imageStock}><span className={styles.stock} >{stock}</span> items en stock</p>
-            <div className={styles.dashBoardButton}>
-            <AjouterEnleverPanier
-              stock={stock}
-              depart={quantite}
-              produits={produits}
-              onAddToCart={() => handleAddToCart(_id, stock)}
-              onClearDepart={clearDepart}
+      <div className={styles.gallerie}>
+        {produitsState.map(({ _id, src, alt, name, price, stock }) => (
+          <div key={_id} className={styles.imageContainer}>
+            <Image
+              className={styles.imgCard}
+              src={src}
+              alt={alt || 'Default Image'}
+              width={Number(averageWidth) || 400}
+              height={Number(averageHeight) || 400}
+              onClick={() => router.push(`/produit/${name}`)}
             />
-            <button className={styles.button} onClick={() => handleAddToCart(_id, stock)}>
-              Ajouter au Panier
-              </button>
+            <div className={styles.imageInfo}>
+              <p className={styles.imageId}>Produit</p>
+              <p className={styles.imageId}>#{_id}</p>
+              <p className={styles.imageName}>{name}</p>
+              <p className={styles.imagePrice}>C${price}</p>
+              <p className={styles.imageStock}><span className={styles.stock} >{stock}</span> items en stock</p>
+              <div className={styles.dashBoardButton}>
+                <AjouterEnleverPanier
+                  stock={stock}
+                  depart={quantite}
+                  produits={produits}
+                  onAddToCart={() => handleAddToCart(_id, stock)}
+                  onClearDepart={clearDepart}
+                />
+                <button className={styles.button} onClick={() => handleAddToCart(_id, stock)}>
+                  Ajouter au Panier
+                </button>
               </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       </div>
     </>
   );

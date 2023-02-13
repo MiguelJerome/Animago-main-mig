@@ -1,14 +1,10 @@
 import Gallerie from './Gallerie';
 import images from '../../models/imageCategories';
 
-export default function Image(){
-   
-return(
+export default function ImageGallery() {
+  return (
     <>
-    <Gallerie
-      images={images}
-      priority={true}
-    />
+      <Gallerie images={images} priority={true} />
     </>
   );    
 }

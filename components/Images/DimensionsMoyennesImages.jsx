@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const DimensionsMoyennesImages  = (produits) => {
+export function DimensionsMoyennesImages(produits) {
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageHeight, setAverageHeight] = useState(0);
 
@@ -10,4 +10,4 @@ export const DimensionsMoyennesImages  = (produits) => {
   }, [produits]);
 
   return { averageWidth, averageHeight };
-};
+}

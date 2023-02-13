@@ -1,16 +1,17 @@
-import { Inter } from '@next/font/google'
-import styles from '/styles/Contact.module.css'
+import { Inter } from '@next/font/google';
+import styles from '/styles/Contact.module.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-const inter = Inter({ subsets: ['latin'] })
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Contact() {
-  return <>
-    <Header />
-    <main>
-    <h1 className={styles.titreContact}>Rendez nous visite</h1>
+  return (
+    <>
+      <Header />
+      <main>
+        <h1 className={styles.titreContact}>Rendez nous visite</h1>
         <div className={styles.bodyContact}>
-          
           <div className={styles.magasinContact}>
             <div className={styles.adresseContact}>
               <h2>Magasin Phare</h2>
@@ -61,10 +62,10 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          
-      </div>
-      <h1 className={styles.courriel}>Pour nous joindre : info@animago.com</h1>
+        </div>
+        <h1 className={styles.courriel}>Pour nous joindre : info@animago.com</h1>
       </main>
-    <Footer/>
-  </>
+      <Footer />
+    </>
+  );
 }

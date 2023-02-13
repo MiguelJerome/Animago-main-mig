@@ -21,7 +21,7 @@ export function Produitsdisponibles({ produits }) {
                 height={Number(averageHeight) || DEFAULT_HEIGHT}
                 onClick={() => router.push(`/produit/${name}`)}
               />
-              <div className={styles.cartFormWragpe}>
+              <div className={styles.cartFormWrapper}>
                 <p className={styles.productInfo}>{name}</p>
                 <p className={styles.productInfo}>${price}</p>
               </div>

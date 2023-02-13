@@ -1,5 +1,5 @@
-import { Inter } from '@next/font/google'
-import styles from '/styles/NotFound.module.css'
+import { Inter } from '@next/font/google';
+import styles from '/styles/NotFound.module.css';
 
 export default function PanierPleinEcranContenu() {
   return (
@@ -11,4 +11,3 @@ export default function PanierPleinEcranContenu() {
     </main>
   );
 }
-  
