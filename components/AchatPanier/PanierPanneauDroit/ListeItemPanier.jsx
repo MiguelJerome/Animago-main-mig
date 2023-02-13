@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
 import CheckoutPanier from '/public/img/cart.png';
 
-const ListeItemPanier = ({ cart, handleChange, removeFromCart, calculateTotal, total, submitCheckout }) => {
+const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calculateTotal, total, submitCheckout }) => {
   const router = useRouter();
 
   return (
@@ -26,7 +26,8 @@ const ListeItemPanier = ({ cart, handleChange, removeFromCart, calculateTotal, t
               <div>
                 <div className={styles.cartFormWragpe}>
                   <p className={styles.productInfo}>{item.name}</p>
-                  <p className={styles.productInfo}>${item.price}</p>
+                  <p className={styles.productInfo}>Prix: ${item.price}</p>
+                  <p className={styles.productInfo}>En Stock: {item.stock}</p>
                 </div>
                 <span>Qty:</span>
                 <input

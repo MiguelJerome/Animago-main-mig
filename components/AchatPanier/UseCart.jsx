@@ -25,5 +25,5 @@ import panier from '/models/panier.jsx';
       setCart(updatedCart);
     };
   
-    return [cart, initCart, addToCart, removeFromCart];
+    return [cart, initCart, addToCart, removeFromCart, setCart];
   };

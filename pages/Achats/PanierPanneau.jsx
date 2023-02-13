@@ -14,7 +14,7 @@ import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/Con
 
 
 export default function PanierPanneau() {
-  const [cart, initCart, setCart, removeFromCart] = useCart([]);
+  const [cart, initCart, addToCart, removeFromCart] = useCart();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [total, setTotal] = useState(0);
@@ -117,6 +117,7 @@ export default function PanierPanneau() {
                   calculateTotal={calculateTotal}
                   total={total}
                   submitCheckout={submitCheckout}
+                  addToCart={addToCart}
                 />
                 <Produitsdisponibles produits={produits} />
               </section>

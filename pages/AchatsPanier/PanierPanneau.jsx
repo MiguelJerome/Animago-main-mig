@@ -11,7 +11,7 @@ import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/Con
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
 export default function PanierPanneau() {
-  const [cart, initCart, setCart, removeFromCart] = useCart([]);
+  const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [total, setTotal] = useState(0);
@@ -31,7 +31,11 @@ export default function PanierPanneau() {
     if (Number.isInteger(value)) {
       const updatedCart = [...cart];
       const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-      const updatedItem = { ...updatedCart[itemIndex], purchaseQuantity: parseInt(value, 10) };
+      const stock = updatedCart[itemIndex].stock;
+      const updatedItem = {
+        ...updatedCart[itemIndex],
+        purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), stock) : 0
+      };
       const newCart = [
         ...updatedCart.slice(0, itemIndex),
         updatedItem,
@@ -40,7 +44,7 @@ export default function PanierPanneau() {
       setCart(newCart);
     }
   };
-
+  
   const calculateTotal = () => {
     let sum = 0;
     cart.forEach((item) => {
@@ -105,6 +109,7 @@ export default function PanierPanneau() {
                   calculateTotal={calculateTotal}
                   total={total}
                   submitCheckout={submitCheckout}
+                  addToCart={addToCart}
                 />
                 <Produitsdisponibles produits={produits} />
               </section>

@@ -1,4 +1,4 @@
-const quantiteExemple = 10;
+const quantiteExemple = 0;
 const defaultWidth = '100%';
 const defaultHeight = 'auto';
 
