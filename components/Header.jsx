@@ -46,7 +46,12 @@ export default function Header() {
                         onChange={handleChange}
                     />
                     <button className={styles.searchButton} type="submit">
-                        <Image src={search} className={styles.searchLogo} />
+                                <Image
+                                    src={search}
+                                    className={styles.searchLogo}
+                                    alt={'recherce' || 'Default Image'}
+                                    priority={true}
+                                />
                     </button>
                 </form>
                 <div className={`${styles.appelezNous}`}>
