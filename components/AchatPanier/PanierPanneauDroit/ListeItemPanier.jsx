@@ -22,7 +22,6 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
                 width={Number(item.averageWidth) || 100}
                 height={Number(item.averageHeight) || 100}
                 onClick={() => router.push(`/produit/${item.name}`)}
-                priority={true}
               />
               <div>
                 <div className={styles.cartFormWragpe}>
@@ -58,7 +57,6 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
             src={CheckoutPanier}
             alt={"Checkout Panier" || 'Default Image'}
             className={styles.imgCheckout}
-            priority={true}
           />
         </button>
         <span>(log in to check out)</span>

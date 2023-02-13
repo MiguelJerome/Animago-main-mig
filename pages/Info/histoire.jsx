@@ -20,7 +20,6 @@ export default function Histoire() {
           src={ChienHistoire}
           alt={'Un chien pour histoire' || 'Default Image'}
           className={styles.imgResize}
-          priority={true}
         />
         </div>
       </main>

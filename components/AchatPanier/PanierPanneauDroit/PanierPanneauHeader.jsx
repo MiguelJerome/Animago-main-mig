@@ -16,7 +16,6 @@ function PanierPanneauHeader({ router }) {
           src={CloseIcon}
           alt={"fermer panier" || 'Default Image'}
           className={styles.closeIcon}
-          priority={true}
         />
       </button>
       <h2 className={styles.title}>Panier</h2>

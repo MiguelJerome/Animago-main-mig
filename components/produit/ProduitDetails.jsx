@@ -28,7 +28,6 @@ export default function ProduitDetails({ product }) {
                             src={product.src}
                             alt={product.alt || 'Default Image'}
                             width={product.width} height={product.height}
-                            priority={true}
                         />
                         <p className={styles.p}>Produit#: {product._id}</p>
                         <p className={styles.p}>Categorie: {product.categorie}</p>

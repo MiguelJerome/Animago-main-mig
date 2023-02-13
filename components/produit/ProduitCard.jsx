@@ -53,7 +53,6 @@ export default function ProduitCard({ produits }) {
             width={Number(averageWidth) || 400}
             height={Number(averageHeight) || 400}
             onClick={() => router.push(`/produit/${name}`)}
-            priority={true}
           />
             <div className={styles.imageInfo}>
             <p className={styles.imageId}>Produit</p>
