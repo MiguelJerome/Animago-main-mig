@@ -15,7 +15,7 @@ export default function Footer() {
           <section>
             <div className={styles.container}>
               <div className={`${styles.catchPhrase} ${styles.containerP}`}>
-                <h3 className={styles.h3}>Notre magasin phare</h3>
+                <h3 className={styles.h3}>Notre magasin</h3>
                 <span>801 Aviation Pkwy</span>
                 <span>Ottawa, ON K1K 4R3</span>
                 <span>Tel: 1(800) ANI-MAGO</span>

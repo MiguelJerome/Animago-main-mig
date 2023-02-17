@@ -1,0 +1,72 @@
+[
+    {
+    "panier": {
+    "produits": [
+    {
+    "_id": 30,
+    "categorie": "Clothing",
+    "stock": 10,
+    "price": 50,
+    "name": "T-shirt",
+    "description": "A comfortable cotton t-shirt",
+    "src": "https://example.com/tshirt.jpg",
+    "alt": "T-shirt",
+    "width": 500,
+    "height": 500
+    },
+    {
+    "_id": 2,
+    "categorie": "Shoes",
+    "stock": 5,
+    "price": 100,
+    "name": "Sneakers",
+    "description": "A stylish pair of sneakers",
+    "src": "https://example.com/sneakers.jpg",
+    "alt": "Sneakers",
+    "width": 500,
+    "height": 500
+    }
+    ],
+    "quantiteAchat": 2,
+    "achatGrandTotal": 150,
+    "purchaseTotalQuantitePerProduit": 2
+    },
+    "user": {
+    "courriel": "user1@example.com",
+    "mot_passe": "password123",
+    "prenom": "User",
+    "nom": "One",
+    "commandes": []
+    },
+    "date": "2022-01-01T00:00:00.000Z"
+    },
+    {
+    "panier": {
+    "produits": [
+    {
+    "_id": 30,
+    "categorie": "Accessories",
+    "stock": 20,
+    "price": 25,
+    "name": "Bag",
+    "description": "A spacious and practical bag",
+    "src": "https://example.com/bag.jpg",
+    "alt": "Bag",
+    "width": 500,
+    "height": 500
+    }
+    ],
+    "quantiteAchat": 1,
+    "achatGrandTotal": 25,
+    "purchaseTotalQuantitePerProduit": 1
+    },
+    "user": {
+    "courriel": "user2@example.com",
+    "mot_passe": "password456",
+    "prenom": "User",
+    "nom": "Two",
+    "commandes": []
+    },
+    "date": "2022-02-01T00:00:00.000Z"
+    }
+    ]

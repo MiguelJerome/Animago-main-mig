@@ -1,0 +1,21 @@
+[  
+  {
+    "produits": [
+      {
+        "_id": 30,
+        "categorie": "Accessories",
+        "stock": 20,
+        "price": 25,
+        "name": "Bag",
+        "description": "A spacious and practical bag",
+        "src": "https://example.com/bag.jpg",
+        "alt": "Bag",
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "quantiteAchat": 1,
+    "achatGrandTotal": 25,
+    "purchaseTotalQuantitePerProduit": 1
+  }
+]

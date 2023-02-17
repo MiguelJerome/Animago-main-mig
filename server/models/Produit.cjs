@@ -13,6 +13,12 @@ const produitSchema = new mongoose.Schema({
   height: { type: Number, required: true },
 });
 
-const Produit = mongoose.model("Produit", produitSchema);
+let Produit;
+
+try {
+  Produit = mongoose.model("Produit");
+} catch (error) {
+  Produit = mongoose.model("Produit", produitSchema);
+}
 
 module.exports = Produit;

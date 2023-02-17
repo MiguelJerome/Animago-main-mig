@@ -35,3 +35,9 @@
     cursor: pointer;
     transform: translateY(-70px);
 }
+@media (max-width: 550px) {
+    .imgLogo{
+        width: 90px;
+        min-width: 90px;
+    }
+}

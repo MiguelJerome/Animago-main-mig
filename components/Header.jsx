@@ -9,6 +9,7 @@ import youtube from '../public/img/youtube.svg';
 import search from '../public/img/search.png';
 import Login from '../public/img/login.png';
 import Cart from '../public/img/cart.png';
+import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 
 export default function Header() {
     const [query, setQuery] = useState("");
@@ -23,6 +24,12 @@ export default function Header() {
         router.push(`/produit/${query}`);
         console.log(`Searching for: ${query}`);
     };
+
+    const [visibleState, setVisible] = useState();
+
+    const toggler = () => {
+        setVisible(!visibleState);
+    }
 
     return (
         <>
@@ -106,18 +113,24 @@ export default function Header() {
                                     priority={true}
                                 />
                             </a>
-                            <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
-                            <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
+                            <div>
+                                <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
+                                <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
+                            </div>
                         </div>
                         <div className={styles.menuProductList}>
-                            <a onClick={() => router.push("/AchatsPanier/PanierPanneau")}>
+                            <a className={styles.aLogin}>
                                 <Image
                                     src={Cart}
                                     alt={'lien pour se connecter' || 'Default Image'}
                                     className={styles.loginCart}
                                     priority={true}
+                                    onClick={toggler} 
                                 />
                             </a>
+                            {visibleState &&
+                                <PanierPanneau toggler = {toggler}/>
+                            }
                         </div>
                     </div>
                 </div>

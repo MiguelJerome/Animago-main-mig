@@ -10,9 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function PanierPleinEcran() {
   return (
     <>
-      <Header />
       <PanierPleinEcranContenu />
-      <Footer />
     </>
   );
 }

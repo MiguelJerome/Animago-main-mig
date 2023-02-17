@@ -26,7 +26,9 @@
     .catchPhrase {
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: auto;
+    margin-top: 0;
+    padding: 0;
     }
     
     .iconReseaux {
@@ -77,4 +79,19 @@
         margin-block-end: 0em;
         margin-top: 1.5rem;
         margin-bottom: 1rem;
+    }
+    @media (max-width: 1000px) {
+        .menuFooterList{
+            font-size: 1rem;
+        }
+        .containerP{
+            margin: 0;
+        }
+        .catchPhrase{
+            font-size: 1.2rem;
+        }
+        .img{
+            width: 3rem;
+            height: auto;
+        }
     }

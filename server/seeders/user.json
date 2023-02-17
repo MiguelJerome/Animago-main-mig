@@ -1,38 +1,44 @@
 [
     { 
-        "username" : "Madge.Feil", 
-        "email" : "Madge.Feil_Fadel@yahoo.com", 
-        "password" : "oKEuEU4FnlO4Efs", 
-        "produits" : [] 
+        "courriel" : "Madge.Feil_Fadel@yahoo.com", 
+        "mot_passe" : "oKEuEU4FnlO4Efs", 
+        "prenom" : "Madge", 
+        "nom" : "Feil", 
+        "commandes" : [] 
     },
     { 
-        "username" : "Alta.Kemmer20", 
-        "email" : "Alta.Kemmer20.Gibson@hotmail.com", 
-        "password" : "q4PGoZonm_KnlU7", 
-        "produits" : [] 
+        "courriel" : "Alta.Kemmer20.Gibson@hotmail.com", 
+        "mot_passe" : "q4PGoZonm_KnlU7", 
+        "prenom" : "Alta", 
+        "nom" : "Kemmer", 
+        "commandes" : [] 
     },
     { 
-        "username" : "Vladimir_Block", 
-        "email" : "Vladimir_Block_Feil41@hotmail.com", 
-        "password" : "q9AgUcyAQPmK5jJ", 
-        "produits" : [] 
+        "courriel" : "Vladimir_Block_Feil41@hotmail.com", 
+        "mot_passe" : "q9AgUcyAQPmK5jJ", 
+        "prenom" : "Vladimir", 
+        "nom" : "Block", 
+        "commandes" : [] 
     },
     { 
-        "username" : "Mona_Hilll", 
-        "email" : "Mona_Hilll_Zemlak@hotmail.com", 
-        "password" : "GkOySb7J56E0Hpz", 
-        "produits" : [] 
+        "courriel" : "Mona_Hilll_Zemlak@hotmail.com", 
+        "mot_passe" : "GkOySb7J56E0Hpz", 
+        "prenom" : "Mona", 
+        "nom" : "Hill", 
+        "commandes" : [] 
     },
     { 
-        "username" : "Alice_Simonis", 
-        "email" : "Alice_Simonis8@gmail.com", 
-        "password" : "ElVXqVGn9Tm_L38", 
-        "produits" : [] 
+        "courriel" : "Alice_Simonis8@gmail.com", 
+        "mot_passe" : "ElVXqVGn9Tm_L38", 
+        "prenom" : "Alice", 
+        "nom" : "Simonis", 
+        "commandes" : [] 
     },
     { 
-        "username" : "Ayana.Bogisich", 
-        "email" : "Ayana.Bogisich.Stoltenberg@yahoo.com", 
-        "password" : "IjiJJXVWzlfLwA9", 
-        "produits" : [] 
+        "courriel" : "Ayana.Bogisich.Stoltenberg@yahoo.com", 
+        "mot_passe" : "IjiJJXVWzlfLwA9", 
+        "prenom" : "Ayana", 
+        "nom" : "Bogisich", 
+        "commandes" : [] 
     }
 ]

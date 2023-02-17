@@ -1,27 +1,25 @@
 const mongoose = require("mongoose");
+const Commande = require("./Commande1.cjs");
 
 const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  produits: [
+  courriel: { type: String, required: true, unique: true },
+  mot_passe: { type: String, required: true },
+  prenom: { type: String, required: true },
+  nom: { type: String, required: true },
+  commandes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Produit",
+      ref: "Commande",
     },
   ],
 });
 
-const User = mongoose.model("User", userSchema);
+let User;
+
+try {
+  User = mongoose.model("User");
+} catch (error) {
+  User = mongoose.model("User", userSchema);
+}
 
 module.exports = User;

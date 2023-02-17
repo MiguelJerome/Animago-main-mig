@@ -1,8 +1,11 @@
-import mongoose from "mongoose";
-import userSchema from "../User.cjs";
-import produitSchema from "./Produit.cjs";
+const Commande = require("./Commande1.cjs");
+const Panier = require("./Panier1.cjs");
+const Produit = require("./Produit.cjs");
+const User = require("./User.cjs");
 
-const User = mongoose.model("User", userSchema);
-const Produit = mongoose.model("Produit", produitSchema);
-
-export default { User, Produit };
+module.exports = {
+  Commande,
+  Panier,
+  Produit,
+  User,
+};
