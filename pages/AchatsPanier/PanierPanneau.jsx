@@ -8,7 +8,7 @@ import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/Pani
 import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import Toggler from '../../components/Toggler'
-
+//window.location.reload();
 export default function PanierPanneau({toggler}) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
@@ -22,6 +22,20 @@ export default function PanierPanneau({toggler}) {
   useEffect(() => {
     calcTotal();
   }, [cart]);
+
+  useEffect(() => {
+    if (orders.length > 0) {
+      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${total}`);
+      setCart([]);
+      setOrders([]);
+      router.push({
+        pathname: '/AchatsPanier/HistoriqueCommande',
+        query: { orders: JSON.stringify(orders) },
+      }); 
+     
+    }
+   
+  }, [orders]);
 
 
   const handleChange = (item, value) => {
@@ -67,15 +81,9 @@ export default function PanierPanneau({toggler}) {
         productIds.push(item._id);
       }
     });
+
+    setOrders([...orders, cart]);
    
-    alert(`Merci d'avoir acheté avec Animago ! 
-          Voici le grand total de votre commande $${total}`);
-        setOrders([...orders, cart]);
-        setCart([]);
-        router.push({
-          pathname: '/AchatsPanier/HistoriqueCommande',
-          query: { orders: JSON.stringify([...orders, cart]) },
-        });
   };
 
   return (

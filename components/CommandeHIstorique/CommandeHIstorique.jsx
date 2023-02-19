@@ -25,8 +25,8 @@ export default function CommandeHIstorique({ cart, purchaseDate, purchaseTime, c
                                                 className={`${styles.imgCard} ${styles.img}`}
                                                 src={item.src}
                                                 alt={item.alt || 'Default Image'}
-                                                width={Number(item.averageWidth) || 100}
-                                                height={Number(item.averageHeight) || 100}
+                                                width={Number(item.averageWidth) || 400}
+                                                height={Number(item.averageHeight) || 400}
                                                 onClick={() => router.push(`/produit/${item.name}`)}
                                             />
                                             <div>
