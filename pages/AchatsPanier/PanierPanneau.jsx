@@ -72,7 +72,10 @@ export default function PanierPanneau({toggler}) {
           Voici le grand total de votre commande $${total}`);
         setOrders([...orders, cart]);
         setCart([]);
-        router.push('/AchatsPanier/HistoriqueCommande');  
+        router.push({
+          pathname: '/AchatsPanier/HistoriqueCommande',
+          query: { orders: JSON.stringify([...orders, cart]) },
+        });
   };
 
   return (
