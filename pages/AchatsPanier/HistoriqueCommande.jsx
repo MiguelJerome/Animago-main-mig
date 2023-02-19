@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function HistoriqueCommande({ purchaseDate, orders }) {
   const [orderHistory, setOrderHistory] = useState(orders);
-  let cart = [];
+ let cart = [];
 
  //console.log("Orders in string passing from the current cart", orders);
 

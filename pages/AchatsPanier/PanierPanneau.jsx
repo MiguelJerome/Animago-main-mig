@@ -8,7 +8,7 @@ import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/Pani
 import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import Toggler from '../../components/Toggler'
-//window.location.reload();
+
 export default function PanierPanneau({toggler}) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
