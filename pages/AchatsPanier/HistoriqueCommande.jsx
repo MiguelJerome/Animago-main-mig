@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Inter } from '@next/font/google';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import OrderHistory from '/components/CommandeHIstorique/CommandeHIstorique.jsx';
 
+
 import styles from '/styles/Cart.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function HistoriqueCommande({ purchaseDate, orders }) {
+  const [orderHistory, setOrderHistory] = useState(orders);
   let cart = [];
+
+ //console.log("Orders in string passing from the current cart", orders);
 
   if (typeof orders === 'string') {
     try {
@@ -19,11 +24,13 @@ export default function HistoriqueCommande({ purchaseDate, orders }) {
       console.error('Error parsing orders:', error);
     }
   }
-
+ // console.log("Cart in string ", cart);
+  
+   console.log("Order History in string ", orderHistory);
   return (
     <>
       <Header />
-      <OrderHistory cart={cart} purchaseDate={purchaseDate} />
+      <OrderHistory orders={orderHistory} cart={cart} purchaseDate={purchaseDate} />
       <Footer />
     </>
   );

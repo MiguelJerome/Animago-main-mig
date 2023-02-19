@@ -3,17 +3,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
 
-export default function OrderHistory({ cart, purchaseDate }) {
+export default function OrderHistory({ cart, purchaseDate, orders }) {
     const router = useRouter();
-    
+    console.log("Cart order is Now",orders);
     return (
         <div className={styles.containerMainOrder}>
             <div className={styles.OrderTitle}>
                 <h2>Historique des commandes pour {purchaseDate} </h2>
             </div>
-            {cart && cart.length > 0 ? (
+            {orders && orders.length > 0 ? (
                 <ul className={styles.produitsDisponibles}>
-                    {cart.map((item) => (
+                    {orders.map((item) => (
                         <li key={item._id} className={styles.produitDisponible}>
                             <Image
                                 className={`${styles.imgCard} ${styles.img}`}
