@@ -39,6 +39,7 @@ export default function HistoriqueCommande({ purchaseDate, orders }) {
 export async function getServerSideProps(context) {
   const { orders } = context.query;
   const currentDate = new Date().toLocaleDateString();
+  const currentTime = new Date().toISOString();
 
   // If the orders parameter is present in the query string, parse it from a string back into an array.
   const ordersArray = orders ? JSON.parse(orders) : [];
@@ -46,6 +47,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       purchaseDate: currentDate,
+      currentTime: currentTime,
       orders: ordersArray || [],
     },
   };
