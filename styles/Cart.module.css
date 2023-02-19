@@ -15,13 +15,15 @@
 }
 
 .containerMainOrder{
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: end;
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin: 5rem 10rem;
   align-content: center;
-  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
 
 .h1 {
@@ -230,6 +232,8 @@
   background-color: #ffc107;
   color: black;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 
 .imgCard {

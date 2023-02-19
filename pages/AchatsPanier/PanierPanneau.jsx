@@ -68,7 +68,8 @@ export default function PanierPanneau({toggler}) {
       }
     });
    
-        alert('Thank you for shopping with Animago!');
+    alert(`Merci d'avoir acheté avec Animago ! 
+          Voici le grand total de votre commande $${total}`);
         setOrders([...orders, cart]);
         setCart([]);
         router.push('/AchatsPanier/HistoriqueCommande');  
