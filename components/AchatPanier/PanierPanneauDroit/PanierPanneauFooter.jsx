@@ -4,21 +4,20 @@ import styles from '/styles/Cart.module.css';
 
 const PanierPanneauFooter = ({ router }) => {
   const handleViewCartClick = () => {
-    router.push('/AchatsPanier/PanierPleinEcran');
+    router.push('/AchatsPanier/HistoriqueCommande');
   };
 
   return (
     <div className={styles.footer}>
-      <button className={styles.boutonVoirPanier} onClick={handleViewCartClick}>
-        Voir le panier
+      <button className={styles.boutonVoirCommande} onClick={handleViewCartClick}>
+      Historique commandes
       </button>
     </div>
   );
 };
 
 PanierPanneauFooter.propTypes = {
-  closePanel: PropTypes.func.isRequired,
-  router: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 };
 
 export default PanierPanneauFooter;

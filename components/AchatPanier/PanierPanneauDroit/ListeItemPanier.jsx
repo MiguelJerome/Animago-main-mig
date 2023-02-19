@@ -24,7 +24,7 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
                 onClick={() => router.push(`/produit/${item.name}`)}
               />
               <div>
-                <div className={styles.cartFormWragpe}>
+                <div className={styles.cartFormWragper}>
                   <p className={styles.productInfo}>{item.name}</p>
                   <p className={styles.productInfo}>Prix: ${item.price}</p>
                   <p className={styles.productInfo}>En Stock: {item.stock}</p>
