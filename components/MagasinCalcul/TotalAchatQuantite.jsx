@@ -7,3 +7,4 @@ export default function TotalAchatQuantite({ cart }) {
   });
   return <>{sum.toFixed(0)}</>;
 }
+

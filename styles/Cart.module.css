@@ -299,3 +299,9 @@
 .OrderTitle{
   display:flex;
 }
+
+.imgSpinner{
+  margin:auto;
+  width: 5rem;
+  height: 5rem;
+}
