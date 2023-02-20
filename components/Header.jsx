@@ -33,8 +33,6 @@ export default function Header() {
 
     return (
         <>
-            
-
             <header>
                 <div className={styles.headerLivraison}>
                     <p className={styles.p}>

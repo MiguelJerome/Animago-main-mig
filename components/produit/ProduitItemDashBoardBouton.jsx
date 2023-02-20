@@ -1,5 +1,6 @@
 import styles from '/styles/ProduitCard.module.css';
 import AjouterEnleverPanier from './AjouterEnleverPanier';
+import ProduitItemBtnAjouterPanier from "./PanierItemBtnAjouterPanier"
 
 export default function ProduitItemDashBoardBouton({ stock, depart, product, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite }) {
   const { _id, name, price } = product;
@@ -25,12 +26,7 @@ export default function ProduitItemDashBoardBouton({ stock, depart, product, add
         onClearDepart={clearDepart}
         quantite={quantite}
       />
-      <button
-        className={styles.button}
-        onClick={handleAddToCartClick}
-      >
-        Ajouter au Panier
-      </button>
+      <ProduitItemBtnAjouterPanier handleAddToCartClick={handleAddToCartClick} />
     </div>
   );
 }
