@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styles from '/styles/Cart.module.css';
+import styles from '/styles/CommandeHistorique/CommandeHistorique.module.css';
 
 export default function CommandeHIstorique({ cart, purchaseDate, purchaseTime, currentTime, orders }) {
   const router = useRouter();

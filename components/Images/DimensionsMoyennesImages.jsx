@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export function DimensionsMoyennesImages(produits) {
+export default function DimensionsMoyennesImages({ products, children }) {
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageHeight, setAverageHeight] = useState(0);
 
   useEffect(() => {
-    setAverageWidth(produits.reduce((max, { width }) => Math.max(max, width), 0));
-    setAverageHeight(produits.reduce((max, { height }) => Math.max(max, height), 0));
-  }, [produits]);
+    if (products) {
+      setAverageWidth(Math.max(...products.map((p) => p.width), 0));
+      setAverageHeight(Math.max(...products.map((p) => p.height), 0));
+    }
+  }, [products]);
 
-  return { averageWidth, averageHeight };
+  return children({ averageWidth, averageHeight });
 }
