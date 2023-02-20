@@ -25,6 +25,9 @@
     position: relative;
     min-height: 50vh;
     overflow: hidden;
+    background-color: rgb(255, 220, 182);
+    border-radius: 2rem;
+    margin: 2rem 1rem;
   }
 
   .containerBouttonAchat{
@@ -34,6 +37,10 @@
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     margin: 3rem .1rem;
+}
+
+.containerItem {
+  box-shadow: 0 30px 40px rgba(255, 220, 182, 0.67);
 }
   
   .img {
@@ -77,7 +84,7 @@
 
   .dashBoardButton{
     display: flex;
-    background-color: black;
+    background-color: rgb(95, 95, 95);
     color: white;
     cursor: pointer;
     border: none;
@@ -94,7 +101,7 @@
   }
 
   .dashBoardButton:hover{
-    background-color: white;
+    cursor: default;
     color: black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
@@ -113,7 +120,7 @@
 
   .imageId{
     font-size: 1.3em;
-    color:#ff8a00;
+    color:#000000;
     margin: .5rem 0;
   }
   .imageName{
@@ -150,4 +157,21 @@
     background-color: rgb(240,230,140);
 }
 
-  
+@media (max-width: 900px) {
+  .gallerie{
+    width: 500px;
+  }
+  .imageName{
+    font-size: 1.5rem;
+  }
+  .imagePrice{
+    font-size: 1.5rem;
+  }
+  .stock{
+    font-size: 1.5rem;
+    padding: 0.5rem 1.2rem;
+  }
+  .imageStock{
+    font-size: 1.5rem;
+  }
+}
