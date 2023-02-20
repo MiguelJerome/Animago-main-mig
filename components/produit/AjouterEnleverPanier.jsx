@@ -7,9 +7,11 @@ export default function AjouterEnleverPanier({ product, depart, stock, onQuantit
   const [cart, addToCart] = useCart();
 
   const incrementer = () => {
-    setQuantite(quantite < stock ? quantite + 1 : quantite);
-    addToCart(product, 1);
-    onQuantityChange(quantite + 1); 
+    if (quantite < stock) {
+      setQuantite(quantite + 1);
+      addToCart(product, 1);
+      onQuantityChange(quantite + 1); 
+    }
   };
 
   const decrementer = () => {
