@@ -34,13 +34,17 @@ export default function ProduitItem({ product, averageWidth, averageHeight, rout
             onQuantityChange={handleQuantityChange}
             onAddToCart={() => {
               addToCart({ _id, name, price }, quantite);
-              handleAddToCart({ _id, stock }, quantite);
+              handleAddToCart({ _id, stock }, quantite, () => handleQuantityChange(0));
             }}
             onClearDepart={clearDepart}
+            quantite={quantite}
           />
           <button
             className={styles.button}
-            onClick={() => handleAddToCart({ _id, stock }, quantite)}
+            onClick={() => {
+              handleAddToCart({ _id, stock }, quantite);
+              clearDepart();
+            }}
           >
             Ajouter au Panier
           </button>

@@ -8,24 +8,26 @@ export default function AjouterEnleverPanier({ product, depart, stock, onQuantit
 
   const incrementer = () => {
     if (quantite < stock) {
-      setQuantite(quantite + 1);
+      const newQuantity = quantite + 1;
+      setQuantite(newQuantity);
       addToCart(product, 1);
-      onQuantityChange(quantite + 1); 
+      onQuantityChange(newQuantity); 
     }
   };
-
+  
   const decrementer = () => {
-    setQuantite(quantite > 0 ? quantite - 1 : quantite);
+    const newQuantity = quantite > 0 ? quantite - 1 : quantite;
+    setQuantite(newQuantity);
     addToCart(product, -1);
-    onQuantityChange(quantite - 1); 
+    onQuantityChange(newQuantity); 
   };
-
+  
   const clearDepart = () => {
     setQuantite(0);
     addToCart(product, -quantite);
     onQuantityChange(0); 
   };
-
+  
   return (
     <div className={styles.achatWrapper}>
       <button className={styles.buttonClear} onClick={clearDepart}>Clear</button>

@@ -31,6 +31,7 @@ export default function ProduitCard({ produits }) {
       ...produitsState.slice(productIndex + 1),
     ];
     setProduits(updatedProduits);
+    setQuantite(0); 
   };
 
   return (
