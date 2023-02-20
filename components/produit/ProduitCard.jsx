@@ -7,17 +7,8 @@ import ProduitItem from "/components/produit/ProduitItem.jsx";
 
 export default function ProduitCard({ produits }) {
   const [produitsState, setProduits] = useState(produits);
-  const [quantite, setQuantite] = useState(0);
   const router = useRouter();
   const [, addToCart] = useCart();
-
-  const clearDepart = () => {
-    setQuantite(0);
-  };
-
-  const handleQuantityChange = (newQuantity) => {
-    setQuantite(newQuantity);
-  };
 
   const handleAddToCart = ({ _id, stock }, quantity) => {
     if (quantity > stock) {
@@ -31,14 +22,7 @@ export default function ProduitCard({ produits }) {
       ...produitsState.slice(productIndex + 1),
     ];
     setProduits(updatedProduits);
-    setQuantite(0); 
   };
-
-  const handleAddToCartClick = (newDepart) => {
-    handleAddToCart({ _id, stock }, quantite);
-    clearDepart(newDepart);
-  };
-  
 
   return (
     <div className={styles.gallerie}>
@@ -54,10 +38,6 @@ export default function ProduitCard({ produits }) {
                 router={router}
                 addToCart={addToCart}
                 handleAddToCart={handleAddToCart}
-                handleQuantityChange={handleQuantityChange}
-                clearDepart={clearDepart}
-                quantite={quantite}
-                handleAddToCartClick={handleAddToCartClick} // pass the new handler function
               />
             ))}
           </>
