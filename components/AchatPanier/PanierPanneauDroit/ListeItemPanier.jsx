@@ -21,6 +21,7 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
                 alt={item.alt || 'Default Image'}
                 width={Number(item.averageWidth) || 100}
                 height={Number(item.averageHeight) || 100}
+                priority={true}
                 onClick={() => router.push(`/produit/${item.name}`)}
               />
               <div>
@@ -56,6 +57,7 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
           <Image
             src={CheckoutPanier}
             alt={"Checkout Panier" || 'Default Image'}
+            priority={true}
             className={styles.imgCheckout}
           />
         </button>

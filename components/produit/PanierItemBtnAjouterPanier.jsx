@@ -3,7 +3,7 @@ import styles from '/styles/ProduitCard.module.css';
 import { useRouter } from 'next/router';
 import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 
-export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick }) {
+export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick,quantite }) {
   const router = useRouter();
   const [visibleState, setVisible] = useState(false);
 
@@ -12,16 +12,20 @@ export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick }) {
   };
 
   const handleClick = () => {
-    handleAddToCartClick();
+    handleAddToCartClick(0);
     toggler();
   };
 
   return (
     <>
       <button className={styles.button} onClick={handleClick}>
-        Ajouter au Panier
+        Ajouter {quantite > 0 ? `(${quantite})` : ''} au Panier
       </button>
-      {visibleState && <PanierPanneau toggler={toggler} />}
+      {/*
+      {visibleState && 
+        <PanierPanneau toggler={toggler}/>
+      }
+      */}
     </>
   );
 }

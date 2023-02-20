@@ -15,7 +15,7 @@ function Gallerie({ images }) {
             alt={imageData.alt || 'Default Image'}
             width={imageData.width}
             height={imageData.height}
-            priority
+            priority={true}
           />
           <p className={styles.text}>{imageData.categorie}</p>
           <button className={styles.button} onClick={() => router.push(imageData.page)}>Achetez maintenant</button>

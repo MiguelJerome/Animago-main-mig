@@ -10,10 +10,12 @@ export default function ProduitItemDashBoardBouton({ stock, depart, product, add
     handleAddToCart({ _id, stock }, quantite, () => handleQuantityChange(0));
   };
 
-  const handleAddToCartClick = () => {
-    handleAddToCart({ _id, stock }, quantite);
-    clearDepart();
+  const handleAddToCartClick = (newDepart) => {
+    handleAddToCart({ _id, stock }, quantite, () => handleQuantityChange(0));
+    clearDepart(newDepart);
   };
+  
+  
 
   return (
     <div className={styles.dashBoardButton}>
@@ -26,7 +28,7 @@ export default function ProduitItemDashBoardBouton({ stock, depart, product, add
         onClearDepart={clearDepart}
         quantite={quantite}
       />
-      <ProduitItemBtnAjouterPanier handleAddToCartClick={handleAddToCartClick} />
+      <ProduitItemBtnAjouterPanier handleAddToCartClick={handleAddToCartClick} clearDepart={clearDepart} />
     </div>
   );
 }

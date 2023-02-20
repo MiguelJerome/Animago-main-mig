@@ -19,6 +19,7 @@ export function Produitsdisponibles({ produits }) {
                 alt={alt || 'Default Image' }
                 width={Number(averageWidth) || DEFAULT_WIDTH}
                 height={Number(averageHeight) || DEFAULT_HEIGHT}
+                priority={true}
                 onClick={() => router.push(`/produit/${name}`)}
               />
               <div className={styles.cartFormWrapper}>

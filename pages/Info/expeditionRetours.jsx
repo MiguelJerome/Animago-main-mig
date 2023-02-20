@@ -11,8 +11,8 @@ export default function Expedition() {
       <Header />
       <main className={styles.bodyExpedition}>
         <div className={styles.contenuExpedition}>
-          <h1 className={styles.titreExpedition}>Expédition & Retours</h1>
-          <h3 className={styles.soustitreExpedition}>Politique d'expédition</h3>
+          <p className={styles.titreExpedition}>Expédition & Retours</p>
+          <p className={styles.soustitreExpedition}>Politique d'expédition</p>
           <p className={styles.contenuExpedition}>
             Si nous connaissons un volume élevé de commandes, les expéditions peuvent être retardées de quelques jours. S'il vous plaît
             prévoir des jours supplémentaires en transit pour la livraison. S'il y a un retard important dans l'expédition de votre

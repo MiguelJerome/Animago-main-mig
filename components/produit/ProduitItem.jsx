@@ -3,7 +3,7 @@ import ProduitInfo from '/components/produit/ProduitItemInfo.jsx';
 import ProduitItemImage from '/components/produit/ProduitItemImage.jsx';
 import React from 'react';
 
-export default function ProduitItem({ product, averageWidth, averageHeight, router, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite }) {
+export default function ProduitItem({ product, averageWidth, averageHeight, router, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite, handleAddToCartClick }) {
   return (
     <div key={product._id} className={`${styles.container} ${styles.containerItem}`}>
       <ProduitItemImage product={product} averageWidth={averageWidth} averageHeight={averageHeight} router={router} />
@@ -14,6 +14,7 @@ export default function ProduitItem({ product, averageWidth, averageHeight, rout
         handleQuantityChange={handleQuantityChange}
         clearDepart={clearDepart}
         quantite={quantite}
+        handleAddToCartClick={handleAddToCartClick}
       />
     </div>
   );

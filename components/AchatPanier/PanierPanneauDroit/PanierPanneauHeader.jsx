@@ -12,6 +12,7 @@ function PanierPanneauHeader({ toggler }) {
         <Image
           src={CloseIcon}
           alt={"fermer panier" || 'Default Image'}
+          priority={true}
           className={styles.closeIcon}
         />
       </button>

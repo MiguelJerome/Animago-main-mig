@@ -22,15 +22,17 @@ export default function AjouterEnleverPanier({ product, depart, stock, onQuantit
     onQuantityChange(newQuantity); 
   };
   
-  const clearDepart = () => {
+  const clearDepart = (newDepart) => {
     setQuantite(0);
     addToCart(product, -quantite);
-    onQuantityChange(0); 
+    onQuantityChange(0);
+    onQuantityChange(newDepart); 
   };
+  
   
   return (
     <div className={styles.achatWrapper}>
-      <button className={styles.buttonClear} onClick={clearDepart}>Clear</button>
+      <button className={styles.buttonClear} onClick={() => clearDepart(0)}>Clear</button>
       <div><button className={styles.button} onClick={decrementer}>-</button></div>
       <div className={styles.panierItemQuantite}>{quantite}</div>
       <div><button className={styles.button} onClick={incrementer}>+</button></div>

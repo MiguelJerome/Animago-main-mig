@@ -34,6 +34,12 @@ export default function ProduitCard({ produits }) {
     setQuantite(0); 
   };
 
+  const handleAddToCartClick = (newDepart) => {
+    handleAddToCart({ _id, stock }, quantite);
+    clearDepart(newDepart);
+  };
+  
+
   return (
     <div className={styles.gallerie}>
       <DimensionsMoyennesImages produits={produitsState}>
@@ -51,6 +57,7 @@ export default function ProduitCard({ produits }) {
                 handleQuantityChange={handleQuantityChange}
                 clearDepart={clearDepart}
                 quantite={quantite}
+                handleAddToCartClick={handleAddToCartClick} // pass the new handler function
               />
             ))}
           </>

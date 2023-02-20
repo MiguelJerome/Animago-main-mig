@@ -10,8 +10,9 @@ export default function ProduitItemImage({ product, averageWidth, averageHeight,
         className={styles.imgCard}
         src={src}
         alt={alt || 'Default Image'}
-        width={Number(averageWidth) || 400}
-        height={Number(averageHeight) || 400}
+        width={Number(averageWidth) || 250}
+        height={Number(averageHeight) || 250}
+        priority={true}
         onClick={() => router.push(`/produit/${product.name}`)}
       />
     </div>
