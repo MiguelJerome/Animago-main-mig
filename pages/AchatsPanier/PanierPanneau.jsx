@@ -8,6 +8,8 @@ import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/Pani
 import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import Toggler from '../../components/Toggler';
+import TotalAchatQuantite from '/components/MagasinCalcul/TotalAchatQuantite';
+import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
 export default function PanierPanneau({toggler}) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
@@ -25,6 +27,7 @@ export default function PanierPanneau({toggler}) {
 
   useEffect(() => {
     if (orders.length > 0) {
+//      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${TotalAchatParItemResultat({ cart })}`);
       alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${total}`);
       setCart([]);
       setOrders([]);
@@ -56,14 +59,6 @@ export default function PanierPanneau({toggler}) {
     }
   };
   
-  const calculateTotal = () => {
-    let sum = 0;
-    cart.forEach((item) => {
-      sum += parseInt(item.purchaseQuantity);
-    });
-    return sum.toFixed(0);
-  };
-
   const calcTotal = () => {
     let sum = 0;
     cart.forEach((item) => {
@@ -93,16 +88,16 @@ export default function PanierPanneau({toggler}) {
             <PanierPanneauHeader toggler={toggler} />
             <div className={styles.containerLayout}>
               <section className={styles.section}>
-                <ContenuPanneauPanier
-                  cart={cart}
-                  handleChange={handleChange}
-                  removeFromCart={removeFromCart}
-                  router={router}
-                  calculateTotal={calculateTotal}
-                  total={total}
-                  submitCheckout={submitCheckout}
-                  addToCart={addToCart}
-                  />
+              <ContenuPanneauPanier
+                cart={cart}
+                handleChange={handleChange}
+                removeFromCart={removeFromCart}
+                router={router}
+                calculateTotal={<TotalAchatQuantite cart={cart} />}
+                total={<TotalAchatParItemResultat cart={cart} />}
+                submitCheckout={submitCheckout}
+                addToCart={addToCart}
+              />
                 <Produitsdisponibles produits={produits} />
               </section>
             </div>
