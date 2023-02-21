@@ -13,14 +13,14 @@ export default function ToutMagasiner() {
     setVisible(!visibleState);
   };
   return (
+    <main>
     <>
+      {!visibleState && <PanierPanneau toggler={toggler} />}
       <Header />
-      {visibleState && <PanierPanneau toggler={toggler} />}
-      <main>
         <h1 className={styles.h1}>Tout magasiner</h1>
-        <ProduitListe  toggler={toggler}  categorie={""} />
-      </main>
+        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler}  categorie={""} />
       <Footer />
-    </>
+      </>
+      </main>
   );
 }

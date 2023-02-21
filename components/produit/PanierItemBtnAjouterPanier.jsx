@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styles from '/styles/ProduitCard.module.css';
 
-export default function ProduitItemBtnAjouterPanier({ toggler, handleAddToCartClick,quantite }) {
+export default function ProduitItemBtnAjouterPanier({showPanierPanneau, toggler, handleAddToCartClick,quantite }) {
 
+ 
   const handleClick = (event) => {
     event.preventDefault();
     handleAddToCartClick(0);
-    toggler();
+    if (showPanierPanneau) {
+      toggler();
+    }
   };
 
   return (

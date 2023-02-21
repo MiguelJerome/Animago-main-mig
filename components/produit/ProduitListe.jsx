@@ -3,11 +3,11 @@ import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 import styles from '/styles/ProduitListe.module.css';
 import ProduitParCategorie from "./filtration/ProduitParCategorie";
 
-export default function ProduitListe({ toggler, categorie}) {
+export default function ProduitListe({showPanierPanneau, toggler, categorie}) {
 
   return (
     <div className={styles.container}>
-      <ProduitParCategorie toggler={toggler} categorie={categorie} />
+      <ProduitParCategorie showPanierPanneau={showPanierPanneau} toggler={toggler} categorie={categorie} />
     </div>
   );
 }

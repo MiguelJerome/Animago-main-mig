@@ -4,7 +4,7 @@ import produits from '../../../models/produits';
 //import {Produit, Panier, User,Commande} from '../../../server/models/index.cjs';
 //const Produit = require('../../../server/models/Produit.cjs');
 
-export default function ProduitData({ toggler, categorie }) {
+export default function ProduitData({ showPanierPanneau,toggler, categorie }) {
   /*
   console.log(Produit);
   console.log(Produit);
@@ -18,7 +18,7 @@ export default function ProduitData({ toggler, categorie }) {
   
   return (
     <main>
-      <ProduitCard toggler={toggler} produits={filteredProduits} />
+      <ProduitCard showPanierPanneau={showPanierPanneau} toggler={toggler} produits={filteredProduits} />
     </main>
   );
 }

@@ -14,10 +14,10 @@ export default function Chat() {
   };
     return <>
       <Header />
-      {visibleState && <PanierPanneau toggler={toggler} />}
+      {!visibleState && <PanierPanneau toggler={toggler} />}
         <main>
         <h1 className={styles.h1}>Chats</h1>
-        <ProduitListe toggler={toggler} categorie="chat"/>
+        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="chat"/>
         </main>
       <Footer/>
     </>

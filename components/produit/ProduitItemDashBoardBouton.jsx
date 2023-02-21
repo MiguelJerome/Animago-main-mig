@@ -2,7 +2,7 @@ import styles from '/styles/ProduitCard.module.css';
 import AjouterEnleverPanier from './AjouterEnleverPanier';
 import ProduitItemBtnAjouterPanier from './PanierItemBtnAjouterPanier';
 
-export default function ProduitItemDashBoardBouton({ toggler, stock, depart, product, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite }) {
+export default function ProduitItemDashBoardBouton({ showPanierPanneau, toggler, stock, depart, product, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite }) {
   const { _id, name, price } = product;
 
   const handleCartClick = () => {
@@ -30,6 +30,7 @@ export default function ProduitItemDashBoardBouton({ toggler, stock, depart, pro
         handleAddToCartClick={handleAddToCartClick}
         clearDepart={clearDepart}
         toggler={toggler}
+        showPanierPanneau={showPanierPanneau}
       />
     </div>
   );

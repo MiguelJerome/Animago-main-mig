@@ -14,10 +14,10 @@ export default function Chien() {
   };
     return <>
       <Header />
-      {visibleState && <PanierPanneau toggler={toggler} />}
+      {!visibleState && <PanierPanneau toggler={toggler} />}
         <main>
         <h1 className={styles.h1}>Chiens</h1>
-        <ProduitListe toggler={toggler} categorie="chien"/>
+        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="chien"/>
         </main>
       <Footer/>
     </>

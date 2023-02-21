@@ -14,10 +14,10 @@ export default function Aquatique() {
   };
     return <>
       <Header />
-      {visibleState && <PanierPanneau toggler={toggler} />}
+      {!visibleState && <PanierPanneau toggler={toggler} />}
         <main>
         <h1 className={styles.h1}>Aquatique</h1>
-        <ProduitListe toggler={toggler} categorie="aquatique"/>
+        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="aquatique"/>
         </main>
       <Footer/>
     </>
