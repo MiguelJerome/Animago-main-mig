@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import styles from '/styles/ProduitCard.module.css';
-import { useRouter } from 'next/router';
-import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 
-export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick,quantite }) {
-  const router = useRouter();
-  const [visibleState, setVisible] = useState(false);
+export default function ProduitItemBtnAjouterPanier({ toggler, handleAddToCartClick,quantite }) {
 
-  const toggler = () => {
-    setVisible(!visibleState);
-  };
-
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault();
     handleAddToCartClick(0);
     toggler();
   };
@@ -21,11 +14,6 @@ export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick,quant
       <button className={styles.button} onClick={handleClick}>
         Ajouter {quantite > 0 ? `(${quantite})` : ''} au Panier
       </button>
-  
-      {visibleState && 
-        <PanierPanneau toggler={toggler}/>
-      }
-     
     </>
   );
 }

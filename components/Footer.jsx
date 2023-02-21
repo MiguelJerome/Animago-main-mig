@@ -57,7 +57,7 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-            <h3 className={`${styles.catchPhrase} ${styles.containerP}`}>RESTER CONNECTÉ AVEC NOUS</h3>
+            <h4 className={`${styles.catchPhrase} ${styles.containerP}`}>RESTER CONNECTÉ AVEC NOUS</h4>
             <div className={styles.catchPhrase}>
               <a onClick={() => router.push('https://facebook.com')}>
                 <Image

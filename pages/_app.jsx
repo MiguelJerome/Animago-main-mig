@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import 'normalize.css/normalize.css';
@@ -20,10 +20,17 @@ export default function App({ Component, pageProps }) {
       router.push('/Accueil');
     }
   }, [router]);
+  const title = `Animago`;
 
+  const [visibleState, setVisible] = useState();
+
+  const toggler = () => {
+      setVisible(!visibleState);
+  }
   return (
     <>
       <Head>
+      <title>{title}</title>
         <link rel="preload" href={ImagePrincipal} as="image" />
         <link rel="preload" href={facebook} as="image" />
         <link rel="preload" href={instagram} as="image" />
@@ -33,7 +40,7 @@ export default function App({ Component, pageProps }) {
         <link rel="preload" href={Cart} as="image" />
       </Head>
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} toggler={toggler} />
       </Layout>
     </>
   );

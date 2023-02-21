@@ -1,17 +1,26 @@
 import { Inter } from '@next/font/google'
+import React, { useState } from 'react';
 const inter = Inter({ subsets: ['latin'] })
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ProduitListe from '../../components/produit/ProduitListe';
 import styles from '/styles/ProduitListe.module.css';
+import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 
 export default function ToutMagasiner() {
-    return <>
-      <Header/>
-        <main>
-          <h1 className={styles.h1}>Tout magasiner</h1>
-        <ProduitListe categorie={""} />
-        </main>
-      <Footer/>
+  const [visibleState, setVisible] = useState(false);
+  const toggler = () => {
+    setVisible(!visibleState);
+  };
+  return (
+    <>
+      <Header />
+      {visibleState && <PanierPanneau toggler={toggler} />}
+      <main>
+        <h1 className={styles.h1}>Tout magasiner</h1>
+        <ProduitListe  toggler={toggler}  categorie={""} />
+      </main>
+      <Footer />
     </>
-  }
+  );
+}

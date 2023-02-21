@@ -26,7 +26,7 @@ export default function HistoriqueCommande({ purchaseDate, orders }) {
   }
  // console.log("Cart in string ", cart);
   
-   console.log("Order History in string ", orderHistory);
+  // console.log("Order History in string ", orderHistory);
   return (
     <>
       <Header />

@@ -22,7 +22,7 @@ export default function Header() {
     const handleSubmit = event => {
         event.preventDefault();
         router.push(`/produit/${query}`);
-        console.log(`Searching for: ${query}`);
+       // console.log(`Searching for: ${query}`);
     };
 
     const [visibleState, setVisible] = useState();

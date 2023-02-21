@@ -5,7 +5,7 @@ import { useCart } from '/components/AchatPanier/UseCart';
 import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImages.jsx';
 import ProduitItem from "/components/produit/ProduitItem.jsx";
 
-export default function ProduitCard({ produits }) {
+export default function ProduitCard({ toggler, produits }) {
   const [produitsState, setProduits] = useState(produits);
   const router = useRouter();
   const [, addToCart] = useCart();
@@ -38,6 +38,7 @@ export default function ProduitCard({ produits }) {
                 router={router}
                 addToCart={addToCart}
                 handleAddToCart={handleAddToCart}
+                toggler={toggler}
               />
             ))}
           </>
