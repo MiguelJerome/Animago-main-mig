@@ -21,11 +21,11 @@ export default function ProduitItemBtnAjouterPanier({ handleAddToCartClick,quant
       <button className={styles.button} onClick={handleClick}>
         Ajouter {quantite > 0 ? `(${quantite})` : ''} au Panier
       </button>
-      {/*
+  
       {visibleState && 
         <PanierPanneau toggler={toggler}/>
       }
-      */}
+     
     </>
   );
 }
