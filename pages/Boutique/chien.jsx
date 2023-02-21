@@ -1,6 +1,6 @@
-import { Inter } from '@next/font/google'
+import { Inter } from '@next/font/google';
 import React, { useState } from 'react';
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ProduitListe from '../../components/produit/ProduitListe';
@@ -12,13 +12,15 @@ export default function Chien() {
   const toggler = () => {
     setVisible(!visibleState);
   };
-    return <>
+  return (
+    <>
       <Header />
       {!visibleState && <PanierPanneau toggler={toggler} />}
-        <main>
+      <main>
         <h1 className={styles.h1}>Chiens</h1>
-        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="chien"/>
-        </main>
-      <Footer/>
+        <ProduitListe showPanierPanneau={visibleState} toggler={toggler} categorie="chien" />
+      </main>
+      <Footer />
     </>
-  }
+  );
+}

@@ -12,13 +12,15 @@ export default function Chat() {
   const toggler = () => {
     setVisible(!visibleState);
   };
-    return <>
+  return (
+    <>
       <Header />
       {!visibleState && <PanierPanneau toggler={toggler} />}
-        <main>
+      <main>
         <h1 className={styles.h1}>Chats</h1>
         <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="chat"/>
-        </main>
+      </main>
       <Footer/>
     </>
-  }
+  );
+}

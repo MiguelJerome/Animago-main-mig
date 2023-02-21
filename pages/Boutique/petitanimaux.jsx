@@ -12,13 +12,13 @@ export default function PetitAnimaux() {
   const toggler = () => {
     setVisible(!visibleState);
   };
-    return <>
-      <Header />
-      {!visibleState && <PanierPanneau toggler={toggler} />}
-        <main>
-        <h1 className={styles.h1}>Petit Animaux</h1>
-        <ProduitListe showPanierPanneau={visibleState}  toggler={toggler} categorie="petit animaux"/>
-        </main>
-      <Footer/>
-    </>
-  }
+  return <>
+    <Header />
+    {!visibleState && <PanierPanneau toggler={toggler} />}
+    <main>
+      <h1 className={styles.h1}>Petit Animaux</h1>
+      <ProduitListe showPanierPanneau={visibleState} toggler={toggler} categorie="petit animaux" />
+    </main>
+    <Footer />
+  </>
+}
