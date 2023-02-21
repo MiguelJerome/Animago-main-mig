@@ -7,7 +7,7 @@ import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/Pani
 import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader';
 import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
-import Toggler from '../../components/Toggler'
+import Toggler from '../../components/Toggler';
 
 export default function PanierPanneau({toggler}) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
@@ -81,9 +81,7 @@ export default function PanierPanneau({toggler}) {
         productIds.push(item._id);
       }
     });
-
     setOrders([...orders, cart]);
-   
   };
 
   return (
