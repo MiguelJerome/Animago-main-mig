@@ -4,6 +4,9 @@ import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
 import CheckoutPanier from '/public/img/cart.png';
+import CheckoutBtn from './CheckoutBtn';
+import GrandTotalItemResultat from './GrandTotalItemResultat';
+import GrandTotalMontantResultat from './GrandTotalMontantResultat';
 
 const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calculateTotal, total, submitCheckout }) => {
   const router = useRouter();
@@ -48,20 +51,10 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
           </React.Fragment>
         ))}
       </ul>
-      <div className={styles.grandTotal}>
-        <strong>Grand Total: ${parseFloat(total).toFixed(2)}</strong>
-      </div>
+      <GrandTotalMontantResultat total={total} />
       <div>
-        <strong>Total item: {calculateTotal()}</strong>
-        <button className={styles.boutonCheckout} onClick={submitCheckout}>
-          <Image
-            src={CheckoutPanier}
-            alt={"Checkout Panier" || 'Default Image'}
-            priority={true}
-            className={styles.imgCheckout}
-          />
-        </button>
-        <span>(log in to check out)</span>
+        <GrandTotalItemResultat calculateTotal={calculateTotal} />
+        <CheckoutBtn submitCheckout={submitCheckout} /> 
       </div>
     </>
   );

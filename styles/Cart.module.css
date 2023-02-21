@@ -305,3 +305,8 @@
   width: 5rem;
   height: 5rem;
 }
+
+.checkoutLabel{
+  font-size: .85rem;
+  color: #000000;
+}
