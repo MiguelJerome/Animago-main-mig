@@ -5,7 +5,6 @@ import styles from '/styles/Cart.module.css';
 import CloseIcon from '/public/img/FermerPanier.svg';
 
 function PanierPanneauHeader({ toggler }) {
-
   return (
     <div className={styles.header}>
       <button className={`${styles.bouton}`} onClick={toggler}>

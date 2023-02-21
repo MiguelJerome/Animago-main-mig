@@ -14,9 +14,8 @@ export default function Reptile() {
   };
     return <>
       <Header />
-      
-      <main>
       {!visibleState && <PanierPanneau toggler={toggler} />}
+      <main>
         <h1 className={styles.h1}>Reptiles</h1>
         <ProduitListe showPanierPanneau={visibleState} toggler={toggler}  categorie="reptile"/>
         </main>

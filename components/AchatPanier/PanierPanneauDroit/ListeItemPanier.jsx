@@ -1,40 +1,22 @@
 import React from 'react';
-import styles from '/styles/Cart.module.css';
-import ProduitImagePanier from './ProduitImagePanier';
-import ProduitInfoPanier from './ProduitInfoPanier';
-import InputPanier from './InputPanier';
-import PoubelleSupprimerPanier from './PoubelleSupprimerPanier';
-import GrandTotalParItemResultat from './GrandTotalParItemResultat';
-import GrandTotalItemResultat from './GrandTotalItemResultat';
+import ProduitListeMappingPanier from './ProduitListeMappingPanier';
 import GrandTotalMontantResultat from './GrandTotalMontantResultat';
+import GrandTotalItemResultat from './GrandTotalItemResultat';
 import CheckoutBtn from './CheckoutBtn';
+import PanierTitreMessage from './PanierTitreMessage';
 
-const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calculateTotal, total, submitCheckout }) => {
+export default function ListeItemPanier(props) {
+  const { cart, handleChange, removeFromCart, calculateTotal, total, submitCheckout } = props;
+
   return (
     <>
-      <h3 className={styles.subTitle}>Articles dans votre panier:</h3>
-      <ul>
-        {cart.map((item) => (
-          <React.Fragment key={item._id}>
-            <li className={styles.produitDisponible}>
-              <ProduitImagePanier item={item} />
-              <div>
-                <ProduitInfoPanier item={item} />
-                <InputPanier item={item} handleChange={handleChange} />
-                <PoubelleSupprimerPanier item={item} removeFromCart={removeFromCart} />
-              </div>
-            </li>
-            <GrandTotalParItemResultat item={item} />
-          </React.Fragment>
-        ))}
-      </ul>
+      <PanierTitreMessage />
+      <ProduitListeMappingPanier cart={cart} handleChange={handleChange} removeFromCart={removeFromCart} />
       <GrandTotalMontantResultat total={total} />
       <div>
         <GrandTotalItemResultat calculateTotal={calculateTotal} />
-        <CheckoutBtn submitCheckout={submitCheckout} calculateTotal={calculateTotal} total={total} /> 
+        <CheckoutBtn submitCheckout={submitCheckout} calculateTotal={calculateTotal} total={total} />
       </div>
     </>
   );
-};
-
-export default ListeItemPanier;
+}

@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+      <meta name="description" content={`Après plusieurs heures de recherche pour trouver un manque service au niveau de la communauté, nous avons vu que le marché des articles pour animaux, en particulier les livraisons, sont très peu disponible. L'équipe AnimaGo! est ravi de montrer leur vision de l'un des meilleurs futurs sites Web d'animaliers sur le marché, qui sera bientot présenté au monde.`}/>
       <title>{title}</title>
         <link rel="preload" href={ImagePrincipal} as="image" />
         <link rel="preload" href={facebook} as="image" />
