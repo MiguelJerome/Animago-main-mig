@@ -8,7 +8,7 @@ import styles from '/styles/ProduitListe.module.css';
 import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 
 export default function ToutMagasiner() {
-  const [visibleState, setVisible] = useState(false);
+  const [visibleState, setVisible] = useState();
   const toggler = () => {
     setVisible(!visibleState);
   };
