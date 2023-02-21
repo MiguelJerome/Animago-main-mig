@@ -6,6 +6,9 @@
   width: 100%;
   height: 600px; 
 }
+.containerZindex{
+  z-index: 20;
+}
 
 .containerHeader{
   display: grid;
@@ -159,7 +162,7 @@
   bottom: 0;
   width: 80%;
   background-color: white;
-  z-index: 1;
+  z-index: 10;
   transition: right 0.5s;
 }
 

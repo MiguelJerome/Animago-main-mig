@@ -87,7 +87,7 @@
     flex-direction: row;
     align-content: center;
     justify-content: space-evenly;
-    z-index: 2;
+    z-index: 4;
 }
 .menuLogo{
     display: flex;

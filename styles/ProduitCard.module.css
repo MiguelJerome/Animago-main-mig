@@ -32,7 +32,6 @@ background-color: rgb(255, 220, 182);
 border-radius: 2rem;
 }
 
-
 .containerBouttonAchat{
 display: grid;
 font-size: large;
@@ -49,7 +48,6 @@ width: 200px;
 height: auto;
 cursor: pointer;
 }
-
 
 .product {
 display: flex;

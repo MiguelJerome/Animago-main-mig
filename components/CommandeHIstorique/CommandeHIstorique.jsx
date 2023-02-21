@@ -33,7 +33,7 @@ export default function CommandeHistorique({ cart, purchaseDate, purchaseTime, c
     setTotal(sum.toFixed(2));
   };
 
-  console.log(`Order history is Now: ${purchaseDate} ${currentTime}`, orders);
+ // console.log(`Order history is Now: ${purchaseDate} ${currentTime}`, orders);
 
   return (
 <main>

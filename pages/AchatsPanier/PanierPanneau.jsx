@@ -89,8 +89,8 @@ export default function PanierPanneau({toggler}) {
   return (
     <>
       <Toggler visible>
-      <div className={`right-side-panel`} >
-        <div className="right-side-panel-content" onClick={(e) => e.stopPropagation()}>
+      <div className={styles.containerZindex} >
+          <div className={styles.containerZindex} onClick={(e) => e.stopPropagation()}>
           <div className={styles.cart}>
             <PanierPanneauHeader toggler={toggler} />
             <div className={styles.containerLayout}>
