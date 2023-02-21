@@ -31,7 +31,7 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
       <GrandTotalMontantResultat total={total} />
       <div>
         <GrandTotalItemResultat calculateTotal={calculateTotal} />
-        <CheckoutBtn submitCheckout={submitCheckout} /> 
+        <CheckoutBtn submitCheckout={submitCheckout} calculateTotal={calculateTotal} total={total} /> 
       </div>
     </>
   );
