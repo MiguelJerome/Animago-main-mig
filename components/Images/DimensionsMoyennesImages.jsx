@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-export default function DimensionsMoyennesImages({ products, children }) {
+export default function DimensionsMoyennesImages({ produitsState, products, orders, children }) {
   const [averageWidth, setAverageWidth] = useState(0);
   const [averageHeight, setAverageHeight] = useState(0);
 
   useEffect(() => {
-    if (products) {
-      setAverageWidth(Math.max(...products.map((p) => p.width), 0));
-      setAverageHeight(Math.max(...products.map((p) => p.height), 0));
+    if (produitsState || products || orders) {
+      const allProducts = orders.flatMap((itemsArray) => itemsArray).concat(produitsState, products);
+      const definedProducts = allProducts.filter(p => p !== undefined);
+      setAverageWidth(Math.max(...definedProducts.map((p) => p.width), 0));
+      setAverageHeight(Math.max(...definedProducts.map((p) => p.height), 0));
     }
-  }, [products]);
+  }, [produitsState, products, orders]);
+  
+  
 
   return children({ averageWidth, averageHeight });
 }
