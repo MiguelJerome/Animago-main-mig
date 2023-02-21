@@ -1,16 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
-import { useCart } from '/components/AchatPanier/UseCart.jsx';
-import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
-import CheckoutPanier from '/public/img/cart.png';
-import CheckoutBtn from './CheckoutBtn';
+import ProduitImagePanier from './ProduitImagePanier';
+import ProduitInfoPanier from './ProduitInfoPanier';
+import InputPanier from './InputPanier';
+import PoubelleSupprimerPanier from './PoubelleSupprimerPanier';
+import GrandTotalParItemResultat from './GrandTotalParItemResultat';
 import GrandTotalItemResultat from './GrandTotalItemResultat';
 import GrandTotalMontantResultat from './GrandTotalMontantResultat';
+import CheckoutBtn from './CheckoutBtn';
 
 const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calculateTotal, total, submitCheckout }) => {
-  const router = useRouter();
-
   return (
     <>
       <h3 className={styles.subTitle}>Articles dans votre panier:</h3>
@@ -18,36 +17,14 @@ const ListeItemPanier = ({ cart, handleChange, addToCart, removeFromCart, calcul
         {cart.map((item) => (
           <React.Fragment key={item._id}>
             <li className={styles.produitDisponible}>
-              <Image
-                className={`${styles.imgCard} ${styles.img}`}
-                src={item.src}
-                alt={item.alt || 'Default Image'}
-                width={Number(item.averageWidth) || 100}
-                height={Number(item.averageHeight) || 100}
-                priority={true}
-                onClick={() => router.push(`/produit/${item.name}`)}
-              />
+              <ProduitImagePanier item={item} />
               <div>
-                <div className={styles.cartFormWragper}>
-                  <p className={styles.productInfo}>{item.name}</p>
-                  <p className={styles.productInfo}>Prix: ${item.price}</p>
-                  <p className={styles.productInfo}>En Stock: {item.stock}</p>
-                </div>
-                <span>Qty:</span>
-                <input
-                  className={styles.input}
-                  type="number"
-                  placeholder="1"
-                  value={item.purchaseQuantity}
-                  onChange={(e) => handleChange(item, parseInt(e.target.value))}
-                />
-                <span role="img" aria-label="trash" onClick={() => removeFromCart(item)} className={styles.imgCard}>🗑️</span>
+                <ProduitInfoPanier item={item} />
+                <InputPanier item={item} handleChange={handleChange} />
+                <PoubelleSupprimerPanier item={item} removeFromCart={removeFromCart} />
               </div>
             </li>
-            <li className={styles.itemTotal}>
-              {item.name} - {parseInt(item.purchaseQuantity, 10)} x ${parseFloat(item.price).toFixed(2)} = $
-              {(parseInt(item.purchaseQuantity, 10) * parseFloat(item.price)).toFixed(2)}
-            </li>
+            <GrandTotalParItemResultat item={item} />
           </React.Fragment>
         ))}
       </ul>
