@@ -40,7 +40,7 @@ export default function BindingTroisComponent({showPanierPanneau }){
     };
   
     const clearDepart = (newDepart) => {
-      addToCart(product, -quantite);
+      addToCart(produits, -quantite);
       handleQuantityChange(0);
       handleQuantityChange(newDepart);
     };
