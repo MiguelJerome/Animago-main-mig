@@ -5,7 +5,7 @@ import styles from '/styles/Cart.module.css';
 
 const CheckoutBtn = ({ submitCheckout, calculateTotal, total }) => {
   function handleClick() {
-    if (typeof calculateTotal === 'function' && calculateTotal() <= 0 || total <= 0) {
+    if (typeof calculateTotal === 'function' && (calculateTotal <= 0 || total <= 0)) {
       alert("Vous ne pouvez pas Régler la note votre panier est vide");
     } else {
       submitCheckout();

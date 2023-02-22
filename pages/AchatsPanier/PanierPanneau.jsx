@@ -58,6 +58,11 @@ export default function PanierPanneau({ toggler }) {
   };
 
   const submitCheckout = async () => {
+    if (total === 0) {
+      alert("Votre panier est vide, vous ne pouvez pas effectuer de commande.");
+      return;
+    }
+  
     const productIds = [];
     cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
@@ -66,6 +71,7 @@ export default function PanierPanneau({ toggler }) {
     });
     setOrders([...orders, cart]);
   };
+  
 
   return (
     <>
@@ -77,6 +83,7 @@ export default function PanierPanneau({ toggler }) {
         submitCheckout={submitCheckout}
         addToCart={addToCart}
         toggler={toggler}
+        total={total}
       />
     </>
   );

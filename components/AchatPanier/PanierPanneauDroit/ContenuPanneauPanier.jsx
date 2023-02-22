@@ -3,7 +3,7 @@ import ListeItemPanier from './ListeItemPanier';
 import PanierVideMessage from '/components/AchatPanier/PanierVideMessage';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calculateTotal, submitCheckout, addToCart }) {
+function ContenuPanneauPanier({ orders, cart, handleChange, removeFromCart, router, calculateTotal, submitCheckout, addToCart }) {
   if (cart.length === 0) {
     const time = 3000;
     setTimeout(() => {

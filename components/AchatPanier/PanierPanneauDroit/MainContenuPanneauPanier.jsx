@@ -4,7 +4,7 @@ import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/Con
 import TotalAchatQuantite from '/components/MagasinCalcul/TotalAchatQuantite';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-const MainContenuPanneauPanier = ({ cart, handleChange, removeFromCart, router, submitCheckout, addToCart }) => {
+const MainContenuPanneauPanier = ({ orders, cart, handleChange, removeFromCart, router, submitCheckout, addToCart }) => {
   return (
     <div className={styles.containerLayout}>
       <section className={styles.section}>

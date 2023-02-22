@@ -7,7 +7,7 @@ import PanierTitreMessage from './PanierTitreMessage';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
 export default function ListeItemPanier(props) {
-  const { cart, handleChange, removeFromCart, calculateTotal, submitCheckout } = props;
+  const { orders, cart, handleChange, removeFromCart, calculateTotal, submitCheckout } = props;
 
   return (
     <>
