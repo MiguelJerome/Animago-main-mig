@@ -2,14 +2,14 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import styles from '/styles/Gallerie.module.css';
-
+// <div key={index} className={styles.container} style={index === 5 && !toggler ? { zIndex:-1 } : null}>
 function Gallerie({ images, toggler }) {
   const router = useRouter();
 
   return (
     <div className={styles.gallerie}>
       {images.map((imageData, index) => (
-        <div key={index} className={styles.container} style={index === 5 && !toggler ? { zIndex:-1 } : null}>
+        <div key={index} className={styles.container}>
           <Image
             src={imageData.src}
             alt={imageData.alt || 'Default Image'}
