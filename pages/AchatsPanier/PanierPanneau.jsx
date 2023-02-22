@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import MainTouteComponentPanier from '/components/AchatPanier/PanierPanneauDroit/MainTouteComponentPanier';
+import styles from '/styles/Header.module.css';
 
 export default function PanierPanneau({ toggler }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
@@ -75,6 +76,7 @@ export default function PanierPanneau({ toggler }) {
 
   return (
     <>
+      <div className={`${styles.rightPanel} ${toggler ? 'active' : ''}`}>
       <MainTouteComponentPanier
         cart={cart}
         handleChange={handleChange}
@@ -84,7 +86,9 @@ export default function PanierPanneau({ toggler }) {
         addToCart={addToCart}
         toggler={toggler}
         total={total}
-      />
-    </>
+        />
+        </div>
+      </>
+  
   );
 }

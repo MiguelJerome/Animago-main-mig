@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import PanierPanneau from './PanierPanneau';
+import PanierPanneau from '@/pages/AchatsPanier/PanierPanneau';
 import HistoriqueCommande from './HistoriqueCommande';
 
 export default function Panier() {

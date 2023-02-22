@@ -3,13 +3,13 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import styles from '/styles/Gallerie.module.css';
 
-function Gallerie({ images }) {
+function Gallerie({ images, toggler }) {
   const router = useRouter();
 
   return (
     <div className={styles.gallerie}>
       {images.map((imageData, index) => (
-        <div key={index} className={styles.container}>
+        <div key={index} className={styles.container} style={index === 5 && !toggler ? { zIndex:-1 } : null}>
           <Image
             src={imageData.src}
             alt={imageData.alt || 'Default Image'}

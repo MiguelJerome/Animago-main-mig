@@ -168,6 +168,17 @@
     transition: 0.3s ease-in-out;
 }
 
+.right-side-panel-content {
+    padding: 20px;
+}
+
+.rightPanelOff {
+    display: none;
+  }
+  .rightPanelOn{
+    display: inline-block;
+  } 
+  
 @media (max-width: 550px) {
     .loginCart{
         width: 25px;

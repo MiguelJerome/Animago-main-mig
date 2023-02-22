@@ -103,9 +103,10 @@ export default function Header() {
                             Vos article préféré pour vos animaux préféré
                         </p>
                     </div>
-                    <div className={styles.menuLogo}>
-                        <div className={styles.menuProductList}>
-                            <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>
+                    <div className={`${styles.menuLogo} ${toggler ? styles.rightPanelOn : styles.rightPanelOff}`} >
+
+                        <div className={`${styles.menuProductList}`} >
+                        <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>
                                 <Image
                                     src={Login}
                                     alt={'lien pour se connecter' || 'Default Image'}
@@ -114,9 +115,12 @@ export default function Header() {
                                 />
                             </a>
                             <div>
-                                <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
+                            <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Connexion")}>Connexion</a>
+                            </div>
+                            <div>
                                 <a className={styles.aLogin} onClick={() => router.push("/InscriptionConnexion/Inscription")}>Inscription</a>
                             </div>
+                            
                         </div>
                         <div className={styles.menuProductList}>
                             <a className={styles.aLogin}>
@@ -128,6 +132,9 @@ export default function Header() {
                                     onClick={toggler} 
                                 />
                             </a>
+                            <div>
+                                <a className={styles.aLogin} onClick={() => router.push("/AchatsPanier/HistoriqueCommande")}>Commande Historique </a>
+                            </div>
                             {visibleState &&
                                 <PanierPanneau toggler = {toggler}/>
                             }

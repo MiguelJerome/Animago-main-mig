@@ -10,16 +10,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Reptile() {
   const [visibleState, setVisible] = useState(false);
-  
   const toggler = () => {
     setVisible(!visibleState);
   };
-  
-  return (
-    <>
-      <Header />
-      {!visibleState && <PanierPanneau toggler={toggler} />}
-      <main>
+  return(
+  <>
+    <Header />
+    {!visibleState && <PanierPanneau toggler={toggler} />}
+    <main>
         <h1 className={styles.h1}>Reptiles</h1>
         <ProduitListe showPanierPanneau={visibleState} toggler={toggler}  categorie="reptile"/>
       </main>
