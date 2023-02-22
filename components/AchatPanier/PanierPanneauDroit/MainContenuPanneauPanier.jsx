@@ -4,7 +4,8 @@ import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/Con
 import TotalAchatQuantite from '/components/MagasinCalcul/TotalAchatQuantite';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-const MainContenuPanneauPanier = ({ orders, cart, handleChange, removeFromCart, router, submitCheckout, addToCart }) => {
+const MainContenuPanneauPanier = (props) => {
+  const { cart, handleChange, removeFromCart, router, submitCheckout, addToCart } = props;
   return (
     <div className={styles.containerLayout}>
       <section className={styles.section}>
@@ -24,4 +25,3 @@ const MainContenuPanneauPanier = ({ orders, cart, handleChange, removeFromCart, 
 };
 
 export default MainContenuPanneauPanier;
-

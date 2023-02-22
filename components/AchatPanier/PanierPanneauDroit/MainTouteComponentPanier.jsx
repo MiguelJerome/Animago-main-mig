@@ -6,7 +6,7 @@ import MainContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit
 import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-const MainTouteComponentPanier = ({ total, cart, handleChange, removeFromCart, router, submitCheckout, addToCart, toggler }) => {
+const MainTouteComponentPanier = ({cart, handleChange, removeFromCart, router, submitCheckout, addToCart, toggler }) => {
   return (
     <Toggler visible>
       <div className={styles.containerZindex} onClick={(e) => e.stopPropagation()}>
