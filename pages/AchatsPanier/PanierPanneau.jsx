@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '/styles/Cart.module.css';
-import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
-import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
-import Toggler from '../../components/Toggler';
-import MainContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/MainContenuPanneauPanier';
+import MainTouteComponentPanier from '/components/AchatPanier/PanierPanneauDroit/MainTouteComponentPanier';
 
 export default function PanierPanneau({ toggler }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
@@ -73,22 +69,15 @@ export default function PanierPanneau({ toggler }) {
 
   return (
     <>
-      <Toggler visible>
-        <div className={styles.containerZindex} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.cart}>
-            <PanierPanneauHeader toggler={toggler} />
-            <MainContenuPanneauPanier
-              cart={cart}
-              handleChange={handleChange}
-              removeFromCart={removeFromCart}
-              router={router}
-              submitCheckout={submitCheckout}
-              addToCart={addToCart}
-            />
-          </div>
-          <PanierPanneauFooter router={router} />
-        </div>
-      </Toggler>
+      <MainTouteComponentPanier
+        cart={cart}
+        handleChange={handleChange}
+        removeFromCart={removeFromCart}
+        router={router}
+        submitCheckout={submitCheckout}
+        addToCart={addToCart}
+        toggler={toggler}
+      />
     </>
   );
 }
