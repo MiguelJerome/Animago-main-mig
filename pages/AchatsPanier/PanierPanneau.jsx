@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
-import produits from '/models/produits.jsx';
-import { Produitsdisponibles } from '/components/AchatPanier/Produitsdisponibles';
 import PanierPanneauFooter from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauFooter';
 import PanierPanneauHeader from '/components/AchatPanier/PanierPanneauDroit/PanierPanneauHeader';
-import ContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/ContenuPanneauPanier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import Toggler from '../../components/Toggler';
-import TotalAchatQuantite from '/components/MagasinCalcul/TotalAchatQuantite';
-import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
+import MainContenuPanneauPanier from '/components/AchatPanier/PanierPanneauDroit/MainContenuPanneauPanier';
 
-export default function PanierPanneau({toggler}) {
+export default function PanierPanneau({ toggler }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
   const [total, setTotal] = useState(0);
@@ -27,19 +23,15 @@ export default function PanierPanneau({toggler}) {
 
   useEffect(() => {
     if (orders.length > 0) {
-//      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${TotalAchatParItemResultat({ cart })}`);
       alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${total}`);
       setCart([]);
       setOrders([]);
       router.push({
         pathname: '/AchatsPanier/HistoriqueCommande',
         query: { orders: JSON.stringify(orders) },
-      }); 
-     
+      });
     }
-   
   }, [orders]);
-
 
   const handleChange = (item, value) => {
     if (Number.isInteger(value)) {
@@ -48,7 +40,7 @@ export default function PanierPanneau({toggler}) {
       const stock = updatedCart[itemIndex].stock;
       const updatedItem = {
         ...updatedCart[itemIndex],
-        purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), stock) : 0
+        purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), stock) : 0,
       };
       const newCart = [
         ...updatedCart.slice(0, itemIndex),
@@ -58,7 +50,7 @@ export default function PanierPanneau({toggler}) {
       setCart(newCart);
     }
   };
-  
+
   const calcTotal = () => {
     let sum = 0;
     cart.forEach((item) => {
@@ -82,30 +74,21 @@ export default function PanierPanneau({toggler}) {
   return (
     <>
       <Toggler visible>
-      <div className={styles.containerZindex} >
-          <div className={styles.containerZindex} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.containerZindex} onClick={(e) => e.stopPropagation()}>
           <div className={styles.cart}>
             <PanierPanneauHeader toggler={toggler} />
-            <div className={styles.containerLayout}>
-              <section className={styles.section}>
-              <ContenuPanneauPanier
-                cart={cart}
-                handleChange={handleChange}
-                removeFromCart={removeFromCart}
-                router={router}
-                calculateTotal={<TotalAchatQuantite cart={cart} />}
-                total={<TotalAchatParItemResultat cart={cart} />}
-                submitCheckout={submitCheckout}
-                addToCart={addToCart}
-              />
-                <Produitsdisponibles produits={produits} />
-              </section>
-            </div>
+            <MainContenuPanneauPanier
+              cart={cart}
+              handleChange={handleChange}
+              removeFromCart={removeFromCart}
+              router={router}
+              submitCheckout={submitCheckout}
+              addToCart={addToCart}
+            />
           </div>
-            <PanierPanneauFooter  router={router} />
+          <PanierPanneauFooter router={router} />
         </div>
-      </div>
-    </Toggler>
+      </Toggler>
     </>
   );
-}  
+}

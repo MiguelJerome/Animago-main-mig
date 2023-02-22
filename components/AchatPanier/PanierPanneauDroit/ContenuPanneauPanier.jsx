@@ -1,8 +1,9 @@
 import React from 'react';
 import ListeItemPanier from './ListeItemPanier';
 import PanierVideMessage from '/components/AchatPanier/PanierVideMessage';
+import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calculateTotal, total, submitCheckout, addToCart }) {
+function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calculateTotal, submitCheckout, addToCart }) {
   if (cart.length === 0) {
     const time = 3000;
     setTimeout(() => {
@@ -20,7 +21,7 @@ function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calc
         removeFromCart={removeFromCart}
         router={router}
         calculateTotal={calculateTotal}
-        total={total}
+        total={<TotalAchatParItemResultat cart={cart} />}
         submitCheckout={submitCheckout}
       />
     </>
