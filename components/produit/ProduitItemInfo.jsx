@@ -2,7 +2,17 @@ import React from 'react';
 import styles from '/styles/ProduitCard.module.css';
 import DashboardButton from '/components/produit/ProduitItemDashBoardBouton.jsx';
 
-export default function ProduitInfo({ showPanierPanneau,toggler, product, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite, handleAddToCartClick }) {
+export default function ProduitInfo({
+  showPanierPanneau,
+  toggler,
+  product,
+  addToCart,
+  handleAddToCart,
+  handleQuantityChange,
+  clearDepart,
+  quantite,
+  handleAddToCartClick
+}) {
   const { _id, name, price, stock } = product;
 
   return (

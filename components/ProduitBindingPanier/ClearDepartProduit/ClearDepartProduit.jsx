@@ -17,7 +17,7 @@ const ClearDepartProduit = ({ product, onQuantityChange, clearInput }) => {
         onQuantityChange(0);
         onQuantityChange(newDepart);
         if (typeof clearInput === 'function') {
-          clearInput(product); // call clearInput function
+          clearInput(product); 
         }
       };
       
