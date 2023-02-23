@@ -2,7 +2,8 @@ import styles from '/styles/ProduitCard.module.css';
 import ProduitItemInfo from '/components/produit/ProduitItemInfo.jsx';
 import ProduitItemImage from '/components/produit/ProduitItemImage.jsx';
 import React, { useState } from 'react';
-export default function ProduitItem({ showPanierPanneau,toggler, product, averageWidth, averageHeight, router, addToCart, handleAddToCart }) {
+
+export default function ProduitItem({ showPanierPanneau, toggler, product, averageWidth, averageHeight, router, addToCart, handleAddToCart }) {
   const [quantite, setQuantite] = useState(0);
 
   const handleQuantityChange = (newQuantity) => {
@@ -31,6 +32,7 @@ export default function ProduitItem({ showPanierPanneau,toggler, product, averag
         handleAddToCartClick={handleAddToCartClick}
         toggler={toggler}
         showPanierPanneau={showPanierPanneau}
+        item={product}
       />
     </div>
   );

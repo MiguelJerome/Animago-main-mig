@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProduitCard from '../ProduitCard';
 import produits from '../../../models/produits';
+import panier from '../../../models/panier';
 //import {Produit, Panier, User,Commande} from '../../../server/models/index.cjs';
 //const Produit = require('../../../server/models/Produit.cjs');
 

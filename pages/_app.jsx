@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import 'normalize.css/normalize.css';
@@ -20,18 +20,10 @@ export default function App({ Component, pageProps }) {
       router.push('/Accueil');
     }
   }, [router]);
-  const title = `Animago`;
 
-  const [visibleState, setVisible] = useState();
-
-  const toggler = () => {
-      setVisible(!visibleState);
-  }
   return (
     <>
       <Head>
-      <meta name="description" content={`Après plusieurs heures de recherche pour trouver un manque service au niveau de la communauté, nous avons vu que le marché des articles pour animaux, en particulier les livraisons, sont très peu disponible. L'équipe AnimaGo! est ravi de montrer leur vision de l'un des meilleurs futurs sites Web d'animaliers sur le marché, qui sera bientot présenté au monde.`}/>
-      <title>{title}</title>
         <link rel="preload" href={ImagePrincipal} as="image" />
         <link rel="preload" href={facebook} as="image" />
         <link rel="preload" href={instagram} as="image" />
@@ -41,7 +33,7 @@ export default function App({ Component, pageProps }) {
         <link rel="preload" href={Cart} as="image" />
       </Head>
       <Layout>
-        <Component {...pageProps} toggler={toggler} />
+        <Component {...pageProps} />
       </Layout>
     </>
   );

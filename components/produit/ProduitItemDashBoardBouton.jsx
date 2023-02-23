@@ -3,7 +3,7 @@ import AjouterEnleverPanier from './AjouterEnleverPanier';
 import ProduitItemBtnAjouterPanier from './PanierItemBtnAjouterPanier';
 
 export default function ProduitItemDashBoardBouton({ showPanierPanneau, toggler, stock, depart, product, addToCart, handleAddToCart, handleQuantityChange, clearDepart, quantite }) {
-  const { _id, name, price } = product;
+  const { _id, name, price } = product || {};
 
   const handleCartClick = () => {
     addToCart({ _id, name, price }, quantite);
