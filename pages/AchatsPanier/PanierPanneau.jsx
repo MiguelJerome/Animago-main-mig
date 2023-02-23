@@ -34,19 +34,22 @@ export default function PanierPanneau({ toggler }) {
     if (Number.isInteger(value)) {
       const updatedCart = [...cart];
       const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-      const stock = updatedCart[itemIndex].stock;
-      const updatedItem = {
-        ...updatedCart[itemIndex],
-        purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), stock) : 0,
-      };
-      const newCart = [
-        ...updatedCart.slice(0, itemIndex),
-        updatedItem,
-        ...updatedCart.slice(itemIndex + 1),
-      ];
-      setCart(newCart);
+      if (itemIndex !== -1) {
+        const stock = updatedCart[itemIndex].stock;
+        const updatedItem = {
+          ...updatedCart[itemIndex],
+          purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || 0) : 0,
+        };
+        const newCart = [
+          ...updatedCart.slice(0, itemIndex),
+          updatedItem,
+          ...updatedCart.slice(itemIndex + 1),
+        ];
+        setCart(newCart);
+      }
     }
   };
+  
 
   const calcTotal = () => {
     let sum = 0;

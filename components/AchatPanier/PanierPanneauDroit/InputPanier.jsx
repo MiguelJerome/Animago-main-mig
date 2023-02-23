@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from '/styles/Cart.module.css';
+import ClearDepartProduit from "/components/ProduitBindingPanier/ClearDepartProduit/ClearDepartProduit"
 
-const InputPanier = ({ item, handleChange, clearInput }) => {
+const InputPanier = ({ item, handleChange }) => {
+ 
+  const clearInput = (item) => {
+    handleChange(item, 0);
+  };
+  
   return (
     <>
       <span>Qty:</span>
@@ -12,7 +18,7 @@ const InputPanier = ({ item, handleChange, clearInput }) => {
         value={item && item.purchaseQuantity !== undefined ? item.purchaseQuantity : ''}
         onChange={(e) => handleChange(item, parseInt(e.target.value))}
       />
-      <button className={styles.buttonClear} onClick={clearInput}>Clear</button>
+      <ClearDepartProduit product={item} onQuantityChange={handleChange} clearInput={clearInput} />
     </>
   );
 };

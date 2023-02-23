@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '/styles/AjouterEnleverPanier.module.css';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import ClearDepartProduit from '/components/ProduitBindingPanier/ClearDepartProduit/ClearDepartProduit';
+import InputPanier from '/components/AchatPanier/PanierPanneauDroit/InputPanier';
 
 export default function AjouterEnleverPanier({ product, stock, onQuantityChange, quantite }) {
   const [,cart, addToCart, setCart] = useCart([]);
@@ -19,6 +20,7 @@ export default function AjouterEnleverPanier({ product, stock, onQuantityChange,
     addToCart(product, -1);
     onQuantityChange(newQuantity); 
   };
+
    
   return (
     <div className={styles.achatWrapper}>
