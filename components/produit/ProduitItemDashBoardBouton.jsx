@@ -9,7 +9,7 @@ export default function ProduitItemDashBoardBouton({
   depart,
   product,
   addToCart,
-  handleAddToCart,
+  updateProductStockAndSetCart,
   handleQuantityChange,
   handleAddProductToCartWithQuantityReset,
   quantite
@@ -18,11 +18,11 @@ export default function ProduitItemDashBoardBouton({
 
   const handleItemAddToCart = () => {
     addToCart({ _id, name, price }, quantite);
-    handleAddToCart({ _id, stock }, quantite, () => handleQuantityChange(0));
+    updateProductStockAndSetCart({ _id, stock }, quantite, () => handleQuantityChange(0));
   };
 
   const handleCartUpdateWithDepart = (newDepart) => {
-    handleAddToCart({ _id, stock }, quantite, () => handleQuantityChange(0));
+    updateProductStockAndSetCart({ _id, stock }, quantite, () => handleQuantityChange(0));
     handleAddProductToCartWithQuantityReset(newDepart);
   };
 

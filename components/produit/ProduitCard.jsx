@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { useCart } from '/components/AchatPanier/UseCart';
 import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImages.jsx';
 import ProduitItem from "/components/produit/ProduitItem.jsx";
+//import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
 
 export default function ProduitCard({showPanierPanneau, toggler, produits }) {
   const [produitsState, setProduits] = useState(produits);
   const router = useRouter();
   const [, addToCart] = useCart();
 
-  const handleAddToCart = ({ _id, stock }, quantity) => {
+  const updateProductStockAndSetCart = ({ _id, stock }, quantity) => {
     if (quantity > stock) {
       return;
     }
@@ -37,7 +38,7 @@ export default function ProduitCard({showPanierPanneau, toggler, produits }) {
                 averageHeight={averageHeight}
                 router={router}
                 addToCart={addToCart}
-                handleAddToCart={handleAddToCart}
+                updateProductStockAndSetCart={updateProductStockAndSetCart}              
                 toggler={toggler}
                 showPanierPanneau={showPanierPanneau}
               />

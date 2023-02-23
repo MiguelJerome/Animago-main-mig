@@ -3,6 +3,7 @@ import ProduitItemInfo from '/components/produit/ProduitItemInfo.jsx';
 import ProduitItemImage from '/components/produit/ProduitItemImage.jsx';
 import React from 'react';
 import GetterSetterQuantite from '/components/ProduitBindingPanier/GetterSetterQuantite/GetterSetterQuantite';
+import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart";
 
 export default function ProduitItem({ showPanierPanneau,
   toggler,
@@ -11,11 +12,11 @@ export default function ProduitItem({ showPanierPanneau,
   averageHeight,
   router,
   addToCart,
-  handleAddToCart }) {
+  updateProductStockAndSetCart }) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
 
   const handleAddProductToCartWithQuantityReset = () => {
-    handleAddToCart({ _id: product._id, stock: product.stock }, quantite);
+    updateProductStockAndSetCart({ _id: product._id, stock: product.stock }, quantite);
     setQuantite(0);
   };
 
@@ -25,7 +26,7 @@ export default function ProduitItem({ showPanierPanneau,
       <ProduitItemInfo
         product={product}
         addToCart={addToCart}
-        handleAddToCart={handleAddToCart}
+        updateProductStockAndSetCart={updateProductStockAndSetCart}
         handleQuantityChange={handleQuantityChange}
      
         quantite={quantite}

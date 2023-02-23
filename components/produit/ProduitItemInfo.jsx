@@ -7,7 +7,7 @@ export default function ProduitInfo({
   toggler,
   product,
   addToCart,
-  handleAddToCart,
+  updateProductStockAndSetCart,
   handleQuantityChange,
   quantite,
   handleAddProductToCartWithQuantityReset
@@ -28,7 +28,7 @@ export default function ProduitInfo({
         depart={quantite}
         product={{ _id, name, price }}
         addToCart={addToCart}
-        handleAddToCart={handleAddToCart}
+        updateProductStockAndSetCart={updateProductStockAndSetCart}
         handleQuantityChange={handleQuantityChange} 
         handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         quantite={quantite}
