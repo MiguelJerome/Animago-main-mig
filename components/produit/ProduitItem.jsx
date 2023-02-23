@@ -14,13 +14,9 @@ export default function ProduitItem({ showPanierPanneau,
   handleAddToCart }) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
 
-  const clearDepart = () => {
-    setQuantite(0);
-  };
-
-  const handleAddToCartClick = () => {
+  const handleAddProductToCartWithQuantityReset = () => {
     handleAddToCart({ _id: product._id, stock: product.stock }, quantite);
-    clearDepart();
+    setQuantite(0);
   };
 
   return (
@@ -31,9 +27,9 @@ export default function ProduitItem({ showPanierPanneau,
         addToCart={addToCart}
         handleAddToCart={handleAddToCart}
         handleQuantityChange={handleQuantityChange}
-        clearDepart={clearDepart}
+     
         quantite={quantite}
-        handleAddToCartClick={handleAddToCartClick}
+        handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         toggler={toggler}
         showPanierPanneau={showPanierPanneau}
         item={product}
