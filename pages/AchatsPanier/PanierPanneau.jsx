@@ -4,8 +4,9 @@ import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import MainTouteComponentPanier from '/components/AchatPanier/PanierPanneauDroit/MainTouteComponentPanier';
 import styles from '/styles/Header.module.css';
 import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart'
+import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart';
 
-export default function PanierPanneau({ toggler }) {
+export default function PanierPanneau({ toggler, updateProductStockAndSetCart  }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
   const [totalPriceInCart, setTotalPriceInCart] = useState(0);
