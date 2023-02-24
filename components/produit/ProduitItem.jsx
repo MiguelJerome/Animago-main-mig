@@ -3,7 +3,7 @@ import ProduitItemInfo from '/components/produit/ProduitItemInfo.jsx';
 import ProduitItemImage from '/components/produit/ProduitItemImage.jsx';
 import React from 'react';
 import GetterSetterQuantite from '/components/ProduitBindingPanier/GetterSetterQuantite/GetterSetterQuantite';
-import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart";
+import HandleAddProductToCartWithQuantityReset from '/components/ProduitBindingPanier/HandleAddProductToCartWithQuantityReset/HandleAddProductToCartWithQuantityReset';
 
 export default function ProduitItem({ showPanierPanneau,
   toggler,
@@ -12,13 +12,10 @@ export default function ProduitItem({ showPanierPanneau,
   averageHeight,
   router,
   addToCart,
-  updateProductStockAndSetCart }) {
+  updateProductStockAndSetCart
+}) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
-
-  const handleAddProductToCartWithQuantityReset = () => {
-    updateProductStockAndSetCart({ _id: product._id, stock: product.stock }, quantite);
-    setQuantite(0);
-  };
+  const handleAddProductToCartWithQuantityReset = HandleAddProductToCartWithQuantityReset({ product, updateProductStockAndSetCart, quantite, setQuantite });
 
   return (
     <div key={product._id} className={`${styles.container} ${styles.containerItem}`}>
@@ -28,7 +25,6 @@ export default function ProduitItem({ showPanierPanneau,
         addToCart={addToCart}
         updateProductStockAndSetCart={updateProductStockAndSetCart}
         handleQuantityChange={handleQuantityChange}
-     
         quantite={quantite}
         handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         toggler={toggler}

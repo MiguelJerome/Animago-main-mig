@@ -1,29 +1,15 @@
 import { useRouter } from 'next/router';
 import styles from '/styles/ProduitCard.module.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { useCart } from '/components/AchatPanier/UseCart';
 import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImages.jsx';
 import ProduitItem from "/components/produit/ProduitItem.jsx";
-//import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
+import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
 
 export default function ProduitCard({showPanierPanneau, toggler, produits }) {
-  const [produitsState, setProduits] = useState(produits);
   const router = useRouter();
   const [, addToCart] = useCart();
-
-  const updateProductStockAndSetCart = ({ _id, stock }, quantity) => {
-    if (quantity > stock) {
-      return;
-    }
-    const productIndex = produitsState.findIndex((p) => p._id === _id);
-    const updatedProduct = { ...produitsState[productIndex], stock: stock - quantity };
-    const updatedProduits = [
-      ...produitsState.slice(0, productIndex),
-      updatedProduct,
-      ...produitsState.slice(productIndex + 1),
-    ];
-    setProduits(updatedProduits);
-  };
+  const { produitsState, setProduits, updateProductStockAndSetCart } = UpdateProductStockAndSetCart({ produits });
 
   return (
     <div className={styles.gallerie}>

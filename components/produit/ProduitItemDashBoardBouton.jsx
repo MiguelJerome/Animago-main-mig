@@ -1,6 +1,7 @@
 import styles from '/styles/ProduitCard.module.css';
 import AjouterEnleverPanier from './AjouterEnleverPanier';
 import ProduitItemBtnAjouterPanier from './PanierItemBtnAjouterPanier';
+import HandleCartUpdateWithDepart from '/components/ProduitBindingPanier/HandleCartUpdateWithDepart/HandleCartUpdateWithDepart';
 
 export default function ProduitItemDashBoardBouton({
   showPanierPanneau,
@@ -8,7 +9,6 @@ export default function ProduitItemDashBoardBouton({
   stock,
   depart,
   product,
-  addToCart,
   updateProductStockAndSetCart,
   handleQuantityChange,
   handleAddProductToCartWithQuantityReset,
@@ -16,15 +16,14 @@ export default function ProduitItemDashBoardBouton({
 }) {
   const { _id, name, price } = product || {};
 
-  const handleItemAddToCart = () => {
-    addToCart({ _id, name, price }, quantite);
-    updateProductStockAndSetCart({ _id, stock }, quantite, () => handleQuantityChange(0));
-  };
-
-  const handleCartUpdateWithDepart = (newDepart) => {
-    updateProductStockAndSetCart({ _id, stock }, quantite, () => handleQuantityChange(0));
-    handleAddProductToCartWithQuantityReset(newDepart);
-  };
+  const handleCartUpdateWithDepart = HandleCartUpdateWithDepart({
+    _id,
+    stock,
+    quantite,
+    updateProductStockAndSetCart,
+    handleQuantityChange,
+    handleAddProductToCartWithQuantityReset,
+  });
 
   return (
     <div className={styles.dashBoardButton}>
@@ -33,7 +32,6 @@ export default function ProduitItemDashBoardBouton({
         depart={depart}
         product={product}
         onQuantityChange={handleQuantityChange}
-        handleItemAddToCart={handleItemAddToCart}
         handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         quantite={quantite}
       />
