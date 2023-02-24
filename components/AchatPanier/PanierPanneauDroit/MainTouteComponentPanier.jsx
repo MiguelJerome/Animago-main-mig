@@ -18,8 +18,7 @@ const MainTouteComponentPanier = ({cart, handleChange, removeFromCart, router, s
             removeFromCart={removeFromCart}
             router={router}
             submitCheckout={submitCheckout}
-            addToCart={addToCart}
-           
+            addToCart={addToCart}      
           />
         </div>
         <PanierPanneauFooter router={router} />

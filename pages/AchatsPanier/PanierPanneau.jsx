@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import MainTouteComponentPanier from '/components/AchatPanier/PanierPanneauDroit/MainTouteComponentPanier';
 import styles from '/styles/Header.module.css';
+import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart'
 
 export default function PanierPanneau({ toggler }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
