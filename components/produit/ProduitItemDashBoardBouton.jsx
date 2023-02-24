@@ -36,10 +36,12 @@ export default function ProduitItemDashBoardBouton({
         quantite={quantite}
       />
       <ProduitItemBtnAjouterPanier
+        product={product}
         handleCartUpdateWithDepart={handleCartUpdateWithDepart}
         handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         toggler={toggler}
         showPanierPanneau={showPanierPanneau}
+        quantite={quantite}
       />
     </div>
   );

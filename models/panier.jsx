@@ -1,6 +1,6 @@
 const quantiteExemple = 0;
-const defaultWidth = '100%';
-const defaultHeight = 'auto';
+const defaultWidth = 400;
+const defaultHeight = 400;
 
 const panier = ([
     { _id: 100, purchaseQuantity: quantiteExemple, categorie: "aquatique", stock: 5, price: 90.99, name: 'Aquarium Coral Fish Tank', description: `Cette élégante réplique de décoration Coral Cave par Underwater Treasures est la réplique parfaite pour donner du caractère à n'importe quel aquarium.`, src: '/img/produits/AquariumCoralFishTank.png', alt: 'Aquarium Coral Fish Tank', width: defaultWidth, height: defaultHeight },

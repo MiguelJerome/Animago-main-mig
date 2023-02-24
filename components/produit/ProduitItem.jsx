@@ -15,7 +15,12 @@ export default function ProduitItem({ showPanierPanneau,
   updateProductStockAndSetCart
 }) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
-  const handleAddProductToCartWithQuantityReset = HandleAddProductToCartWithQuantityReset({ product, updateProductStockAndSetCart, quantite, setQuantite });
+  const handleAddProductToCartWithQuantityReset = HandleAddProductToCartWithQuantityReset({
+    product,
+    updateProductStockAndSetCart,
+    quantite,
+    setQuantite,
+  });
 
   return (
     <div key={product._id} className={`${styles.container} ${styles.containerItem}`}>

@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import CheckoutPanier from '/public/img/cart.png';
 import styles from '/styles/Cart.module.css';
+import GrandTotalItemResultat from '/components/AchatPanier/PanierPanneauDroit/GrandTotalItemResultat'
+import GrandTotalMontantResultat from '/components/AchatPanier/PanierPanneauDroit/GrandTotalMontantResultat'
+
 
 const CheckoutBtn = ({ submitCheckout, calculateTotal, total }) => {
   function handleClick() {
@@ -20,7 +23,9 @@ const CheckoutBtn = ({ submitCheckout, calculateTotal, total }) => {
         priority={true}
         className={styles.imgCheckout}
       />
+      <p className={styles.checkoutLabel}>{<GrandTotalItemResultat calculateTotal={calculateTotal} />}</p>
       <p className={styles.checkoutLabel}>Régler la note</p>
+      
     </button>
   );
 };

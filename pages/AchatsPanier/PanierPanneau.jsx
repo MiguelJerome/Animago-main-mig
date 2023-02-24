@@ -6,7 +6,7 @@ import styles from '/styles/Header.module.css';
 import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart'
 import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart';
 
-export default function PanierPanneau({ toggler, updateProductStockAndSetCart  }) {
+export default function PanierPanneau({ toggler  }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
   const [totalPriceInCart, setTotalPriceInCart] = useState(0);
@@ -51,7 +51,32 @@ export default function PanierPanneau({ toggler, updateProductStockAndSetCart  }
       }
     }
   };
-  
+
+/*
+const handleChange = (item, value) => {
+  if (Number.isInteger(value)) {
+    const updatedCart = [...cart];
+    const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+    if (itemIndex !== -1) {
+      const initialStock = parseInt(item.stock);
+      const purchaseQuantity = Number.isInteger(value) >= 0  ? Math.min(parseInt(value, 10), parseInt(initialStock)) : 0;
+      const diff = parseInt(purchaseQuantity) - parseInt(item.purchaseQuantity);
+      const updatedItem = {
+        ...item,
+        purchaseQuantity,
+        stock: parseInt(initialStock) - parseInt(diff),
+      };
+      const newCart = [
+        ...updatedCart.slice(0, itemIndex),
+        updatedItem,
+        ...updatedCart.slice(itemIndex + 1),
+      ];
+      setCart(newCart);
+    }
+  }
+};
+*/
+
   const calcTotal = () => {
     let sum = 0;
     cart.forEach((item) => {
@@ -63,7 +88,7 @@ export default function PanierPanneau({ toggler, updateProductStockAndSetCart  }
   };
 
   const submitCheckout = async () => {
-    if (totalPriceInCart === 0) {
+    if (totalPriceInCart <= 0) {
       alert("Votre panier est vide, vous ne pouvez pas effectuer de commande.");
       return;
     }

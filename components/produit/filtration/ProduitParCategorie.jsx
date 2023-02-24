@@ -8,8 +8,8 @@ import panier from '../../../models/panier';
 export default function ProduitParCategorie({ showPanierPanneau,toggler, categorie }) {
 
   const filteredProduits = !categorie
-    ? produits
-    : produits.filter(({ categorie: produitCategorie }) => produitCategorie === categorie);
+    ? panier
+    : panier.filter(({ categorie: produitCategorie }) => produitCategorie === categorie);
   
   return (
     <main>
