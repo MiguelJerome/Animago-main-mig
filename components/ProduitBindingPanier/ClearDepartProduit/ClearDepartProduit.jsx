@@ -6,14 +6,14 @@ const ClearDepartProduit = ({ product, onQuantityChange, clearInput }) => {
     
     const clearDepart = (newDepart) => {
         const updatedProduct = { ...product, stock: newDepart };
-        setCart((prevCart) => {
-          const cartWithoutItem = prevCart.filter((p) => p._id !== product._id);
-          if (newDepart > 0) {
-            return [...cartWithoutItem, updatedProduct];
+        const updatedCart = Array.isArray(cart) ? cart.map((p) => {
+          if (p._id === product._id) {
+            return updatedProduct;
           } else {
-            return cartWithoutItem;
+            return p;
           }
-        });
+        }) : [];
+        setCart(updatedCart);
         onQuantityChange(0);
         onQuantityChange(newDepart);
         if (typeof clearInput === 'function') {
