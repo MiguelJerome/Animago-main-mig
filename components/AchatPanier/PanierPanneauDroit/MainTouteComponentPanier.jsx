@@ -19,7 +19,7 @@ const MainTouteComponentPanier = ({cart, handleChange, removeFromCart, router, s
             router={router}
             submitCheckout={submitCheckout}
             addToCart={addToCart}
-            total={<TotalAchatParItemResultat cart={cart} />}
+           
           />
         </div>
         <PanierPanneauFooter router={router} />

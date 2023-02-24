@@ -15,7 +15,6 @@ const MainContenuPanneauPanier = (props) => {
           removeFromCart={removeFromCart}
           router={router}
           calculateTotal={<TotalAchatQuantite cart={cart} />}
-          total={<TotalAchatParItemResultat cart={cart} />}
           submitCheckout={submitCheckout}
           addToCart={addToCart}
         />

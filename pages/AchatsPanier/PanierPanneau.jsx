@@ -86,7 +86,6 @@ export default function PanierPanneau({ toggler }) {
         submitCheckout={submitCheckout}
         addToCart={addToCart}
         toggler={toggler}
-        total={totalPriceInCart}
         />
         </div>
       </>
