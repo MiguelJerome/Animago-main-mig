@@ -7,7 +7,7 @@ import styles from '/styles/Header.module.css';
 export default function PanierPanneau({ toggler }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
-  const [total, setTotal] = useState(0);
+  const [totalPriceInCart, setTotalPriceInCart] = useState(0);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function PanierPanneau({ toggler }) {
 
   useEffect(() => {
     if (orders.length > 0) {
-      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${total}`);
+      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${totalPriceInCart}`);
       setCart([]);
       setOrders([]);
       router.push({
@@ -57,11 +57,11 @@ export default function PanierPanneau({ toggler }) {
         sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
       }
     });
-    setTotal(parseFloat(sum.toFixed(2)));
+    setTotalPriceInCart(parseFloat(sum.toFixed(2)));
   };
 
   const submitCheckout = async () => {
-    if (total === 0) {
+    if (totalPriceInCart === 0) {
       alert("Votre panier est vide, vous ne pouvez pas effectuer de commande.");
       return;
     }
@@ -86,7 +86,7 @@ export default function PanierPanneau({ toggler }) {
         submitCheckout={submitCheckout}
         addToCart={addToCart}
         toggler={toggler}
-        total={total}
+        total={totalPriceInCart}
         />
         </div>
       </>

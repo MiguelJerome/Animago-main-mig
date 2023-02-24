@@ -8,16 +8,6 @@ import Header from '../Header';
 
 export default function ProduitDetails({ product }) {
   const router = useRouter();
-  const [cart, setCart] = useState([]);
-  const currentProduct = product;
-
-  const addToCart = () => {
-    setCart([...cart, currentProduct]);
-  };
-
-  const removeFromCart = () => {
-    setCart(cart.filter((p) => p._id !== currentProduct._id));
-  };
 
   return (
     <>
