@@ -30,7 +30,7 @@ export default function AjouterEnleverPanier({ product, stock, onQuantityChange,
       <div><button className={styles.button} onClick={decrementer}>-</button></div>
       <div className={styles.panierItemQuantite}>{quantite}</div>
       <div><button className={styles.button} onClick={incrementer}>+</button></div>
-      <IncrementerProduitCard product={product} stock={stock} onQuantityChange={onQuantityChange} quantite={item ? item.purchaseQuantity : 0} addToCart={addToCart} />
+      {/* <IncrementerProduitCard product={product} stock={stock} onQuantityChange={onQuantityChange} quantite={item ? item.purchaseQuantity : 0} addToCart={addToCart} />*/}
     </div>
   );
 }
