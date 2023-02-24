@@ -2,7 +2,8 @@ import React from 'react';
 import styles from '/styles/AjouterEnleverPanier.module.css';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 
-const IncrementerProduitCard = ({ product, stock, onQuantityChange, quantite, addToCart }) => {
+const IncrementerProduitCarte = ({ product, onQuantityChange, quantite, addToCart, stock }) => {
+  const [, , , setCart] = useCart([]);
 
   const incrementer = () => {
     if (quantite < stock) {
@@ -11,12 +12,12 @@ const IncrementerProduitCard = ({ product, stock, onQuantityChange, quantite, ad
       onQuantityChange(newQuantity); 
     }
   };
-  
-    return (
-      <>
-        <div><button className={styles.button} onClick={incrementer}>+</button></div>
-    </>
+
+  return (
+    <button className={styles.button} onClick={incrementer}>
+      +
+    </button>
   );
 };
 
-export default IncrementerProduitCard;
+export default IncrementerProduitCarte;

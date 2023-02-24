@@ -50,7 +50,6 @@ export default function PanierPanneau({ toggler }) {
     }
   };
   
-
   const calcTotal = () => {
     let sum = 0;
     cart.forEach((item) => {
@@ -76,7 +75,6 @@ export default function PanierPanneau({ toggler }) {
     setOrders([...orders, cart]);
   };
   
-
   return (
     <>
       <div className={`${styles.rightPanel} ${toggler ? 'active' : ''}`}>
