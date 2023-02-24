@@ -6,14 +6,12 @@ export default function DimensionsMoyennesImages({ produitsState, products, orde
 
   useEffect(() => {
     if (produitsState || products || orders) {
-      const allProducts = orders.flatMap((itemsArray) => itemsArray).concat(produitsState, products);
+      const allProducts = orders ? orders.flatMap((itemsArray) => itemsArray).concat(produitsState || [], products || []) : produitsState || products || [];
       const definedProducts = allProducts.filter(p => p !== undefined);
       setAverageWidth(Math.max(...definedProducts.map((p) => p.width), 0));
       setAverageHeight(Math.max(...definedProducts.map((p) => p.height), 0));
     }
   }, [produitsState, products, orders]);
-  
-  
 
   return children({ averageWidth, averageHeight });
 }

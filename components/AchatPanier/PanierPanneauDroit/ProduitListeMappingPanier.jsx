@@ -14,7 +14,7 @@ export default function ProduitListeMappingPanier({ cart, handleChange, removeFr
           <li className={styles.produitDisponible}>
             <ProduitImagePanier item={item} />
             <div>
-                      <ProduitInfoPanier cart={cart} item={item} handleChange={handleChange}/>
+              <ProduitInfoPanier cart={cart} item={item} handleChange={handleChange}/>
               <InputPanier cart={cart} item={item} handleChange={handleChange} />
               <PoubelleSupprimerPanier item={item} removeFromCart={removeFromCart} />
             </div>
