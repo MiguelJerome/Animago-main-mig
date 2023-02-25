@@ -4,11 +4,12 @@ import ProductDetails from "/components/produit/ProduitDetails.jsx";
 
 export default function Produit111() {
     const productId = 111;
-    const product = ProduitParCategorie({categorie: null}).props.children.props.produits.find(({_id}) => _id === productId);
-
-    return <>
-        <div className={styles.container}>
-            <ProductDetails product={product} />        
-        </div>
-    </>
+    const products = ProduitParCategorie({categorie: null});
+    const product = Array.isArray(products) ? product.find(({_id}) => _id === productId) : null;
+    
+        return <>
+            <div className={styles.container}>
+                <ProductDetails product={product|| products} />    
+            </div>
+        </>
 }

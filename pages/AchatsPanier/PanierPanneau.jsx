@@ -6,16 +6,25 @@ import styles from '/styles/Header.module.css';
 import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart';
 import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart';
 
-export default function PanierPanneau({ toggler  }) {
-  const [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity, getRemainingStock ] = useCart();
+export default function PanierPanneau({
+  toggler,
+  cart,
+  initCart,
+  addToCart,
+  removeFromCart,
+  setCart,
+  getPurchaseQuantity,
+  getRemainingStock
+}) {
+//  const [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity, getRemainingStock ] = useCart();
   const router = useRouter();
   const [orders, setOrders] = useState([]);
   const [totalPriceInCart, setTotalPriceInCart] = useState(0);
-
+/*
   useEffect(() => {
     initCart();
   }, []);
-
+*/
   useEffect(() => {
     calcTotal();
   }, [cart]);

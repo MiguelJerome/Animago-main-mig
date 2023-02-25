@@ -14,14 +14,17 @@ function ContenuPanneauPanier({
   getRemainingStock,
   getPurchaseQuantity
 }) {
+ /*
   if (!cart || cart.length === 0) {
+  
     const time = 3000;
     setTimeout(() => {
-      window.location.reload();
+      location.reload();
     }, time);
-    return <PanierVideMessage time={time} />;
-  }
 
+    return <PanierVideMessage  />;
+  }
+*/
   return (
     <>
       <ListeItemPanier

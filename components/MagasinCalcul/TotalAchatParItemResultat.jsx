@@ -5,13 +5,17 @@ export default function TotalAchatParItemResultat({ cart }) {
 
   useEffect(() => {
     let sum = 0;
-    cart.forEach((item) => {
-      if (parseFloat(item.price) && parseFloat(item.purchaseQuantity)) {
-        sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
-      }
-    });
-    setTotal(parseFloat(sum.toFixed(2)));
+    if (cart) {
+      cart.forEach((item) => {
+        if (parseFloat(item.price) && parseFloat(item.purchaseQuantity)) {
+          sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
+        }
+      });
+    }
+    setTotal(sum.toFixed(2));
   }, [cart]);
+  
 
-  return total.toFixed(2);
+  return isNaN(total) ? '0.00' : Number(total).toFixed(2);
+
 }

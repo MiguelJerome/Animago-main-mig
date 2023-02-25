@@ -13,7 +13,8 @@ export default function ProduitItem({ showPanierPanneau,
   router,
   addToCart,
   updateProductStockAndSetCart,
-  getPurchaseQuantity
+  getPurchaseQuantity,
+  getRemainingStock
 }) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
   const handleAddProductToCartWithQuantityReset = HandleAddProductToCartWithQuantityReset({
@@ -37,6 +38,7 @@ export default function ProduitItem({ showPanierPanneau,
         item={product}
         addToCart={addToCart}
         getPurchaseQuantity={getPurchaseQuantity}
+        getRemainingStock={getRemainingStock}
       />
     </div>
   );

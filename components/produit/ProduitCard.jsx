@@ -6,7 +6,14 @@ import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImage
 import ProduitItem from "/components/produit/ProduitItem.jsx";
 import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
 
-export default function ProduitCard({showPanierPanneau, toggler, produits, addToCart,getPurchaseQuantity }) {
+export default function ProduitCard({
+  showPanierPanneau,
+  toggler,
+  produits,
+  addToCart,
+  getPurchaseQuantity,
+  getRemainingStock
+}) {
   const router = useRouter();
   const { produitsState, setProduits, updateProductStockAndSetCart } = UpdateProductStockAndSetCart({ produits });
 
@@ -32,6 +39,7 @@ export default function ProduitCard({showPanierPanneau, toggler, produits, addTo
                 showPanierPanneau={showPanierPanneau}
                 addToCart={addToCart}
                 getPurchaseQuantity={getPurchaseQuantity}
+                getRemainingStock={getRemainingStock}
               />
             ))}
           </>

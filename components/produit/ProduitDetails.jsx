@@ -5,16 +5,21 @@ import politiqueDescription from '/components/produit/Description/politiqueDesc.
 import expeditionDescription from '/components/produit/Description/expedition.jsx';
 import React, { useState } from 'react';
 import Header from '../Header';
+import ProduitParCategorie from '/components/produit/filtration/ProduitParCategorie'
 
 export default function ProduitDetails({ product }) {
   const router = useRouter();
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
       <Header/>
       <main>
         <div className={styles.containerinfo}>
-          <h1 className={styles.title}>{product.name}</h1>
+        <h1 className={styles.title}>{product && product.name}</h1>
           <div className={styles.containerDetail}>
             <div className={`${styles.produitWrapper} ${styles.alignc}`}>
               <Image

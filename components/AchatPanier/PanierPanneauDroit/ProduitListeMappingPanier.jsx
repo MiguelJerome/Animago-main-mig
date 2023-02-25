@@ -15,7 +15,7 @@ export default function ProduitListeMappingPanier({
 }) {
   return (
     <ul>
-      {cart.map((item) => (
+      {cart && cart.map((item) => (
         <React.Fragment key={item._id}>
           <li className={styles.produitDisponible}>
             <ProduitImagePanier item={item} />
