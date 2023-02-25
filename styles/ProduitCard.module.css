@@ -168,3 +168,19 @@ background-color: rgb(240,230,140);
   font-size: 1.5rem;
 }
 }
+
+.panierItemQuantite {
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 0.71rem 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 9rem;
+  color: #212529;
+  background-color: #ffc107;
+}

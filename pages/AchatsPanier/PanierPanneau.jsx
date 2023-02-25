@@ -3,14 +3,14 @@ import { useRouter } from 'next/router';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
 import MainTouteComponentPanier from '/components/AchatPanier/PanierPanneauDroit/MainTouteComponentPanier';
 import styles from '/styles/Header.module.css';
-import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart'
 import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart';
+import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart';
 
 export default function PanierPanneau({ toggler  }) {
   const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
   const router = useRouter();
-  const [totalPriceInCart, setTotalPriceInCart] = useState(0);
   const [orders, setOrders] = useState([]);
+  const [totalPriceInCart, setTotalPriceInCart] = useState(0);
 
   useEffect(() => {
     initCart();
@@ -55,6 +55,7 @@ export default function PanierPanneau({ toggler  }) {
       }
     }
   };
+
 
 /*
 const handleChange = (item, value) => {
@@ -122,4 +123,18 @@ const handleChange = (item, value) => {
       </>
   
   );
+}
+
+
+export async function getServerSideProps(context) {
+  const { carts } = context.query;
+
+  // If the orders parameter is present in the query string, parse it from a string back into an array.
+  const cartsArray = carts ? JSON.parse(carts) : [];
+
+  return {
+    props: {
+      carts: cartsArray || [],
+    },
+  };
 }
