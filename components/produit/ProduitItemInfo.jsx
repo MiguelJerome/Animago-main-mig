@@ -10,7 +10,8 @@ export default function ProduitInfo({
   updateProductStockAndSetCart,
   handleQuantityChange,
   quantite,
-  handleAddProductToCartWithQuantityReset
+  handleAddProductToCartWithQuantityReset,
+  getPurchaseQuantity
 }) {
   const { _id, name, price, stock } = product;
 
@@ -27,13 +28,14 @@ export default function ProduitInfo({
         stock={stock}
         depart={quantite}
         product={{ _id, name, price }}
-        addToCart={addToCart}
         updateProductStockAndSetCart={updateProductStockAndSetCart}
         handleQuantityChange={handleQuantityChange} 
         handleAddProductToCartWithQuantityReset={handleAddProductToCartWithQuantityReset}
         quantite={quantite}
         toggler={toggler}
         showPanierPanneau={showPanierPanneau}
+        addToCart={addToCart}
+        getPurchaseQuantity={getPurchaseQuantity}
       />
     </div>
   );

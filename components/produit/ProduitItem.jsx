@@ -12,7 +12,8 @@ export default function ProduitItem({ showPanierPanneau,
   averageHeight,
   router,
   addToCart,
-  updateProductStockAndSetCart
+  updateProductStockAndSetCart,
+  getPurchaseQuantity
 }) {
   const { quantite, setQuantite, handleQuantityChange } = GetterSetterQuantite();
   const handleAddProductToCartWithQuantityReset = HandleAddProductToCartWithQuantityReset({
@@ -27,7 +28,6 @@ export default function ProduitItem({ showPanierPanneau,
       <ProduitItemImage product={product} averageWidth={averageWidth} averageHeight={averageHeight} router={router} />
       <ProduitItemInfo
         product={product}
-        addToCart={addToCart}
         updateProductStockAndSetCart={updateProductStockAndSetCart}
         handleQuantityChange={handleQuantityChange}
         quantite={quantite}
@@ -35,6 +35,8 @@ export default function ProduitItem({ showPanierPanneau,
         toggler={toggler}
         showPanierPanneau={showPanierPanneau}
         item={product}
+        addToCart={addToCart}
+        getPurchaseQuantity={getPurchaseQuantity}
       />
     </div>
   );

@@ -13,13 +13,13 @@ const InputPanier = ({ product, item, handleChange }) => {
       const updatedCart = [...cart];
       const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
       if (itemIndex !== -1) {
-        const initialStock = item.stock;
-        const purchaseQuantity = value >= 0 ? Math.min(parseInt(value, 10), initialStock - item.purchaseQuantity + value) : 0;
-        const diff = item.purchaseQuantity - purchaseQuantity;
+        const initialStock = parseInt(item.stock);
+        const purchaseQuantity = Number.isInteger(value) ? Math.max(Math.min(parseInt(value, 10), parseInt(initialStock)), 0) : 0;
+        const diff = parseInt(purchaseQuantity) - parseInt(item.purchaseQuantity);
         const updatedItem = {
           ...item,
           purchaseQuantity,
-          stock: initialStock + diff,
+          stock: parseInt(initialStock) - parseInt(diff),
         };
         const newCart = [
           ...updatedCart.slice(0, itemIndex),
@@ -27,9 +27,6 @@ const InputPanier = ({ product, item, handleChange }) => {
           ...updatedCart.slice(itemIndex + 1),
         ];
         setCart(newCart);
-        if (diff > 0) {
-          updateProductStockAndSetCart({ _id: item._id, stock: item.stock + diff }, diff);
-        }
       }
     }
   };

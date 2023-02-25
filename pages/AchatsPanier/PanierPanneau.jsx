@@ -7,7 +7,7 @@ import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/Updat
 import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart';
 
 export default function PanierPanneau({ toggler  }) {
-  const [cart, initCart, addToCart, removeFromCart, setCart] = useCart();
+  const [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity ] = useCart();
   const router = useRouter();
   const [orders, setOrders] = useState([]);
   const [totalPriceInCart, setTotalPriceInCart] = useState(0);
@@ -36,15 +36,56 @@ export default function PanierPanneau({ toggler  }) {
     }
   }, [orders]);
 
+  // const handleChange = (item, value) => {
+  //   if (Number.isInteger(value)) {
+  //     const updatedCart = [...cart];
+  //     const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+  //     if (itemIndex !== -1) {
+  //       const updatedItem = {
+  //         ...updatedCart[itemIndex],
+  //         purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || updatedCart[itemIndex].purchaseQuantity) : 0,
+  //       };
+  //       const newCart = [
+  //         ...updatedCart.slice(0, itemIndex),
+  //         updatedItem,
+  //         ...updatedCart.slice(itemIndex + 1),
+  //       ];
+  //       setCart(newCart);
+  //     }
+  //   }
+  // };
+
   const handleChange = (item, value) => {
     if (Number.isInteger(value)) {
       const updatedCart = [...cart];
       const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
       if (itemIndex !== -1) {
-        const stock = updatedCart[itemIndex].stock;
         const updatedItem = {
           ...updatedCart[itemIndex],
-          purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || 0) : 0,
+          purchaseQuantity: Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || getPurchaseQuantity(item._id)),
+        };
+        const newCart = [        ...updatedCart.slice(0, itemIndex),        updatedItem,        ...updatedCart.slice(itemIndex + 1),      ];
+        setCart(newCart);
+      }
+    }
+  };
+  
+  
+
+
+/*
+  const handleChange = (item, value) => {
+    if (Number.isInteger(value)) {
+      const updatedCart = [...cart];
+      const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
+      if (itemIndex !== -1) {
+        const initialStock = parseInt(item.stock);
+        const purchaseQuantity = Number.isInteger(value) ? Math.max(Math.min(parseInt(value, 10), parseInt(initialStock)), 0) : 0;
+        const diff = parseInt(purchaseQuantity) - parseInt(getPurchaseQuantity(item._id));
+        const updatedItem = {
+          ...item,
+          purchaseQuantity,
+          stock: parseInt(initialStock) - parseInt(diff),
         };
         const newCart = [
           ...updatedCart.slice(0, itemIndex),
@@ -55,42 +96,21 @@ export default function PanierPanneau({ toggler  }) {
       }
     }
   };
+  */
 
-
-/*
-const handleChange = (item, value) => {
-  if (Number.isInteger(value)) {
-    const updatedCart = [...cart];
-    const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-    if (itemIndex !== -1) {
-      const initialStock = parseInt(item.stock);
-      const purchaseQuantity = Number.isInteger(value) >= 0  ? Math.min(parseInt(value, 10), parseInt(initialStock)) : 0;
-      const diff = parseInt(purchaseQuantity) - parseInt(item.purchaseQuantity);
-      const updatedItem = {
-        ...item,
-        purchaseQuantity,
-        stock: parseInt(initialStock) - parseInt(diff),
-      };
-      const newCart = [
-        ...updatedCart.slice(0, itemIndex),
-        updatedItem,
-        ...updatedCart.slice(itemIndex + 1),
-      ];
-      setCart(newCart);
-    }
-  }
-};
-*/
 
   const calcTotal = () => {
     let sum = 0;
-    cart.forEach((item) => {
-      if (parseFloat(item.price) && parseFloat(item.purchaseQuantity)) {
-        sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
-      }
-    });
+    if (cart) {
+      cart.forEach((item) => {
+        if (parseFloat(item.price) && parseFloat(item.purchaseQuantity)) {
+          sum += parseFloat(item.price) * parseFloat(item.purchaseQuantity);
+        }
+      });
+    }
     setTotalPriceInCart(parseFloat(sum.toFixed(2)));
   };
+  
 
   const submitCheckout = async () => {
     if (totalPriceInCart <= 0) {
@@ -100,7 +120,7 @@ const handleChange = (item, value) => {
   
     const productIds = [];
     cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < Number.isInteger(item.purchaseQuantity); i++) {
         productIds.push(item._id);
       }
     });
