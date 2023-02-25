@@ -22,7 +22,11 @@ export default function PanierPanneau({ toggler  }) {
 
   useEffect(() => {
     if (orders.length > 0) {
-      alert(`Merci d'avoir acheté avec Animago ! Voici le grand total de votre commande $${totalPriceInCart}`);
+      alert(`${
+      `      Merci d'avoir acheté chez Animago ! Nous apprécions votre confiance en nos produits et services.
+      Votre commande a bien été prise en compte et le montant total de votre achat est de $${totalPriceInCart}.
+      Nous espérons que vous êtes satisfait de votre achat et nous espérons vous revoir bientôt chez Animago pour de nouveaux achats.`
+      }`);
       setCart([]);
       setOrders([]);
       router.push({
@@ -89,7 +93,7 @@ const handleChange = (item, value) => {
 
   const submitCheckout = async () => {
     if (totalPriceInCart <= 0) {
-      alert("Votre panier est vide, vous ne pouvez pas effectuer de commande.");
+      alert("Votre panier est actuellement vide. Pour pouvoir effectuer une commande, veuillez ajouter des produits à votre panier.");
       return;
     }
   

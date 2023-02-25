@@ -23,8 +23,6 @@ export default function ProduitItemBtnAjouterPanier({
     if (showPanierPanneau) {
       toggler();
     }
-
-    
   };
 
   return (
