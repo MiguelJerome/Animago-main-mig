@@ -7,7 +7,7 @@ import UpdateProductStockAndSetCart from '/components/ProduitBindingPanier/Updat
 import GetterSetterTotalPriceInCart from '/components/ProduitBindingPanier/GetterSetterTotalPriceInCart/GetterSetterTotalPriceInCart';
 
 export default function PanierPanneau({ toggler  }) {
-  const [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity ] = useCart();
+  const [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity, getRemainingStock ] = useCart();
   const router = useRouter();
   const [orders, setOrders] = useState([]);
   const [totalPriceInCart, setTotalPriceInCart] = useState(0);
@@ -36,25 +36,6 @@ export default function PanierPanneau({ toggler  }) {
     }
   }, [orders]);
 
-  // const handleChange = (item, value) => {
-  //   if (Number.isInteger(value)) {
-  //     const updatedCart = [...cart];
-  //     const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-  //     if (itemIndex !== -1) {
-  //       const updatedItem = {
-  //         ...updatedCart[itemIndex],
-  //         purchaseQuantity: value >= 0 ? Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || updatedCart[itemIndex].purchaseQuantity) : 0,
-  //       };
-  //       const newCart = [
-  //         ...updatedCart.slice(0, itemIndex),
-  //         updatedItem,
-  //         ...updatedCart.slice(itemIndex + 1),
-  //       ];
-  //       setCart(newCart);
-  //     }
-  //   }
-  // };
-
   const handleChange = (item, value) => {
     if (Number.isInteger(value)) {
       const updatedCart = [...cart];
@@ -62,7 +43,7 @@ export default function PanierPanneau({ toggler  }) {
       if (itemIndex !== -1) {
         const updatedItem = {
           ...updatedCart[itemIndex],
-          purchaseQuantity: Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || getPurchaseQuantity(item._id)),
+          purchaseQuantity: Math.max(Math.min(parseInt(value, 10), updatedCart[itemIndex]?.stock || getPurchaseQuantity(item._id)), 0),
         };
         const newCart = [        ...updatedCart.slice(0, itemIndex),        updatedItem,        ...updatedCart.slice(itemIndex + 1),      ];
         setCart(newCart);
@@ -70,35 +51,6 @@ export default function PanierPanneau({ toggler  }) {
     }
   };
   
-  
-
-
-/*
-  const handleChange = (item, value) => {
-    if (Number.isInteger(value)) {
-      const updatedCart = [...cart];
-      const itemIndex = updatedCart.findIndex((i) => i._id === item._id);
-      if (itemIndex !== -1) {
-        const initialStock = parseInt(item.stock);
-        const purchaseQuantity = Number.isInteger(value) ? Math.max(Math.min(parseInt(value, 10), parseInt(initialStock)), 0) : 0;
-        const diff = parseInt(purchaseQuantity) - parseInt(getPurchaseQuantity(item._id));
-        const updatedItem = {
-          ...item,
-          purchaseQuantity,
-          stock: parseInt(initialStock) - parseInt(diff),
-        };
-        const newCart = [
-          ...updatedCart.slice(0, itemIndex),
-          updatedItem,
-          ...updatedCart.slice(itemIndex + 1),
-        ];
-        setCart(newCart);
-      }
-    }
-  };
-  */
-
-
   const calcTotal = () => {
     let sum = 0;
     if (cart) {
@@ -111,7 +63,6 @@ export default function PanierPanneau({ toggler  }) {
     setTotalPriceInCart(parseFloat(sum.toFixed(2)));
   };
   
-
   const submitCheckout = async () => {
     if (totalPriceInCart <= 0) {
       alert("Votre panier est actuellement vide. Pour pouvoir effectuer une commande, veuillez ajouter des produits à votre panier.");
@@ -131,30 +82,45 @@ export default function PanierPanneau({ toggler  }) {
     <>
       <div className={`${styles.rightPanel} ${toggler ? 'active' : ''}`}>
       <MainTouteComponentPanier
-        cart={cart}
-        handleChange={handleChange}
-        removeFromCart={removeFromCart}
-        router={router}
-        submitCheckout={submitCheckout}
-        addToCart={addToCart}
-        toggler={toggler}
+          cart={cart}
+          handleChange={handleChange}
+          removeFromCart={removeFromCart}
+          router={router}
+          submitCheckout={submitCheckout}
+          addToCart={addToCart}
+          toggler={toggler}
+          getRemainingStock={getRemainingStock}
+          getPurchaseQuantity={getPurchaseQuantity}
         />
         </div>
       </>
-  
   );
 }
 
-
+/*
 export async function getServerSideProps(context) {
-  const { carts } = context.query;
-
-  // If the orders parameter is present in the query string, parse it from a string back into an array.
-  const cartsArray = carts ? JSON.parse(carts) : [];
+  const [
+    cart,
+    initCart,
+    addToCart,
+    removeFromCart,
+    setCart,
+    getPurchaseQuantity,
+    getRemainingStock
+  ] = useCart();
 
   return {
     props: {
-      carts: cartsArray || [],
-    },
+      cartProps: [
+        cart,
+        initCart,
+        addToCart,
+        removeFromCart,
+        setCart,
+        getPurchaseQuantity,
+        getRemainingStock
+      ]
+    }
   };
 }
+*/

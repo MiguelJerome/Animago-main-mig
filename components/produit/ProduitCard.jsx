@@ -10,6 +10,11 @@ export default function ProduitCard({showPanierPanneau, toggler, produits, addTo
   const router = useRouter();
   const { produitsState, setProduits, updateProductStockAndSetCart } = UpdateProductStockAndSetCart({ produits });
 
+  // Wait until produitsState is defined before rendering the component
+  if (!produitsState) {
+    return null;
+  }
+
   return (
     <div className={styles.gallerie}>
       <DimensionsMoyennesImages produits={produitsState}>
@@ -35,3 +40,4 @@ export default function ProduitCard({showPanierPanneau, toggler, produits, addTo
     </div>
   );
 }
+

@@ -6,7 +6,13 @@ import InputPanier from './InputPanier';
 import PoubelleSupprimerPanier from './PoubelleSupprimerPanier';
 import GrandTotalParItemResultat from './GrandTotalParItemResultat';
 
-export default function ProduitListeMappingPanier({ cart, handleChange, removeFromCart }) {
+export default function ProduitListeMappingPanier({
+  cart,
+  handleChange,
+  removeFromCart,
+  getRemainingStock,
+  getPurchaseQuantity
+}) {
   return (
     <ul>
       {cart.map((item) => (
@@ -14,8 +20,20 @@ export default function ProduitListeMappingPanier({ cart, handleChange, removeFr
           <li className={styles.produitDisponible}>
             <ProduitImagePanier item={item} />
             <div>
-              <ProduitInfoPanier cart={cart} item={item} handleChange={handleChange}/>
-              <InputPanier cart={cart} item={item} handleChange={handleChange} />
+              <ProduitInfoPanier
+                cart={cart}
+                item={item}
+                handleChange={handleChange}
+                getRemainingStock={getRemainingStock}
+                getPurchaseQuantity={getPurchaseQuantity}
+              />
+              <InputPanier
+                cart={cart}
+                item={item}
+                handleChange={handleChange}
+                getRemainingStock={getRemainingStock}
+                getPurchaseQuantity={getPurchaseQuantity}
+              />
               <PoubelleSupprimerPanier item={item} removeFromCart={removeFromCart} />
             </div>
           </li>

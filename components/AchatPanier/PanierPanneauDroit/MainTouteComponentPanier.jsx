@@ -13,7 +13,9 @@ const MainTouteComponentPanier = ({
     router,
     submitCheckout,
     addToCart,
-    toggler
+    toggler,
+    getRemainingStock,
+    getPurchaseQuantity
 }) => {
   return (
     <Toggler visible>
@@ -26,7 +28,9 @@ const MainTouteComponentPanier = ({
             removeFromCart={removeFromCart}
             router={router}
             submitCheckout={submitCheckout}
-            addToCart={addToCart}      
+            addToCart={addToCart}
+            getRemainingStock={getRemainingStock}
+            getPurchaseQuantity={getPurchaseQuantity}
           />
         </div>
         <PanierPanneauFooter router={router} />

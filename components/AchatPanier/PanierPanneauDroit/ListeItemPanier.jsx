@@ -7,12 +7,26 @@ import PanierTitreMessage from './PanierTitreMessage';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
 export default function ListeItemPanier(props) {
-  const { orders, cart, handleChange, removeFromCart, calculateTotal, submitCheckout } = props;
+  const {
+    orders,
+    cart,
+    handleChange,
+    removeFromCart,
+    calculateTotal,
+    submitCheckout,
+    getRemainingStock,
+    getPurchaseQuantity } = props;
 
   return (
     <>
       <PanierTitreMessage />
-      <ProduitListeMappingPanier cart={cart} handleChange={handleChange} removeFromCart={removeFromCart} />
+      <ProduitListeMappingPanier
+        getRemainingStock={getRemainingStock}
+        getPurchaseQuantity={getPurchaseQuantity}
+        cart={cart}
+        handleChange={handleChange}
+        removeFromCart={removeFromCart}
+      />
       <GrandTotalMontantResultat total={<TotalAchatParItemResultat cart={cart} />} />
       <div>
         <GrandTotalItemResultat calculateTotal={calculateTotal} />

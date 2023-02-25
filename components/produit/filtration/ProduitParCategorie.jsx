@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProduitCard from '../ProduitCard';
-import produits from '../../../models/produits';
-import panier from '../../../models/panier';
 import { useCart } from '/components/AchatPanier/UseCart.jsx';
-//import {Produit, Panier, User,Commande} from '../../../server/models/index.cjs';
-//const Produit = require('../../../server/models/Produit.cjs');
 
-export default function ProduitParCategorie({ showPanierPanneau, toggler, categorie }) {
+export default function ProduitParCategorie({ showPanierPanneau, toggler, categorie, cartProps }) {
+  // const [
+  //   cart = [],
+  //   initCart,
+  //   addToCart,
+  //   removeFromCart,
+  //   setCart,
+  //   getPurchaseQuantity,
+  //   getRemainingStock
+  // ] = Array.isArray(cartProps) ? cartProps : [];
   const [cart, initCart, addToCart, removeFromCart, setCart,getPurchaseQuantity] = useCart();
 
-  const filteredProduits = !categorie
-    ? cart
-    : cart.filter(({ categorie: produitCategorie }) => produitCategorie === categorie);
+  const filteredProduits = cart
+    ? categorie
+      ? cart.filter(({ categorie: produitCategorie }) => produitCategorie === categorie)
+      : cart
+    : [];
   
   return (
     <main>
@@ -24,4 +31,28 @@ export default function ProduitParCategorie({ showPanierPanneau, toggler, catego
       />
     </main>
   );
+}
+
+export async function getServerSideProps(context) {
+  const [
+    cart,
+    initCart,
+    addToCart,
+    removeFromCart,
+    setCart,
+    getPurchaseQuantity,
+    getRemainingStock
+  ] = useCart();
+
+  return {
+    props: {
+      cart: cart || [],
+      addToCart: addToCart,
+      getPurchaseQuantity: getPurchaseQuantity,
+      initCart: initCart,
+      removeFromCart: removeFromCart,
+      setCart: setCart,
+      getRemainingStock: getRemainingStock
+    },
+  };
 }

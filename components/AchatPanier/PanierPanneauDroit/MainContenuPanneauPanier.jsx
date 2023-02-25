@@ -5,7 +5,15 @@ import TotalAchatQuantite from '/components/MagasinCalcul/TotalAchatQuantite';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
 const MainContenuPanneauPanier = (props) => {
-  const { cart, handleChange, removeFromCart, router, submitCheckout, addToCart } = props;
+  const {
+    cart,
+    handleChange,
+    removeFromCart,
+    router,
+    submitCheckout,
+    addToCart,
+    getRemainingStock,
+    getPurchaseQuantity } = props;
   return (
     <div className={styles.containerLayout}>
       <section className={styles.section}>
@@ -17,6 +25,8 @@ const MainContenuPanneauPanier = (props) => {
           calculateTotal={<TotalAchatQuantite cart={cart} />}
           submitCheckout={submitCheckout}
           addToCart={addToCart}
+          getRemainingStock={getRemainingStock}
+          getPurchaseQuantity={getPurchaseQuantity}
         />
       </section>
     </div>

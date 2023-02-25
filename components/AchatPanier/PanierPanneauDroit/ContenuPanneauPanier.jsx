@@ -3,11 +3,21 @@ import ListeItemPanier from './ListeItemPanier';
 import PanierVideMessage from '/components/AchatPanier/PanierVideMessage';
 import TotalAchatParItemResultat from '/components/MagasinCalcul/TotalAchatParItemResultat';
 
-function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calculateTotal, submitCheckout, addToCart }) {
+function ContenuPanneauPanier({
+  cart,
+  handleChange,
+  removeFromCart,
+  router,
+  calculateTotal,
+  submitCheckout,
+  addToCart,
+  getRemainingStock,
+  getPurchaseQuantity
+}) {
   if (!cart || cart.length === 0) {
     const time = 3000;
     setTimeout(() => {
-      location.reload();
+      window.location.reload();
     }, time);
     return <PanierVideMessage time={time} />;
   }
@@ -22,6 +32,8 @@ function ContenuPanneauPanier({ cart, handleChange, removeFromCart, router, calc
         router={router}
         calculateTotal={calculateTotal} 
         submitCheckout={submitCheckout}
+        getRemainingStock={getRemainingStock}
+        getPurchaseQuantity={getPurchaseQuantity}
       />
     </>
   );

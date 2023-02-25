@@ -38,6 +38,15 @@ export const useCart = () => {
     return 0;
   };
 
-  return [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity];
-};
+  const getRemainingStock = (itemId) => {
+    const item = cart.find((p) => p._id === itemId);
+    if (item) {
+      const totalQuantity = item.purchaseQuantity;
+      const remainingStock = parseInt(item.stock) - totalQuantity;
+      return remainingStock >= 0 ? remainingStock : 0;
+    }
+    return 0;
+  };
 
+  return [cart, initCart, addToCart, removeFromCart, setCart, getPurchaseQuantity, getRemainingStock];
+};
