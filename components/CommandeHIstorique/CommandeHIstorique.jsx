@@ -6,6 +6,7 @@ import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImage
 import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
 import { toast } from 'react-toastify';
 
+
 export default function CommandeHistorique({ cart, purchaseDate, purchaseTime, currentTime, orders }) {
   const router = useRouter();
   

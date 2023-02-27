@@ -12,7 +12,8 @@ function ContenuPanneauPanier({
   submitCheckout,
   addToCart,
   getRemainingStock,
-  getPurchaseQuantity
+  getPurchaseQuantity,
+  setCart
 }) {
  /*
   if (!cart || cart.length === 0) {
@@ -37,6 +38,7 @@ function ContenuPanneauPanier({
         submitCheckout={submitCheckout}
         getRemainingStock={getRemainingStock}
         getPurchaseQuantity={getPurchaseQuantity}
+        setCart={setCart}
       />
     </>
   );

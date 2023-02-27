@@ -13,7 +13,9 @@ const MainContenuPanneauPanier = (props) => {
     submitCheckout,
     addToCart,
     getRemainingStock,
-    getPurchaseQuantity } = props;
+    getPurchaseQuantity,
+    setCart
+  } = props;
   return (
     <div className={styles.containerLayout}>
       <section className={styles.section}>
@@ -27,6 +29,7 @@ const MainContenuPanneauPanier = (props) => {
           addToCart={addToCart}
           getRemainingStock={getRemainingStock}
           getPurchaseQuantity={getPurchaseQuantity}
+          setCart={setCart}
         />
       </section>
     </div>

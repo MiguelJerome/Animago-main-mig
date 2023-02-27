@@ -99,6 +99,7 @@ export default function PanierPanneau({
           submitCheckout={submitCheckout}
           addToCart={addToCart}
           toggler={toggler}
+          setCart={setCart}
           getRemainingStock={getRemainingStock}
           getPurchaseQuantity={getPurchaseQuantity}
         />
