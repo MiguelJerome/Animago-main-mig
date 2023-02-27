@@ -2,14 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 20rem;
 }
 
 .gallerie img{
     padding: .2rem;
     border: 1px solid black;
     border-radius: 5px;
-    z-index: 1;
+    z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -27,7 +26,7 @@
     font-weight: bolder;
     margin: .5rem;
     position: absolute;
-    z-index: 2;
+    z-index: 0;
 }
 
 .button { 

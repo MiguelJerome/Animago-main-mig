@@ -12,7 +12,7 @@ function Gallerie({ images, toggler }) {
         <div key={index} className={styles.container}>
           <Image
             src={imageData.src}
-            alt={imageData.alt || 'Default Image'}
+            alt={imageData.alt || imageData.name ? `${imageData.alt || imageData.name}` : ''}
             width={imageData.width}
             height={imageData.height}
             priority={true}

@@ -4,17 +4,18 @@ import { useRouter } from 'next/router';
 import styles from '/styles/Cart.module.css';
 
 const ProduitImagePanier = ({ item }) => {
+  const { src, alt, name, averageWidth, averageHeight } = item;
   const router = useRouter();
 
   return (
     <Image
       className={`${styles.imgCard} ${styles.img}`}
-      src={item.src}
-      alt={item.alt || 'Default Image'}
-      width={Number(item.averageWidth) || 100}
-      height={Number(item.averageHeight) || 100}
+      src={src}
+      alt={alt || name ? `${alt || name}` : ''}
+      width={Number(averageWidth) || 100}
+      height={Number(averageHeight) || 100}
       priority={true}
-      onClick={() => router.push(`/produit/${item.name}`)}
+      onClick={() => router.push(`/produit/${name}`)}
     />
   );
 };

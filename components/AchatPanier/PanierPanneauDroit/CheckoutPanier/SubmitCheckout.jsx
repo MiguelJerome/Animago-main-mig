@@ -1,9 +1,10 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const SubmitCheckout = ({ totalPriceInCart, cart, setCart, setOrders, router }) => {
   const handleSubmit = () => {
     if (totalPriceInCart === 0) {
-      alert("Votre panier est vide, vous ne pouvez pas effectuer de commande.");
+      toast.error("Votre panier est vide, vous ne pouvez pas effectuer de commande.",{ hideProgressBar: true, autoClose: 2000, type: 'error' ,position:'bottom-right' });
       return;
     }
 
