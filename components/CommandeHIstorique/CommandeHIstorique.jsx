@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 import styles from '/styles/CommandeHistorique/CommandeHistorique.module.css';
 import DimensionsMoyennesImages from '/components/Images/DimensionsMoyennesImages.jsx';
 import UpdateProductStockAndSetCart from "/components/ProduitBindingPanier/UpdateProductStockAndSetCart/UpdateProductStockAndSetCart"
+import { toast } from 'react-toastify';
 
 export default function CommandeHistorique({ cart, purchaseDate, purchaseTime, currentTime, orders }) {
   const router = useRouter();
+  
   const [total, setTotal] = useState(0);
   const { produitsState } = UpdateProductStockAndSetCart({ orders });
 
@@ -33,6 +35,20 @@ export default function CommandeHistorique({ cart, purchaseDate, purchaseTime, c
     });
     setTotal(sum.toFixed(2));
   };
+  const [showNoOrdersMessage, setShowNoOrdersMessage] = useState(false);
+let noOrdersFound = false;
+
+useEffect(() => {
+  if (orders.length === 0 && !noOrdersFound) {
+    noOrdersFound = true;
+    setShowNoOrdersMessage(true);
+    toast.info('Aucune commande pour cette date.', { hideProgressBar: true, autoClose: 3000, type: 'info', position: 'top-center' });
+  } else {
+    setShowNoOrdersMessage(false);
+  }
+}, [orders]);
+
+  
 
   return (
     <main>
@@ -56,7 +72,7 @@ export default function CommandeHistorique({ cart, purchaseDate, purchaseTime, c
                                 <Image
                                   className={`${styles.imgCard} ${styles.img}`}
                                   src={item.src}
-                                  alt={item.alt || 'Default Image'}
+                                  alt={item.alt || item.name ? `${item.alt || item.name}` : ''}
                                   width={Number(averageWidth) || 400}
                                   height={Number(averageHeight) || 400}
                                   priority={true}

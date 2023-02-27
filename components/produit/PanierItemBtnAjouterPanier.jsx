@@ -15,9 +15,9 @@ export default function ProduitItemBtnAjouterPanier({
 
   const notifierSuccesAjoutPanier = (name, newPurchaseQuantity, currentPurchaseQuantity) => {
     if (newPurchaseQuantity > 0 && currentPurchaseQuantity > 0) {
-      toast.success(`Le produit ${name} a été ajouté avec une quantité de ${ newPurchaseQuantity - currentPurchaseQuantity} et avec une nouvelle quantite total de ${newPurchaseQuantity} au panier avec succès !`,{ hideProgressBar: true, autoClose: 2000, type: 'success' ,position:'top-left' });
+      toast.success(`Le produit ${name} a été ajouté avec une quantité de ${ newPurchaseQuantity - currentPurchaseQuantity} et avec une nouvelle quantite total de ${newPurchaseQuantity} au panier avec succès !`,{ hideProgressBar: true, autoClose: 3000, type: 'success' ,position:'top-left' });
     } else if (newPurchaseQuantity > 0) {
-      toast.success(`Le produit ${name} a été ajouté avec une quantité de ${newPurchaseQuantity} au panier avec succès !`,{ hideProgressBar: true, autoClose: 2000, type: 'success' ,position:'top-left' });
+      toast.success(`Le produit ${name} a été ajouté avec une quantité de ${newPurchaseQuantity} au panier avec succès !`,{ hideProgressBar: true, autoClose: 3000, type: 'success' ,position:'top-left' });
     }
   };
   

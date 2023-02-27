@@ -36,7 +36,7 @@ export default function PanierPanneau({
       `      Merci d'avoir acheté chez Animago ! Nous apprécions votre confiance en nos produits et services.
       Votre commande a bien été prise en compte et le montant total de votre achat est de $${totalPriceInCart}.
       Nous espérons que vous êtes satisfait de votre achat et nous espérons vous revoir bientôt chez Animago pour de nouveaux achats.`
-      }`,{ hideProgressBar: true, autoClose: 3500, type: 'success' ,position:'bottom-right' });
+      }`,{ hideProgressBar: true, autoClose: 3500, type: 'success' ,position:'top-center' });
       setCart([]);
       setOrders([]);
       router.push({
@@ -75,7 +75,7 @@ export default function PanierPanneau({
   
   const submitCheckout = async () => {
     if (totalPriceInCart <= 0) {
-      toast.error("Votre panier est actuellement vide. Pour pouvoir effectuer une commande, veuillez ajouter des produits à votre panier.",{ hideProgressBar: true, autoClose: 2000, type: 'error' ,position:'bottom-right' });
+      toast.warning("Votre panier est actuellement vide. Pour pouvoir effectuer une commande, veuillez ajouter des produits à votre panier.",{ hideProgressBar: true, autoClose: 2000, type: 'warning' ,position:'bottom-right' });
       return;
     }
   
